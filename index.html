@@ -31,7 +31,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;overflow-x:clip}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:clamp(16px,1.05vw + 10px,19px);line-height:1.85;overflow-x:clip}
+body{background:var(--paper) url("img/paper.webp") repeat;color:var(--ink);font-family:var(--f-text);font-size:clamp(16px,1.05vw + 10px,19px);line-height:1.85;overflow-x:clip}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 img,svg{display:block}
@@ -39,10 +39,6 @@ img{max-width:100%}
 h1,h2,h3,.myth,.stat b,.count b,.year-big{font-family:var(--f-display)}
 
 /* ── الورق ── */
-body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .42  0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E")}
-body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.26;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2  0 0 0 0 .2  0 0 0 0 .2  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
 .blots{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
 .blot{position:absolute;border-radius:50%;filter:blur(60px);opacity:.22}
 .blot.a{width:46vw;height:46vw;background:#9cc9cf;top:-12vw;left:-10vw}
@@ -51,9 +47,9 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 main,header,footer{position:relative;z-index:2}
 
 /* ── الحبر ── */
-.ink{filter:url(#ink)}
-.ink-in{filter:url(#inkIn)}
-.ink-cycle{filter:url(#inkCycle)}
+.ink,.ink-in,.ink-cycle{-webkit-mask:url("img/ink-mask.png") 0 0/220px 220px repeat;mask:url("img/ink-mask.png") 0 0/220px 220px repeat}
+.ink-in.live{filter:url(#inkIn)}
+.ink-cycle.live{filter:url(#inkCycle)}
 .thuluth{font-family:var(--f-thuluth);font-weight:700;color:var(--teal);line-height:1.2}
 .eyebrow{font-family:var(--f-thuluth);color:var(--teal);font-size:26px;margin-bottom:8px;line-height:1.4}
 
@@ -119,9 +115,9 @@ body.on-photo .brand,body.on-photo nav{background:rgba(243,238,228,.82);border-r
 
 /* ── ٢. بطاقات الصور المتراكمة ── */
 .deck{position:relative}
-.scard{position:sticky;top:0;height:100svh;overflow:hidden}
-.scard .in{position:absolute;inset:0;transform-origin:50% 30%;will-change:transform,filter;background:var(--ink-deep);overflow:hidden}
-.scard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.1) saturate(.95);will-change:transform}
+.scard{position:sticky;top:0;height:100svh}
+.scard .in{position:absolute;inset:0;background:var(--ink-deep);overflow:hidden;box-shadow:0 -40px 80px -10px rgba(4,24,36,.7),0 -10px 24px -6px rgba(4,24,36,.45)}
+.scard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
 .scard .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,47,71,.85) 0%,rgba(6,47,71,.35) 40%,transparent 64%),linear-gradient(to left,rgba(6,47,71,.35),transparent 50%)}
 .scard .copy{position:absolute;right:var(--pad);left:var(--pad);bottom:clamp(40px,9vh,96px);color:var(--paper);max-width:860px}
 .label{display:inline-block;position:relative;background:var(--sheet);color:var(--ink-deep);padding:10px 22px 8px;transform:rotate(-1.6deg);box-shadow:0 10px 24px -14px rgba(0,0,0,.6);margin-bottom:18px}
@@ -158,8 +154,8 @@ body.on-photo .brand,body.on-photo nav{background:rgba(243,238,228,.82);border-r
 .count{font-size:15px;font-weight:600;color:var(--ink-soft);margin-bottom:10px}
 .count b{font-size:64px;line-height:1;color:var(--ink-deep);font-weight:900;margin-left:8px;display:inline-block;min-width:.7em}
 .stages{position:relative;min-height:310px}
-.st{position:absolute;inset:0;opacity:0;transform:translateY(18px);filter:blur(8px);transition:opacity .6s,transform .6s,filter .6s}
-.st.on{opacity:1;transform:none;filter:none}
+.st{position:absolute;inset:0;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.st.on{opacity:1;transform:none}
 .st h2{font-size:clamp(38px,5vw,76px);line-height:1.15;color:var(--ink-deep);font-weight:900;margin-bottom:22px}
 .st p{max-width:30em}
 .net{width:100%;max-width:520px;margin-inline:auto}
@@ -267,7 +263,7 @@ body.on-photo .brand,body.on-photo nav{background:rgba(243,238,228,.82);border-r
 .arch-3d{position:absolute;inset:0;perspective:900px;perspective-origin:50% 50%}
 .arch-3d .world{position:absolute;inset:0;transform-style:preserve-3d}
 .aph{position:absolute;top:50%;left:50%;width:clamp(170px,19vw,300px);height:clamp(130px,14vw,220px);padding:8px 8px 30px;cursor:zoom-in;will-change:transform,opacity;opacity:0}
-.aph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(.9)}
+.aph img{width:100%;height:100%;object-fit:cover;filter:none}
 .aph figcaption{font-size:14px;bottom:5px}
 .aph:hover{box-shadow:0 0 0 3px var(--teal),0 24px 50px -18px rgba(6,47,71,.6)}
 .arch-title{position:absolute;inset:0;display:grid;place-items:center;text-align:center;pointer-events:none;z-index:3}
@@ -425,8 +421,8 @@ footer a:hover{color:var(--teal)}
       <div class="meta rv-h"><span><i></i>13 دائرة انتخابية</span><span><i></i>من الساحل إلى الواحات</span></div>
     </div>
     <div class="stage" aria-hidden="true">
-      <figure class="photo scrap tape p1" data-tilt="1"><img src="https://ydf.ly/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-06-at-14.33.05.jpeg" alt=""><figcaption>من حواراتنا</figcaption></figure>
-      <figure class="photo scrap tape p2" data-tilt="-1.4"><img src="https://ydf.ly/wp-content/uploads/2026/05/481039514_947431090907922_4442889964068800498_n.jpg" alt=""><figcaption>من الميدان</figcaption></figure>
+      <figure class="photo scrap tape p1" data-tilt="1"><img src="img/whatsapp-image-2026-05-06-at-14-33-05-b619-l.webp" srcset="img/whatsapp-image-2026-05-06-at-14-33-05-b619-s.webp 700w, img/whatsapp-image-2026-05-06-at-14-33-05-b619-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt=""><figcaption>من حواراتنا</figcaption></figure>
+      <figure class="photo scrap tape p2" data-tilt="-1.4"><img src="img/481039514-947431090907922-44428899640688-75af-l.webp" srcset="img/481039514-947431090907922-44428899640688-75af-s.webp 700w, img/481039514-947431090907922-44428899640688-75af-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt=""><figcaption>من الميدان</figcaption></figure>
       <svg class="stamp ink" viewBox="0 0 160 160" data-spin>
         <defs><path id="ring" d="M80 80m-58 0a58 58 0 1 1 116 0a58 58 0 1 1-116 0"/></defs>
         <circle cx="80" cy="80" r="74" fill="none" stroke="currentColor" stroke-width="2.5"/>
@@ -455,8 +451,8 @@ footer a:hover{color:var(--teal)}
       <p class="body rv">الشباب مرجعيتنا الأولى. نتواصل مع <span class="mark-ink">القواعد الشبابية في كل دائرة</span>، نطرح أمامهم الأفكار ونتبادل معهم الآراء، ونستقطب الفاعلين منهم ليكونوا <span class="mark-ink">منسقين عن دوائرهم</span>، يدعون الشباب، إناثاً وذكوراً، إلى صف واحد، نحو <span class="mark-ink">رؤية وطنية مشتركة</span>.</p>
     </div>
     <div class="collage" aria-hidden="true">
-      <figure class="scrap tape c1"><img src="https://ydf.ly/wp-content/uploads/2026/04/jmmkm.jpeg" alt="" loading="lazy"><figcaption>على الطاولة نفسها</figcaption></figure>
-      <figure class="scrap tape c2"><img src="https://ydf.ly/wp-content/uploads/2022/06/MVI_1666-1.jpg" alt="" loading="lazy"><figcaption>من الدوائر</figcaption></figure>
+      <figure class="scrap tape c1"><img src="img/jmmkm-f539-l.webp" srcset="img/jmmkm-f539-s.webp 700w, img/jmmkm-f539-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt="" loading="lazy"><figcaption>على الطاولة نفسها</figcaption></figure>
+      <figure class="scrap tape c2"><img src="img/mvi-1666-1-de6f-l.webp" srcset="img/mvi-1666-1-de6f-s.webp 700w, img/mvi-1666-1-de6f-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt="" loading="lazy"><figcaption>من الدوائر</figcaption></figure>
     </div>
   </section>
 
@@ -515,8 +511,8 @@ footer a:hover{color:var(--teal)}
       <h2 id="origin-t" class="ink rv">بدأنا بفكرة،<br>فوجدنا شبكة كاملة.</h2>
       <p class="rv">منذ انطلاقتنا عام 2021 لقينا استجابة واسعة للانضمام، فانطلقنا فوراً في تأسيس شبكات العمل الميداني عبر مندوبينا في الدوائر الانتخابية، لنترجم الرؤية إلى خطوات وإنجازات حقيقية على الأرض.</p>
       <div class="pics" aria-hidden="true">
-        <figure class="scrap tape"><img src="https://ydf.ly/wp-content/uploads/2023/10/YDF-Tripoli2021-Panel_EmadShanab.jpg" alt="" loading="lazy"><figcaption>طرابلس 2021</figcaption></figure>
-        <figure class="scrap tape"><img src="https://ydf.ly/wp-content/uploads/2023/10/YDF-Aljmail2021.jpg" alt="" loading="lazy"><figcaption>الجميل 2021</figcaption></figure>
+        <figure class="scrap tape"><img src="img/ydf-tripoli2021-panel-emadshanab-4571-l.webp" srcset="img/ydf-tripoli2021-panel-emadshanab-4571-s.webp 700w, img/ydf-tripoli2021-panel-emadshanab-4571-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt="" loading="lazy"><figcaption>طرابلس 2021</figcaption></figure>
+        <figure class="scrap tape"><img src="img/ydf-aljmail2021-2026-l.webp" srcset="img/ydf-aljmail2021-2026-s.webp 700w, img/ydf-aljmail2021-2026-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt="" loading="lazy"><figcaption>الجميل 2021</figcaption></figure>
       </div>
     </div>
   </section>
@@ -553,7 +549,7 @@ footer a:hover{color:var(--teal)}
   <section class="word" aria-labelledby="word-t">
     <div class="portrait">
       <p class="eyebrow" id="word-t">كلمة رئيس المنتدى</p>
-      <figure class="scrap tape"><img src="https://ydf.ly/wp-content/uploads/2026/06/new-new.jpeg" alt="م. عماد شنب، رئيس منتدى حوار الشباب" loading="lazy"><figcaption>م. عماد شنب</figcaption></figure>
+      <figure class="scrap tape"><img src="img/new-new-4dcf-l.webp" srcset="img/new-new-4dcf-s.webp 700w, img/new-new-4dcf-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt="م. عماد شنب، رئيس منتدى حوار الشباب" loading="lazy"><figcaption>م. عماد شنب</figcaption></figure>
     </div>
     <article class="letter">
       <div class="head"><span class="thuluth">منتدى حوار الشباب</span><span>طرابلس، ليبيا</span></div>
@@ -600,7 +596,7 @@ footer a:hover{color:var(--teal)}
     </div>
     <svg class="map" viewBox="-10 -10 420 380" role="img" aria-label="خريطة ليبيا ومواقع حضور المنتدى">
       <g class="grid"><path d="M0 100H400M0 200H400M0 300H400M100 0V360M200 0V360M300 0V360"/></g>
-      <path class="land ink" d="M60 8 100.8 15 146.4 27.5 153.6 42.5 182.4 57.5 228 75 254.4 77.5 266.4 65 265.7 35 288 20 326.4 17.5 340.8 30 359.3 35.5 387.6 47.5 379.2 87.5 384 112.5 384 287.5 384 337.5 360 337.5 360 350 167.5 251 124.8 272.5 71.3 250 33.6 225 28.8 202.5 9.6 182.5 19.2 150 19.2 112.5 12 82.5 31.2 62.5 48 30Z"/>
+      <path class="land" d="M60 8 100.8 15 146.4 27.5 153.6 42.5 182.4 57.5 228 75 254.4 77.5 266.4 65 265.7 35 288 20 326.4 17.5 340.8 30 359.3 35.5 387.6 47.5 379.2 87.5 384 112.5 384 287.5 384 337.5 360 337.5 360 350 167.5 251 124.8 272.5 71.3 250 33.6 225 28.8 202.5 9.6 182.5 19.2 150 19.2 112.5 12 82.5 31.2 62.5 48 30Z"/>
       <g id="cities"></g>
     </svg>
   </section>
@@ -663,7 +659,8 @@ footer a:hover{color:var(--teal)}
 <script>
 (function(){
   "use strict";
-  var U = "https://ydf.ly/wp-content/uploads/";
+  var IM = {"2021/11/202882718_120345016918318_896924741164058306_n.jpg": "202882718-120345016918318-89692474116405-1be1", "2021/11/202988723_121234696829350_1564209249090785662_n.jpg": "202988723-121234696829350-15642092490907-07ba", "2021/11/206667558_123366996616120_6222880697956064453_n.jpg": "206667558-123366996616120-62228806979560-5acf", "2021/11/213675016_126312796321540_6009158286969901250_n.jpg": "213675016-126312796321540-60091582869699-c1a0", "2021/11/214494964_126581852961301_6315142860448373681_n.jpg": "214494964-126581852961301-63151428604483-0eae", "2021/11/216101139_127733326179487_2643374512653654630_n.jpg": "216101139-127733326179487-26433745126536-84fe", "2021/11/216311733_127409606211859_459351539061653872_n.jpg": "216311733-127409606211859-45935153906165-8527", "2021/11/221966908_131882439097909_8416417797755125159_n.jpg": "221966908-131882439097909-84164177977551-ff90", "2021/11/224114957_132136739072479_3313338143241318491_n.jpg": "224114957-132136739072479-33133381432413-6774", "2021/11/237135123_146523377633815_1777014231825098027_n.jpg": "237135123-146523377633815-17770142318250-be77", "2021/11/237531878_143818124571007_726962605402246639_n.jpg": "237531878-143818124571007-72696260540224-4334", "2021/11/240606817_158339996452153_5447952746597996487_n.jpg": "240606817-158339996452153-54479527465979-d5d5", "2021/11/241022530_152705227015630_6995111662493618868_n.jpg": "241022530-152705227015630-69951116624936-048b", "2021/11/241359693_156876293265190_8131996466181040411_n.jpg": "241359693-156876293265190-81319964661810-aad4", "2021/11/241959539_162493962703423_4304015931709262180_n.jpg": "241959539-162493962703423-43040159317092-5e03", "2021/11/242301852_165772745708878_1073554614210643519_n.jpg": "242301852-165772745708878-10735546142106-e29e", "2021/11/243405981_172024395083713_4654758045290643567_n.jpg": "243405981-172024395083713-46547580452906-64bd", "2021/11/244474924_176925664593586_6595117815727313914_n.jpg": "244474924-176925664593586-65951178157273-333b", "2021/11/244995841_180473984238754_816994980522062774_n.jpg": "244995841-180473984238754-81699498052206-ced2", "2021/11/245192639_182432450709574_5153696391522207360_n.jpg": "245192639-182432450709574-51536963915222-f406", "2021/11/246660509_186827183603434_1074880925779357472_n.jpg": "246660509-186827183603434-10748809257793-527a", "2021/11/247081734_188116666807819_5572166628102927295_n.jpg": "247081734-188116666807819-55721666281029-69d3", "2021/11/248693863_190714423214710_5976678023509192876_n.jpg": "248693863-190714423214710-59766780235091-3d74", "2021/11/248711186_191313709821448_1543832366961862768_n.jpg": "248711186-191313709821448-15438323669618-9683", "2021/11/249217281_192002946419191_340219890553801570_n.jpg": "249217281-192002946419191-34021989055380-84e3", "2021/11/250470368_193344239618395_263860721331839824_n-1.jpg": "250470368-193344239618395-26386072133183-4cba", "2021/11/251551627_196013366018149_7371423362934037377_n.jpg": "251551627-196013366018149-73714233629340-be3d", "2021/11/251723168_194772922808860_5577714528596965630_n.jpg": "251723168-194772922808860-55777145285969-c02a", "2021/11/253168876_197642722521880_9184793155804047265_n.jpg": "253168876-197642722521880-91847931558040-f9ce", "2021/11/A.jpg": "a-50ace7-50ac", "2022/06/192994455_112264824393004_5513289700612502780_n.jpg": "192994455-112264824393004-55132897006125-c768", "2022/06/247854071_201764755443010_4433241815726277344_n.jpg": "247854071-201764755443010-44332418157262-a617", "2022/06/8.jpg": "8-6578ea-6578", "2022/06/IMG_%D9%A2%D9%A0%D9%A2%D9%A2%D9%A0%D9%A3%D9%A1%D9%A0_%D9%A1%D9%A9%D9%A0%D9%A9%D9%A4%D9%A2.jpg": "img-2a0c", "2022/06/IMG_3025.jpg": "img-3025-5513", "2022/06/MVI_1666-1.jpg": "mvi-1666-1-de6f", "2022/06/photo_2022-02-21_15-11-09.jpg": "photo-2022-02-21-15-11-09-84b7", "2023/10/YDF-Aljmail2021.jpg": "ydf-aljmail2021-2026", "2023/10/YDF-Tripoli2021-Panel_EmadShanab.jpg": "ydf-tripoli2021-panel-emadshanab-4571", "2026/02/630717056_1218183963832632_2377634606846015499_n.jpg": "630717056-1218183963832632-2377634606846-05b8", "2026/04/jmmkm.jpeg": "jmmkm-f539", "2026/05/480726190_947422767575421_6286941039154100367_n.jpg": "480726190-947422767575421-62869410391541-01b5", "2026/05/481039514_947431090907922_4442889964068800498_n.jpg": "481039514-947431090907922-44428899640688-75af", "2026/05/WhatsApp-Image-2026-05-06-at-14.31.29.jpeg": "whatsapp-image-2026-05-06-at-14-31-29-6eaa", "2026/05/WhatsApp-Image-2026-05-06-at-14.31.49.jpeg": "whatsapp-image-2026-05-06-at-14-31-49-e34e", "2026/05/WhatsApp-Image-2026-05-06-at-14.32.19.jpeg": "whatsapp-image-2026-05-06-at-14-32-19-9313", "2026/05/WhatsApp-Image-2026-05-06-at-14.33.05.jpeg": "whatsapp-image-2026-05-06-at-14-33-05-b619", "2026/05/WhatsApp-Image-2026-05-24-at-12.48.58.jpeg": "whatsapp-image-2026-05-24-at-12-48-58-9952", "2026/05/WhatsApp-Image-2026-05-24-at-20.28.59.jpeg": "whatsapp-image-2026-05-24-at-20-28-59-88f9", "2026/05/WhatsApp-Image-2026-05-24-at-21.02.13.jpeg": "whatsapp-image-2026-05-24-at-21-02-13-2752", "2026/05/WhatsApp-Image-2026-05-24-kkkat-13.46.07.jpeg": "whatsapp-image-2026-05-24-kkkat-13-46-07-6824", "2026/06/new-new.jpeg": "new-new-4dcf"};
+  function im(p, sz){ return "img/" + IM[p] + "-" + sz + ".webp"; }
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var fine = window.matchMedia("(pointer: fine)").matches;
   var mobile = window.matchMedia("(max-width: 900px)").matches;
@@ -693,7 +690,7 @@ footer a:hover{color:var(--teal)}
 
   /* ── بناء العناصر ── */
   document.querySelector(".deck").innerHTML = slogans.map(function(s){
-    return '<article class="scard"><div class="in"><img src="'+U+s[0]+'" alt="" loading="lazy"><div class="shade"></div>'+
+    return '<article class="scard"><div class="in"><img src="'+im(s[0],"l")+'" srcset="'+im(s[0],"s")+' 700w, '+im(s[0],"l")+' 1600w" sizes="100vw" alt="" loading="lazy"><div class="shade"></div>'+
       '<div class="copy"><div class="label"><h3>'+s[1]+'</h3></div><p>'+s[2]+'</p></div></div></article>';
   }).join("");
 
@@ -702,7 +699,7 @@ footer a:hover{color:var(--teal)}
   document.querySelector(".track").innerHTML = mh;
 
   document.querySelector(".rail").innerHTML = railPics.map(function(p){
-    return '<figure class="scrap tape"><img src="'+U+p+'" alt="" loading="lazy"></figure>';
+    return '<figure class="scrap tape"><img src="'+im(p,"s")+'" alt="" loading="lazy"></figure>';
   }).join("");
 
   document.querySelector(".seals").innerHTML = principles.map(function(p, i){
@@ -729,8 +726,8 @@ footer a:hover{color:var(--teal)}
   var aphs = archive.map(function(p, i){
     var f = document.createElement("figure"), yr = years[Math.min(2, Math.floor(i/per))];
     f.className = "aph scrap"; f.tabIndex = 0;
-    f.innerHTML = '<img src="'+U+p+'" alt="صورة من أرشيف المنتدى" loading="lazy"><figcaption>'+yr+'</figcaption>';
-    f.dataset.src = U+p; f.dataset.year = yr;
+    f.innerHTML = '<img src="'+im(p,"s")+'" alt="صورة من أرشيف المنتدى" loading="lazy"><figcaption>'+yr+'</figcaption>';
+    f.dataset.src = im(p, "l"); f.dataset.year = yr;
     world.appendChild(f);
     var side = i % 2 ? 1 : -1;
     return {el:f, x: side*(mobile ? 20 + Math.random()*8 : 24 + Math.random()*13), y: (Math.random()*2-1)*(mobile ? 26 : 24), z: -(i+1)*GAP, r:(Math.random()*2-1)*6};
@@ -847,10 +844,12 @@ footer a:hover{color:var(--teal)}
 
   /* ── ١. الواجهة ── */
   var map = document.getElementById("inkInMap"), cmap = document.getElementById("inkCycleMap");
-  gsap.timeline({defaults:{ease:"power3.out"}})
+  function live(on, sel){ document.querySelectorAll(sel).forEach(function(e){ e.classList.toggle("live", on); }); }
+  live(true, ".hero .ink-in, .hero .ink-cycle");
+  gsap.timeline({defaults:{ease:"power3.out"}, onComplete:function(){ live(false, ".hero .ink-in, .hero .ink-cycle"); }})
     .fromTo([map, cmap], {attr:{scale:70}}, {attr:{scale:2.6}, duration:1.8, ease:"power2.out"}, 0)
-    .from(".hero h1 .line", {opacity:0, y:30, filter:"blur(14px)", duration:1.3, stagger:.18}, 0)
-    .from(".rv-h", {opacity:0, y:20, filter:"blur(8px)", duration:1, stagger:.1}, .5)
+    .from(".hero h1 .line", {opacity:0, y:30, duration:1.3, stagger:.18}, 0)
+    .from(".rv-h", {opacity:0, y:20, duration:1, stagger:.1}, .5)
     .from(".photo", {opacity:0, y:60, rotate:"+=8", duration:1.4, stagger:.15}, .3)
     .from(".stamp", {opacity:0, scale:1.6, rotate:-40, duration:1, ease:"back.out(1.6)"}, 1.1);
 
@@ -859,26 +858,26 @@ footer a:hover{color:var(--teal)}
     if (document.hidden || scrollY > innerHeight) return;
     wi = (wi + 1) % words.length;
     gsap.timeline()
-      .to(cyc, {opacity:0, y:-14, filter:"blur(10px)", duration:.45, ease:"power2.in"})
-      .add(function(){ cyc.textContent = words[wi]; })
+      .to(cyc, {opacity:0, y:-14, duration:.45, ease:"power2.in"})
+      .add(function(){ cyc.textContent = words[wi]; cyc.classList.add("live"); })
       .fromTo(cmap, {attr:{scale:40}}, {attr:{scale:2.6}, duration:1, ease:"power2.out"})
-      .fromTo(cyc, {opacity:0, y:14, filter:"blur(10px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.7, ease:"power3.out"}, "<");
+      .fromTo(cyc, {opacity:0, y:14}, {opacity:1, y:0, duration:.7, ease:"power3.out"}, "<")
+      .add(function(){ cyc.classList.remove("live"); });
   }, 3000);
   gsap.to("[data-spin]", {rotate:200, ease:"none", scrollTrigger:{trigger:".hero", start:"top top", end:"bottom top", scrub:true}});
   gsap.to(".stage", {yPercent:-12, ease:"none", scrollTrigger:{trigger:".hero", start:"top top", end:"bottom top", scrub:true}});
 
   /* ── ظهور عام من الضباب ── */
   gsap.utils.toArray(".rv").forEach(function(el){
-    gsap.from(el, {opacity:0, y:26, filter:"blur(12px)", duration:1.2, ease:"power3.out", scrollTrigger:{trigger:el, start:"top 86%"}});
+    gsap.from(el, {opacity:0, y:26, duration:1.2, ease:"power3.out", scrollTrigger:{trigger:el, start:"top 86%"}});
   });
 
   /* ── ٢. البطاقات المتراكمة ── */
   var cards = gsap.utils.toArray(".scard");
   cards.forEach(function(c, i){
-    var inn = c.querySelector(".in"), img = c.querySelector("img");
+    var img = c.querySelector("img");
     gsap.fromTo(img, {scale:1.18}, {scale:1, ease:"none", scrollTrigger:{trigger:c, start:"top bottom", end:"top top", scrub:true}});
-    gsap.from(c.querySelectorAll(".label, .copy p"), {opacity:0, y:40, filter:"blur(10px)", duration:1.1, stagger:.15, ease:"power3.out", scrollTrigger:{trigger:c, start:"top 45%"}});
-    if (cards[i+1]) gsap.to(inn, {scale:.9, filter:"brightness(.55)", borderRadius:"18px", ease:"none", scrollTrigger:{trigger:cards[i+1], start:"top bottom", end:"top top", scrub:true}});
+    gsap.from(c.querySelectorAll(".label, .copy p"), {opacity:0, y:40, duration:1.1, stagger:.15, ease:"power3.out", scrollTrigger:{trigger:c, start:"top 45%"}});
   });
   ScrollTrigger.create({trigger:".deck", start:"top 60px", end:"bottom 60px", toggleClass:{targets:document.body, className:"on-photo"}});
 
@@ -909,28 +908,28 @@ footer a:hover{color:var(--teal)}
   gsap.timeline({defaults:{ease:"none"}, scrollTrigger:{trigger:".film", start:"top top", end:"bottom bottom", scrub:.8,
     onUpdate:function(s){ var p = s.progress; reel.classList.toggle("ready", p > .3 && p < .7); if (p > .74 || p < .2) pauseVideo(); }}})
     .fromTo(reel, {scale:small, rotate:-5, y:"12vh", padding:framePad}, {scale:1, rotate:0, y:0, padding:"0px 0px 0px 0px", duration:.4, ease:"power2.inOut"})
-    .to(".film-head", {opacity:0, y:-40, filter:"blur(8px)", duration:.2}, 0)
+    .to(".film-head", {opacity:0, y:-40, duration:.2}, 0)
     .to({}, {duration:.25})
     .to(reel, {scale: mobile ? .55 : .42, rotate:4, y:"-6vh", padding:framePad, duration:.25, ease:"power2.inOut"})
-    .to(reel, {opacity:0, filter:"blur(10px)", scale:.3, duration:.1});
+    .to(reel, {opacity:0, scale:.3, duration:.1});
 
   /* ── ٦. من نحن ── */
   gsap.timeline({scrollTrigger:{trigger:".shift", start:"top top", end:"+=120%", pin:true, scrub:.6}})
-    .from(".shift .from", {opacity:0, y:30, filter:"blur(10px)", duration:.3})
+    .from(".shift .from", {opacity:0, y:30, duration:.3})
     .to(".shift .strike", {scaleX:1, duration:.35}, ">.1")
     .to(".shift .from", {opacity:.45, duration:.2}, "<")
-    .from(".shift .to", {opacity:0, y:30, filter:"blur(14px)", duration:.35}, ">-.05");
+    .from(".shift .to", {opacity:0, y:30, duration:.35}, ">-.05");
   gsap.fromTo(".rail", {x: function(){ return -innerWidth*.15; }}, {x: function(){ return Math.max(0, document.querySelector(".rail").scrollWidth - innerWidth*.85); }, ease:"none", scrollTrigger:{trigger:".rail-sec", start:"top bottom", end:"bottom top", scrub:true, invalidateOnRefresh:true}});
-  gsap.from(".origin .yr", {opacity:0, scale:.8, filter:"blur(16px)", duration:1.4, ease:"power3.out", scrollTrigger:{trigger:".origin", start:"top 75%"}});
+  gsap.from(".origin .yr", {opacity:0, scale:.8, duration:1.4, ease:"power3.out", scrollTrigger:{trigger:".origin", start:"top 75%"}});
   gsap.from(".origin .pics .scrap", {opacity:0, y:60, rotate:"+=12", duration:1.2, stagger:.2, ease:"power3.out", scrollTrigger:{trigger:".origin .pics", start:"top 85%"}});
-  gsap.from(".commit .card", {opacity:0, y:50, rotate:function(i){ return i%2 ? 3 : -3; }, filter:"blur(8px)", duration:1.1, stagger:.14, ease:"power3.out", scrollTrigger:{trigger:".commit .cards", start:"top 80%"}});
+  gsap.from(".commit .card", {opacity:0, y:50, rotate:function(i){ return i%2 ? 3 : -3; }, duration:1.1, stagger:.14, ease:"power3.out", scrollTrigger:{trigger:".commit .cards", start:"top 80%"}});
   gsap.from(".steps .line", {scaleX:0, duration:1.6, ease:"power2.inOut", scrollTrigger:{trigger:".steps", start:"top 80%"}});
   gsap.from(".steps .s", {opacity:0, y:30, scale:.9, duration:.9, stagger:.35, ease:"back.out(1.6)", scrollTrigger:{trigger:".steps", start:"top 80%"}});
 
   /* ── ٧. الرسالة: السطور تُكتب بالحبر ── */
   gsap.from(".letter", {opacity:0, y:80, rotate:2, duration:1.3, ease:"power3.out", scrollTrigger:{trigger:".letter", start:"top 85%"}});
   gsap.utils.toArray(".letter .lines p").forEach(function(p){
-    gsap.fromTo(p, {opacity:.12, filter:"blur(3px)"}, {opacity:1, filter:"blur(0px)", ease:"none", scrollTrigger:{trigger:p, start:"top 90%", end:"top 64%", scrub:true}});
+    gsap.fromTo(p, {opacity:.12}, {opacity:1, ease:"none", scrollTrigger:{trigger:p, start:"top 90%", end:"top 64%", scrub:true}});
   });
   gsap.timeline({scrollTrigger:{trigger:".sign", start:"top 85%"}})
     .to(".sign .name", {clipPath:"inset(0 0 0 0%)", duration:1.6, ease:"power2.inOut"})
@@ -997,7 +996,7 @@ footer a:hover{color:var(--teal)}
     var yi = Math.min(2, Math.floor(arch.p*3*0.9999));
     if (yi !== curYear) {
       curYear = yi; yearEl.textContent = years[yi];
-      gsap.fromTo(yearEl, {scale:.9, filter:"blur(12px)"}, {scale:1, filter:"blur(0px)", duration:.7});
+      gsap.fromTo(yearEl, {scale:.9}, {scale:1, duration:.7});
       ticks.forEach(function(s, j){ s.classList.toggle("on", j <= yi); });
     }
     tlFill.style.width = (arch.p*100) + "%";
@@ -1010,7 +1009,7 @@ footer a:hover{color:var(--teal)}
     onUpdate:function(s){ arch.p = s.progress; placePhotos(); }});
   placePhotos();
   gsap.timeline({scrollTrigger:{trigger:".archive", start:"top top", end:"+=90%", scrub:true}})
-    .to(".arch-title", {opacity:0, scale:1.4, filter:"blur(14px)", ease:"none"})
+    .to(".arch-title", {opacity:0, scale:1.4, ease:"none"})
     .fromTo([".tl", ".year-big"], {opacity:0}, {opacity:1, ease:"none"}, "<.3");
   gsap.to(".tl", {opacity:0, scrollTrigger:{trigger:".archive", start:"bottom 130%", end:"bottom bottom", scrub:true}});
 
@@ -1019,8 +1018,8 @@ footer a:hover{color:var(--teal)}
 
   /* ── ١١. الخاتمة ── */
   ScrollTrigger.create({trigger:".close", start:"top 60%", once:true, onEnter:function(){
-    gsap.fromTo(map, {attr:{scale:60}}, {attr:{scale:2.6}, duration:1.6, ease:"power2.out"});
-    gsap.from(".close p, .close .ctas", {opacity:0, y:20, filter:"blur(8px)", duration:1, stagger:.12, delay:.2});
+    live(true, ".close .ink-in"); gsap.fromTo(map, {attr:{scale:60}}, {attr:{scale:2.6}, duration:1.6, ease:"power2.out", onComplete:function(){ live(false, ".close .ink-in"); }});
+    gsap.from(".close p, .close .ctas", {opacity:0, y:20, duration:1, stagger:.12, delay:.2});
   }});
 
   addEventListener("load", function(){ ScrollTrigger.refresh(); });
