@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>منتدى حوار الشباب</title>
+<meta name="description" content="منتدى حوار الشباب: شبكة وطنية شبابية تضع الشباب في قلب القرار.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- الخط الأساسي: ثمانية (ملفات محلية في fonts/). الخط الثانوي: عريفي رقعة -->
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Light.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Black.woff2") format("woff2");font-weight:900;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Light.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Black.woff2") format("woff2");font-weight:900;font-display:swap}
+
+:root{
+  --paper:#F3EEE4; --paper-2:#E8E1D3; --edge:#D9CFBD; --sheet:#FBF8F2;
+  --ink-deep:#062F47; --ink:#085078; --ink-soft:#4A6F71; --teal:#008EA5;
+  --f-display:"Thmanyah Serif Display","Thmanyah Serif Text",serif;
+  --f-text:"Thmanyah Serif Text","Thmanyah Serif Display",serif;
+  --f-thuluth:"Aref Ruqaa",serif; /* الخط الثانوي */
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:clamp(16px,1.05vw + 10px,19px);line-height:1.85;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img,svg{display:block}
+img{max-width:100%}
+h1,h2,h3,.myth,.stat b,.count b,.year-big{font-family:var(--f-display)}
+
+/* ── الورق ── */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .42  0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E")}
+body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.26;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2  0 0 0 0 .2  0 0 0 0 .2  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
+.blots{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.blot{position:absolute;border-radius:50%;filter:blur(60px);opacity:.22}
+.blot.a{width:46vw;height:46vw;background:#9cc9cf;top:-12vw;left:-10vw}
+.blot.b{width:38vw;height:38vw;background:#c9b99a;bottom:-14vw;right:-8vw;opacity:.2}
+#trail{position:fixed;inset:0;z-index:1;pointer-events:none}
+main,header,footer{position:relative;z-index:2}
+
+/* ── الحبر ── */
+.ink{filter:url(#ink)}
+.ink-in{filter:url(#inkIn)}
+.ink-cycle{filter:url(#inkCycle)}
+.thuluth{font-family:var(--f-thuluth);font-weight:700;color:var(--teal);line-height:1.2}
+.eyebrow{font-family:var(--f-thuluth);color:var(--teal);font-size:26px;margin-bottom:8px;line-height:1.4}
+
+/* ── البلور المتدرج ── */
+.veil{position:fixed;left:0;right:0;z-index:40;pointer-events:none}
+.veil.top{top:0;height:110px}
+.veil.bot{bottom:0;height:70px;transform:scaleY(-1)}
+.veil i{position:absolute;inset:0;transition:opacity .5s}
+.veil i:nth-child(1){backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);mask:linear-gradient(#000 0,#000 60%,transparent 100%);-webkit-mask:linear-gradient(#000 0,#000 60%,transparent 100%)}
+.veil i:nth-child(2){backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);mask:linear-gradient(#000 0,#000 40%,transparent 75%);-webkit-mask:linear-gradient(#000 0,#000 40%,transparent 75%)}
+.veil i:nth-child(3){backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);mask:linear-gradient(#000 0,#000 22%,transparent 50%);-webkit-mask:linear-gradient(#000 0,#000 22%,transparent 50%)}
+.veil i:nth-child(4){background:linear-gradient(var(--paper) 0,rgba(243,238,228,.75) 30%,transparent 70%)}
+body.on-photo .veil i:nth-child(4){opacity:0}
+
+/* ── الرأس ── */
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mark{width:40px;height:40px}
+.brand b{font-family:var(--f-thuluth);font-size:22px;line-height:1;color:var(--ink-deep)}
+.brand small{display:block;font-size:11px;color:var(--ink-soft);font-weight:500}
+nav{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px);font-size:15px;font-weight:500}
+nav a{position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;right:0;bottom:0;height:1.5px;width:0;background:var(--teal);transition:width .4s cubic-bezier(.2,.8,.2,1)}
+nav a:hover::after{width:100%}
+.pill{border:1.5px solid var(--ink);border-radius:99px;padding:7px 18px;font-weight:600;font-size:14px;background:rgba(243,238,228,.8)}
+body.on-photo .brand,body.on-photo nav{background:rgba(243,238,228,.82);border-radius:99px;padding:4px 14px}
+@media (max-width:860px){nav .nl{display:none}}
+
+/* ── الأزرار ── */
+.magnet{--g:0;position:relative;display:inline-flex;align-items:center;gap:12px;padding:17px 30px;border-radius:99px;background:var(--ink-deep);color:var(--paper);font-weight:600;font-size:17px;
+  box-shadow:0 10px 24px -10px rgba(6,47,71,.55),0 0 calc(var(--g)*44px) calc(var(--g)*6px) rgba(0,142,165,calc(var(--g)*.55));will-change:transform}
+.magnet::before{content:"";position:absolute;inset:-7px;border-radius:inherit;border:1.5px solid var(--teal);opacity:calc(var(--g)*1.2);transform:scale(calc(.9 + var(--g)*.1))}
+.magnet .arr{width:30px;height:30px;border-radius:50%;background:var(--teal);display:grid;place-items:center;transition:transform .4s}
+.magnet:hover .arr{transform:translateX(-5px)}
+.magnet.near::after{content:"";position:absolute;inset:-7px;border-radius:inherit;border:1.5px solid var(--teal);animation:ring 1.6s ease-out infinite}
+@keyframes ring{from{opacity:.8;transform:scale(1)}to{opacity:0;transform:scale(1.25)}}
+.ghost{padding:15px 26px;border-radius:99px;border:1.5px dashed var(--ink);font-weight:600;transition:background .3s}
+.ghost:hover{background:rgba(8,80,120,.06)}
+
+/* ── قصاصة صورة ── */
+.scrap{position:relative;background:var(--sheet);padding:12px 12px 44px;box-shadow:0 18px 40px -18px rgba(6,47,71,.45),0 2px 4px rgba(6,47,71,.12)}
+.scrap img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(.92) contrast(1.02)}
+.scrap figcaption{position:absolute;bottom:9px;right:14px;left:14px;font-family:var(--f-thuluth);font-size:17px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tape::before{content:"";position:absolute;top:-14px;left:50%;width:96px;height:28px;margin-left:-48px;background:rgba(214,203,178,.8);transform:rotate(-4deg);box-shadow:0 1px 2px rgba(0,0,0,.06);z-index:2}
+
+/* ── ١. الواجهة ── */
+.hero{min-height:100svh;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:4vw;padding:130px var(--pad) 70px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--ink-soft);margin-bottom:22px}
+.kicker::before{content:"";width:26px;height:1.5px;background:var(--teal)}
+.hero h1{font-weight:900;color:var(--ink-deep);font-size:clamp(46px,7.2vw,112px);line-height:1.12}
+.hero h1 .line{display:block}
+.cycle{display:inline-block;font-family:var(--f-thuluth);color:var(--teal);font-size:1.08em;line-height:1.3;padding-inline:.04em}
+.lede{max-width:34em;margin-top:26px;color:var(--ink);font-size:clamp(17px,1.2vw + 8px,21px)}
+.ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px;align-items:center}
+.meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;font-size:14px;color:var(--ink-soft);font-weight:500}
+.meta span{display:inline-flex;align-items:center;gap:8px}
+.meta i{width:7px;height:7px;border-radius:50%;background:var(--teal);display:inline-block}
+.stage{position:relative;height:min(78vh,620px);perspective:900px}
+.photo{position:absolute;transform-style:preserve-3d;will-change:transform}
+.p1{width:68%;height:62%;top:6%;left:22%;transform:rotate(3deg)}
+.p2{width:52%;height:44%;bottom:4%;left:0;transform:rotate(-5deg)}
+.stamp{position:absolute;width:150px;height:150px;bottom:6%;right:0;color:var(--teal);opacity:.85}
+
+/* ── ٢. بطاقات الصور المتراكمة ── */
+.deck{position:relative}
+.scard{position:sticky;top:0;height:100svh;overflow:hidden}
+.scard .in{position:absolute;inset:0;transform-origin:50% 30%;will-change:transform,filter;background:var(--ink-deep);overflow:hidden}
+.scard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.1) saturate(.95);will-change:transform}
+.scard .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,47,71,.85) 0%,rgba(6,47,71,.35) 40%,transparent 64%),linear-gradient(to left,rgba(6,47,71,.35),transparent 50%)}
+.scard .copy{position:absolute;right:var(--pad);left:var(--pad);bottom:clamp(40px,9vh,96px);color:var(--paper);max-width:860px}
+.label{display:inline-block;position:relative;background:var(--sheet);color:var(--ink-deep);padding:10px 22px 8px;transform:rotate(-1.6deg);box-shadow:0 10px 24px -14px rgba(0,0,0,.6);margin-bottom:18px}
+.label::before{content:"";position:absolute;top:-10px;right:18px;width:70px;height:22px;background:rgba(214,203,178,.85);transform:rotate(5deg)}
+.label h3{font-size:clamp(28px,4.2vw,64px);line-height:1.2;font-weight:900}
+.scard p{font-size:clamp(18px,1.5vw + 8px,26px);line-height:1.6;max-width:30em;text-shadow:0 1px 12px rgba(6,47,71,.5)}
+.scard p .thuluth{color:#7fd6e2}
+
+/* ── ٣. شريط الأفكار الخاطئة ── */
+.myths-sec{overflow-x:clip;padding:70px 0 30px}
+.strip{position:relative;transform:rotate(-2.2deg);background:var(--sheet);border-block:1.5px solid var(--edge);box-shadow:0 14px 30px -20px rgba(6,47,71,.5);overflow:hidden;padding:20px 0}
+.track{display:flex;gap:56px;width:max-content;animation:marq 48s linear infinite}
+.strip:hover .track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(50%)}}
+.myth{display:inline-flex;align-items:center;gap:16px;white-space:nowrap;font-size:clamp(22px,2.4vw,34px);font-weight:700;color:var(--ink-deep)}
+.myth s{text-decoration:none;position:relative}
+.myth s::after{content:"";position:absolute;right:-4px;left:-4px;top:55%;height:3px;background:var(--teal);border-radius:3px;transform:rotate(-1.5deg)}
+.myth em{font-style:normal;font-family:var(--f-thuluth);font-size:.62em;color:var(--teal)}
+.myth .dot{width:9px;height:9px;border-radius:50%;background:var(--edge)}
+.strip-note{text-align:center;color:var(--ink-soft);font-size:16px;margin:44px auto 0;max-width:40em;padding:0 var(--pad)}
+
+/* ── ٤أ. كيف نعمل: المقدمة ── */
+.how-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:5vw;align-items:center;padding:140px var(--pad) 60px}
+.how-intro h2{font-size:clamp(40px,5.4vw,86px);line-height:1.15;color:var(--ink-deep);font-weight:900}
+.how-intro .body{margin-top:26px;max-width:34em;font-size:clamp(17px,1.15vw + 8px,21px)}
+.mark-ink{background:linear-gradient(transparent 58%,rgba(0,142,165,.28) 58%,rgba(0,142,165,.28) 92%,transparent 92%) no-repeat right/0% 100%}
+.collage{position:relative;height:min(70vh,560px)}
+.collage .scrap{position:absolute}
+.collage .c1{width:72%;height:60%;top:0;right:0;transform:rotate(-3deg)}
+.collage .c2{width:58%;height:48%;bottom:0;left:0;transform:rotate(4deg)}
+
+/* ── ٤ب. كيف نعمل: الدوائر ── */
+.dialog{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:5vw;padding:120px var(--pad)}
+.count{font-size:15px;font-weight:600;color:var(--ink-soft);margin-bottom:10px}
+.count b{font-size:64px;line-height:1;color:var(--ink-deep);font-weight:900;margin-left:8px;display:inline-block;min-width:.7em}
+.stages{position:relative;min-height:310px}
+.st{position:absolute;inset:0;opacity:0;transform:translateY(18px);filter:blur(8px);transition:opacity .6s,transform .6s,filter .6s}
+.st.on{opacity:1;transform:none;filter:none}
+.st h2{font-size:clamp(38px,5vw,76px);line-height:1.15;color:var(--ink-deep);font-weight:900;margin-bottom:22px}
+.st p{max-width:30em}
+.net{width:100%;max-width:520px;margin-inline:auto}
+.net .node circle.c{fill:var(--paper);stroke:var(--ink);stroke-width:2.2}
+.net .node .fill{fill:var(--teal)}
+.net text{font-family:var(--f-thuluth);font-size:24px;fill:var(--ink-deep);text-anchor:middle}
+.net path.link{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+.net .heart{fill:var(--teal);opacity:0}
+
+/* ── ٥. الفيديو ── */
+.film{position:relative;height:340vh}
+.film-sticky{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:hidden}
+.film-head{position:absolute;top:13vh;right:var(--pad);left:var(--pad);text-align:center;z-index:1}
+.film-head h2{font-size:clamp(34px,4.4vw,64px);color:var(--ink-deep);font-weight:900;line-height:1.2}
+.reel{position:relative;width:100vw;height:100svh;background:var(--sheet);padding:18px 18px 54px;box-shadow:0 30px 60px -30px rgba(6,47,71,.55);transform-origin:50% 55%;will-change:transform;z-index:2}
+.reel .screen{position:relative;width:100%;height:100%;background:#0b2533;overflow:hidden}
+.reel .screen img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.reel iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.reel figcaption{position:absolute;bottom:12px;right:22px;font-family:var(--f-thuluth);font-size:22px;color:var(--ink)}
+.reel::before{content:"";position:absolute;top:-16px;left:50%;width:130px;height:34px;margin-left:-65px;background:rgba(214,203,178,.85);transform:rotate(-3deg);z-index:3}
+.play{position:absolute;top:50%;left:50%;width:108px;height:108px;margin:-54px 0 0 -54px;border-radius:50%;background:rgba(243,238,228,.94);display:grid;place-items:center;box-shadow:0 20px 40px -14px rgba(0,0,0,.5);transform:scale(.6);opacity:0;transition:transform .5s cubic-bezier(.2,.9,.3,1.3),opacity .4s;pointer-events:none}
+.play svg{width:34px;height:34px;margin-right:-6px}
+.reel.ready .play{transform:scale(1);opacity:1;pointer-events:auto}
+.play::after{content:"";position:absolute;inset:-10px;border-radius:50%;border:1.5px solid rgba(243,238,228,.8);animation:ring 1.8s ease-out infinite}
+.reel.playing .play{display:none}
+
+/* ── ٦. من نحن ── */
+.shift{min-height:100svh;display:grid;place-items:center;text-align:center;padding:120px var(--pad)}
+.shift h2{font-size:clamp(40px,6.4vw,104px);line-height:1.2;color:var(--ink-deep);font-weight:900}
+.shift .from{position:relative;display:inline-block;color:var(--ink-soft)}
+.shift .from .strike{position:absolute;right:-2%;top:55%;height:.09em;width:104%;background:var(--teal);border-radius:4px;transform-origin:right;transform:scaleX(0) rotate(-1.5deg)}
+.shift .to{display:block}
+.shift p{margin:28px auto 0;max-width:36em;font-size:clamp(17px,1.15vw + 8px,21px)}
+.rail-sec{padding:40px 0 120px;overflow:hidden}
+.rail{display:flex;gap:36px;width:max-content;padding:30px var(--pad);will-change:transform}
+.rail .scrap{flex:none;width:clamp(240px,26vw,380px);height:clamp(200px,22vw,320px);padding-bottom:12px}
+.rail .scrap:nth-child(odd){transform:rotate(-2.5deg) translateY(18px)}
+.rail .scrap:nth-child(even){transform:rotate(2deg)}
+.origin{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center;padding:60px var(--pad) 120px}
+.origin .yr{font-family:var(--f-display);font-weight:900;font-size:clamp(110px,18vw,300px);line-height:.9;color:transparent;-webkit-text-stroke:2px var(--ink)}
+.origin h2{font-size:clamp(34px,4vw,60px);color:var(--ink-deep);font-weight:900;line-height:1.2;margin-bottom:18px}
+.origin .pics{position:relative;height:300px;margin-top:40px}
+.origin .pics .scrap{position:absolute;width:56%;height:88%}
+.origin .pics .scrap:first-child{right:0;top:0;transform:rotate(-3deg)}
+.origin .pics .scrap:last-child{left:0;bottom:0;transform:rotate(3deg)}
+.commit{padding:40px var(--pad) 120px}
+.commit h2,.goal h2{font-size:clamp(34px,4.4vw,66px);color:var(--ink-deep);font-weight:900;line-height:1.2;max-width:16em}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.card{position:relative;padding:28px 26px 30px}
+.card::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 12px 26px -18px rgba(6,47,71,.45)}
+.card .n{font-family:var(--f-thuluth);font-size:24px;color:var(--teal)}
+.card svg{width:70px;height:70px;margin:12px 0 16px}
+.card h3{font-size:30px;line-height:1.3;color:var(--ink-deep);font-weight:900;margin-bottom:8px}
+.card p{font-size:16.5px;color:var(--ink-soft);line-height:1.8}
+.goal{padding:20px var(--pad) 140px}
+.steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px;text-align:center}
+.steps .line{position:absolute;top:44px;right:16%;left:16%;height:2px;background:repeating-linear-gradient(to left,var(--ink-soft) 0 8px,transparent 8px 16px);transform-origin:right}
+.steps .s{position:relative}
+.steps .dotc{width:88px;height:88px;margin:0 auto 18px;border-radius:50%;border:2.2px solid var(--ink);background:var(--paper);display:grid;place-items:center;font-family:var(--f-thuluth);font-size:30px;color:var(--teal)}
+.steps .s:last-child .dotc{background:var(--ink-deep);color:var(--paper);border-color:var(--ink-deep)}
+.steps h3{font-size:clamp(24px,2.4vw,34px);color:var(--ink-deep);font-weight:900}
+.goal .note{margin-top:46px;max-width:40em;font-size:clamp(17px,1.15vw + 8px,20px)}
+
+/* ── ٧. كلمة الرئيس ── */
+.word{display:grid;grid-template-columns:.75fr 1.25fr;gap:5vw;align-items:start;padding:80px var(--pad) 120px}
+.word .portrait{position:sticky;top:110px}
+.word .portrait .scrap{height:min(64vh,560px);transform:rotate(-2.5deg)}
+.word .portrait .scrap img{object-position:50% 20%}
+.letter{position:relative;background:var(--sheet);padding:clamp(28px,4.5vw,64px) clamp(24px,4.5vw,70px) 60px;box-shadow:0 30px 60px -30px rgba(6,47,71,.45),0 2px 4px rgba(6,47,71,.08)}
+.letter::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 37px,rgba(8,80,120,.07) 37px 38px);pointer-events:none;mask:linear-gradient(transparent 0,#000 120px);-webkit-mask:linear-gradient(transparent 0,#000 120px)}
+.letter .head{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px dashed var(--edge);padding-bottom:16px;margin-bottom:28px;font-size:14px;color:var(--ink-soft);font-weight:600}
+.letter .head .thuluth{font-size:26px}
+.letter p{font-size:clamp(17px,1.05vw + 9px,20px);line-height:2;margin-bottom:16px;color:var(--ink-deep)}
+.letter p:first-child{font-family:var(--f-display);font-weight:900;font-size:clamp(24px,2.2vw + 8px,36px);line-height:1.45}
+.letter p:last-child{margin-top:30px;font-weight:700}
+.sign{position:relative;display:flex;align-items:center;gap:26px;margin-top:20px}
+.sign .name{font-family:var(--f-thuluth);font-size:clamp(34px,3.4vw,52px);color:var(--ink);clip-path:inset(0 0 0 100%)}
+.sign .seal{width:110px;height:110px;color:var(--teal);opacity:0}
+.bio{grid-column:1 / -1;margin-top:20px;display:grid;grid-template-columns:.75fr 1.25fr;gap:5vw}
+.bio h3{font-size:clamp(28px,3vw,44px);color:var(--ink-deep);font-weight:900;line-height:1.25}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.chip{border:1.5px solid var(--edge);background:var(--sheet);padding:10px 16px;border-radius:12px;font-size:15.5px;line-height:1.6}
+.chip b{color:var(--teal);font-family:var(--f-display)}
+
+/* ── ٨. الخريطة والأرقام ── */
+.reach{min-height:100svh;display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:5vw;padding:120px var(--pad)}
+.reach h2{font-size:clamp(40px,5.4vw,84px);line-height:1.15;color:var(--ink-deep);font-weight:900}
+.reach p.sub{margin-top:18px;max-width:28em}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:38px}
+.stat{position:relative;padding:20px 22px 18px}
+.stat::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1}
+.stat b{display:block;font-size:clamp(36px,3.6vw,54px);line-height:1.2;color:var(--ink-deep);font-weight:900;font-variant-numeric:tabular-nums}
+.stat span{font-size:15px;color:var(--ink-soft);font-weight:500}
+.map{width:100%;max-width:640px;margin-inline:auto}
+.map .land{fill:#E6DECD;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
+.map .city circle.pin{fill:var(--teal)}
+.map .city circle.halo{fill:none;stroke:var(--teal);stroke-width:1.2;opacity:.6}
+.map .city text{font-family:var(--f-text);font-size:10px;font-weight:700;fill:var(--ink-deep)}
+.map .grid{stroke:var(--ink);stroke-width:.4;opacity:.18;stroke-dasharray:2 4}
+
+/* ── ٩. الأرشيف والخط الزمني ── */
+.archive{position:relative;height:820vh}
+.arch-sticky{position:sticky;top:0;height:100svh;overflow:hidden}
+#cosmos{position:absolute;inset:0;width:100%;height:100%}
+.arch-3d{position:absolute;inset:0;perspective:900px;perspective-origin:50% 50%}
+.arch-3d .world{position:absolute;inset:0;transform-style:preserve-3d}
+.aph{position:absolute;top:50%;left:50%;width:clamp(170px,19vw,300px);height:clamp(130px,14vw,220px);padding:8px 8px 30px;cursor:zoom-in;will-change:transform,opacity;opacity:0}
+.aph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(.9)}
+.aph figcaption{font-size:14px;bottom:5px}
+.aph:hover{box-shadow:0 0 0 3px var(--teal),0 24px 50px -18px rgba(6,47,71,.6)}
+.arch-title{position:absolute;inset:0;display:grid;place-items:center;text-align:center;pointer-events:none;z-index:3}
+.arch-title h2{font-size:clamp(44px,7vw,120px);color:var(--ink-deep);font-weight:900;line-height:1.15}
+.arch-title p{margin-top:14px;color:var(--ink-soft)}
+.year-big{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:900;font-size:clamp(90px,17vw,280px);color:transparent;-webkit-text-stroke:1.5px rgba(8,80,120,.55);pointer-events:none;z-index:1;opacity:0}
+.tl{position:absolute;bottom:clamp(26px,5vh,48px);right:var(--pad);left:var(--pad);z-index:4;opacity:0}
+.tl .bar{position:relative;height:2px;background:rgba(8,80,120,.18)}
+.tl .fill{position:absolute;top:0;bottom:0;right:0;width:0;background:var(--teal)}
+.tl .knob{position:absolute;top:50%;right:0;width:16px;height:16px;margin:-8px -8px 0 0;border-radius:50%;background:var(--teal);box-shadow:0 0 0 6px rgba(0,142,165,.18)}
+.tl .ticks{display:flex;justify-content:space-between;margin-top:12px;font-family:var(--f-display);font-weight:700;font-size:16px;color:var(--ink-soft)}
+.tl .ticks span.on{color:var(--ink-deep)}
+.lightbox{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:rgba(243,238,228,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox .scrap{width:min(86vw,1100px);height:min(78vh,760px);padding:16px 16px 58px;transform:rotate(-1.5deg) scale(.86);transition:transform .5s cubic-bezier(.2,.9,.3,1.15)}
+.lightbox.open .scrap{transform:rotate(-1.5deg) scale(1)}
+.lightbox figcaption{font-size:24px;bottom:12px}
+.lightbox img{object-fit:contain;background:#0b2533}
+
+/* ── ١٠. المبادئ ── */
+.principles{padding:140px var(--pad) 100px;text-align:center}
+.principles h2{font-size:clamp(40px,5.4vw,84px);color:var(--ink-deep);font-weight:900;line-height:1.15}
+.principles .body{margin:22px auto 0;max-width:38em;font-size:clamp(17px,1.15vw + 8px,21px)}
+.seals{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:64px auto 0;max-width:1100px}
+.seals .sl{display:grid;justify-items:center;gap:14px}
+.seals svg{width:min(190px,100%);height:auto;color:var(--ink)}
+.seals .sl:nth-child(even) svg{color:var(--teal)}
+.seals h3{font-size:clamp(22px,2vw,30px);color:var(--ink-deep);font-weight:900}
+
+/* ── ١١. هذا وقتنا ── */
+.close{min-height:92svh;display:grid;place-items:center;text-align:center;padding:120px var(--pad)}
+.close h2{font-size:clamp(60px,11vw,180px);color:var(--ink-deep);font-weight:900;line-height:1.15}
+.close h2 .thuluth{font-size:1.02em}
+.close p{margin:22px auto 40px;max-width:30em;color:var(--ink-soft);font-size:clamp(17px,1.15vw + 8px,21px)}
+.close .ctas{justify-content:center}
+footer{border-top:1.5px dashed var(--edge);padding:30px var(--pad) 40px;display:flex;flex-wrap:wrap;gap:18px 30px;justify-content:space-between;align-items:center;font-size:15px;color:var(--ink-soft)}
+footer .soc{display:flex;flex-wrap:wrap;gap:16px}
+footer a:hover{color:var(--teal)}
+
+/* ── الجوال ── */
+@media (max-width:900px){
+  .hero,.dialog,.reach,.how-intro,.origin,.word,.bio{grid-template-columns:1fr}
+  .hero{padding-top:118px;gap:28px}
+  .stage{height:380px;order:2}
+  .dialog{gap:20px}
+  .dialog .viz{order:-1}
+  .net{max-width:340px}
+  .stages{min-height:300px}
+  .collage{height:380px}
+  .cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:34px}
+  .steps .line{display:none}
+  .word .portrait{position:relative;top:0;max-width:420px}
+  .word .portrait .scrap{height:420px}
+  .seals{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .stamp{width:110px;height:110px}
+  .brand small{display:none}
+  .origin .pics{height:240px}
+}
+@media (prefers-reduced-motion:reduce){
+  .track{animation:none}
+  .st{position:relative;opacity:1;transform:none;filter:none;margin-bottom:40px}
+  .stages{min-height:0}
+  .magnet.near::after,.play::after{animation:none}
+}
+.rm .film{height:auto}
+.rm .film-sticky{position:relative;height:auto;padding:100px var(--pad);display:block}
+.rm .film-head{position:relative;top:0;margin-bottom:30px}
+.rm .reel{width:100%;height:70vh}
+.rm .reel .play{opacity:1;transform:none;pointer-events:auto}
+.rm .archive{height:auto}
+.rm .arch-sticky{position:relative;height:auto;padding:120px var(--pad)}
+.rm #cosmos,.rm .year-big,.rm .tl{display:none}
+.rm .arch-title{position:relative;margin-bottom:40px}
+.rm .arch-3d{position:relative;perspective:none}
+.rm .arch-3d .world{position:relative;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:26px}
+.rm .aph{position:relative;top:0;left:0;width:auto;height:220px;opacity:1}
+.rm .sign .name{clip-path:none}
+.rm .sign .seal{opacity:1}
+:focus-visible{outline:2.5px solid var(--teal);outline-offset:4px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="ink" x="-5%" y="-10%" width="110%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="inkIn" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="inkInMap" in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="inkCycle" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="inkCycleMap" in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="rough" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="blots" aria-hidden="true"><div class="blot a"></div><div class="blot b"></div></div>
+<canvas id="trail" aria-hidden="true"></canvas>
+<div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header>
+  <a class="brand" href="#top" aria-label="منتدى حوار الشباب، الرئيسية">
+    <svg class="mark ink" viewBox="0 0 40 40" aria-hidden="true">
+      <g fill="none" stroke="#085078" stroke-width="2.4"><circle cx="13" cy="13" r="6"/><circle cx="27" cy="27" r="6"/></g>
+      <circle cx="27" cy="13" r="4.2" fill="#008EA5"/><circle cx="13" cy="27" r="4.2" fill="#062F47"/>
+      <path d="M17.5 17.5 22.5 22.5" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/>
+    </svg>
+    <span><b>منتدى حوار الشباب</b><small>ليبيا</small></span>
+  </a>
+  <nav aria-label="الرئيسية">
+    <a class="nl" href="#how">كيف نعمل</a>
+    <a class="nl" href="#about">من نحن</a>
+    <a class="nl" href="#archive">الأرشيف</a>
+    <a class="nl" href="#principles">مبادئنا</a>
+    <a class="pill" href="https://ydf.ly/?page_id=5629">انضم</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ١. الواجهة -->
+  <section class="hero" aria-labelledby="h1">
+    <div>
+      <p class="kicker rv-h">حراك شبابي وطني</p>
+      <h1 id="h1">
+        <span class="line"><span class="ink-in">الشباب في قلب</span></span>
+        <span class="line"><span class="cycle ink-cycle" aria-live="polite">القرار</span></span>
+      </h1>
+      <p class="lede rv-h">نجمع شباب ليبيا من كل الدوائر على طاولة واحدة: نصغي إليهم، ونتحاور معهم، ونحوّل أصواتهم إلى رؤية تشارك في صناعة القرار.</p>
+      <div class="ctas rv-h">
+        <a class="magnet" href="https://ydf.ly/?page_id=5629" data-magnet>انضم إلى المنتدى <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="ghost" href="#how">كيف نعمل؟</a>
+      </div>
+      <div class="meta rv-h"><span><i></i>13 دائرة انتخابية</span><span><i></i>من الساحل إلى الواحات</span></div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <figure class="photo scrap tape p1" data-tilt="1"><img src="https://ydf.ly/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-06-at-14.33.05.jpeg" alt=""><figcaption>من حواراتنا</figcaption></figure>
+      <figure class="photo scrap tape p2" data-tilt="-1.4"><img src="https://ydf.ly/wp-content/uploads/2026/05/481039514_947431090907922_4442889964068800498_n.jpg" alt=""><figcaption>من الميدان</figcaption></figure>
+      <svg class="stamp ink" viewBox="0 0 160 160" data-spin>
+        <defs><path id="ring" d="M80 80m-58 0a58 58 0 1 1 116 0a58 58 0 1 1-116 0"/></defs>
+        <circle cx="80" cy="80" r="74" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="80" cy="80" r="44" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text font-family="Thmanyah Serif Display, serif" font-size="15" font-weight="700" fill="currentColor"><textPath href="#ring">منتدى حوار الشباب • ليبيا • حوار من أجل البناء •</textPath></text>
+        <g fill="none" stroke="currentColor" stroke-width="3"><circle cx="70" cy="70" r="9"/><circle cx="90" cy="90" r="9"/></g>
+        <circle cx="90" cy="70" r="6" fill="currentColor"/><circle cx="70" cy="90" r="6" fill="currentColor"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ٢. بطاقات الصور المتراكمة -->
+  <section class="deck" aria-label="رسائلنا"></section>
+
+  <!-- ٣. شريط الأفكار الخاطئة -->
+  <section class="myths-sec" aria-label="أفكار شائعة عن الشباب والسياسة">
+    <div class="strip"><div class="track" aria-hidden="true"></div></div>
+    <p class="strip-note rv">السياسة ليست للشباب، صوتي لن يغيّر شيئاً، الحوار مضيعة للوقت، الانقسام قدرنا: كلها أفكار شائعة، <b>وكلها غير صحيحة.</b></p>
+  </section>
+
+  <!-- ٤أ. كيف نعمل: المقدمة -->
+  <section class="how-intro" id="how" aria-labelledby="how-t">
+    <div>
+      <p class="eyebrow">كيف نعمل</p>
+      <h2 id="how-t" class="ink rv">بناء الدولة والسلام،<br>من الشباب <span class="thuluth">وإليهم.</span></h2>
+      <p class="body rv">الشباب مرجعيتنا الأولى. نتواصل مع <span class="mark-ink">القواعد الشبابية في كل دائرة</span>، نطرح أمامهم الأفكار ونتبادل معهم الآراء، ونستقطب الفاعلين منهم ليكونوا <span class="mark-ink">منسقين عن دوائرهم</span>، يدعون الشباب، إناثاً وذكوراً، إلى صف واحد، نحو <span class="mark-ink">رؤية وطنية مشتركة</span>.</p>
+    </div>
+    <div class="collage" aria-hidden="true">
+      <figure class="scrap tape c1"><img src="https://ydf.ly/wp-content/uploads/2026/04/jmmkm.jpeg" alt="" loading="lazy"><figcaption>على الطاولة نفسها</figcaption></figure>
+      <figure class="scrap tape c2"><img src="https://ydf.ly/wp-content/uploads/2022/06/MVI_1666-1.jpg" alt="" loading="lazy"><figcaption>من الدوائر</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ٤ب. كيف نعمل: الدوائر -->
+  <section class="dialog" aria-label="مراحل عملنا">
+    <div class="txt">
+      <p class="count"><b id="stepN">1</b>من 3</p>
+      <div class="stages">
+        <article class="st on"><h2 class="ink">نصغي أولاً.</h2><p>ننزل إلى الدوائر والمدن والقرى والواحات، ونسمع من الشباب أنفسهم: ماذا يريدون من الحياة العامة؟ وما الذي يمنعهم من المشاركة؟</p></article>
+        <article class="st"><h2 class="ink">ثم نتحاور.</h2><p>جلسات حوارية تجمع شباباً من خلفيات ومدن مختلفة على طاولة واحدة، لأن الاختلاف بداية الفهم، وليس نهايته.</p></article>
+        <article class="st"><h2 class="ink">لنصنع القرار <span class="thuluth">معاً.</span></h2><p>نبلور ما نسمعه في رؤية سياسية وطنية، وندعم الشباب الفاعلين ليشاركوا في القرار بأنفسهم، عبر المسارات السياسية والانتخابية.</p></article>
+      </div>
+    </div>
+    <div class="viz" aria-hidden="true">
+      <svg class="net ink" viewBox="0 -24 400 404">
+        <path class="link l1" d="M200 80 C 120 120, 90 190, 95 270"/>
+        <path class="link l2" d="M110 290 C 170 330, 240 330, 292 290"/>
+        <path class="link l3" d="M305 270 C 310 190, 280 120, 205 80"/>
+        <circle class="heart" cx="200" cy="215" r="34"/>
+        <g class="node n1"><circle class="c" cx="200" cy="64" r="34"/><circle class="fill" cx="200" cy="64" r="22"/><text x="200" y="12">نصغي</text></g>
+        <g class="node n2"><circle class="c" cx="95" cy="290" r="34"/><circle class="fill" cx="95" cy="290" r="22"/><text x="95" y="362">نتحاور</text></g>
+        <g class="node n3"><circle class="c" cx="305" cy="290" r="34"/><circle class="fill" cx="305" cy="290" r="22"/><text x="305" y="362">نقرر</text></g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ٥. الفيديو -->
+  <section class="film" aria-labelledby="film-t">
+    <div class="film-sticky">
+      <div class="film-head"><p class="eyebrow">شاهد</p><h2 id="film-t" class="ink">حكايتنا في دقائق</h2></div>
+      <figure class="reel" id="reel">
+        <div class="screen">
+          <img src="https://i.ytimg.com/vi/BW_EtjHYHyo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/BW_EtjHYHyo/hqdefault.jpg'" alt="">
+          <button class="play" id="play" aria-label="تشغيل الفيديو"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="#062F47"/></svg></button>
+        </div>
+        <figcaption>منتدى حوار الشباب</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ٦. من نحن ومسيرة التأسيس -->
+  <section class="shift" id="about" aria-labelledby="about-t">
+    <div>
+      <p class="eyebrow">من نحن</p>
+      <h2 id="about-t"><span class="from">من الحوار وصياغة الأفكار<i class="strike"></i></span><span class="to ink">إلى <span class="thuluth">قوة فاعلة.</span></span></h2>
+      <p class="rv">شبكة وطنية شبابية تجمع الكفاءات والقيادات الشابة في هيكل مرن عابر للمكونات، تربط الطاقات الوطنية ببعضها لتصنع ثقلاً سياسياً قادراً على طرح البدائل وصناعة القرار.</p>
+    </div>
+  </section>
+
+  <section class="rail-sec" aria-hidden="true"><div class="rail"></div></section>
+
+  <section class="origin" aria-labelledby="origin-t">
+    <div><div class="yr ink">2021</div></div>
+    <div>
+      <p class="eyebrow">مسيرة التأسيس</p>
+      <h2 id="origin-t" class="ink rv">بدأنا بفكرة،<br>فوجدنا شبكة كاملة.</h2>
+      <p class="rv">منذ انطلاقتنا عام 2021 لقينا استجابة واسعة للانضمام، فانطلقنا فوراً في تأسيس شبكات العمل الميداني عبر مندوبينا في الدوائر الانتخابية، لنترجم الرؤية إلى خطوات وإنجازات حقيقية على الأرض.</p>
+      <div class="pics" aria-hidden="true">
+        <figure class="scrap tape"><img src="https://ydf.ly/wp-content/uploads/2023/10/YDF-Tripoli2021-Panel_EmadShanab.jpg" alt="" loading="lazy"><figcaption>طرابلس 2021</figcaption></figure>
+        <figure class="scrap tape"><img src="https://ydf.ly/wp-content/uploads/2023/10/YDF-Aljmail2021.jpg" alt="" loading="lazy"><figcaption>الجميل 2021</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="commit" aria-labelledby="commit-t">
+    <p class="eyebrow">التزاماتنا</p>
+    <h2 id="commit-t" class="ink rv">ثلاثة التزامات تضبط عملنا.</h2>
+    <div class="cards">
+      <article class="card"><span class="n">1</span>
+        <svg viewBox="0 0 80 80" class="ink" aria-hidden="true"><rect x="18" y="12" width="44" height="56" rx="3" fill="#fbf8f2" stroke="#085078" stroke-width="2.4"/><path d="M27 30h26M27 40h26M27 50h14" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/><path d="m50 52 6 6 10-14" fill="none" stroke="#008EA5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>صياغة الأولويات</h3><p>نبلور من حواراتنا الميدانية رؤية مجتمعية للتحديات، ونحدد أولويات الحكومة القادمة.</p></article>
+      <article class="card"><span class="n">2</span>
+        <svg viewBox="0 0 80 80" class="ink" aria-hidden="true"><path d="M14 46V34l34-14v40L14 46z" fill="#fbf8f2" stroke="#085078" stroke-width="2.4" stroke-linejoin="round"/><path d="M22 48l4 16h8l-3-14" fill="none" stroke="#085078" stroke-width="2.4" stroke-linejoin="round"/><path d="M58 30c4 3 4 17 0 20M64 24c8 6 8 26 0 32" fill="none" stroke="#008EA5" stroke-width="3" stroke-linecap="round"/></svg>
+        <h3>المناصرة والتأثير</h3><p>حملات ضغط مدروسة على الأجسام التشريعية والتنفيذية، لتبقى قضايا الشباب في صدارة القرار.</p></article>
+      <article class="card"><span class="n">3</span>
+        <svg viewBox="0 0 80 80" class="ink" aria-hidden="true"><rect x="20" y="30" width="40" height="36" rx="3" fill="#fbf8f2" stroke="#085078" stroke-width="2.4"/><path d="M30 30V20h20v10" fill="none" stroke="#085078" stroke-width="2.4"/><path d="M34 20l6-8 6 8" fill="#008EA5"/><path d="M28 44h24" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <h3>الحشد الانتخابي</h3><p>نوحّد الصفوف في حملة وطنية شاملة تدعم مشاركة الشباب الفاعلة في العملية الانتخابية.</p></article>
+    </div>
+  </section>
+
+  <section class="goal" aria-labelledby="goal-t">
+    <p class="eyebrow">إلى أين؟</p>
+    <h2 id="goal-t" class="ink rv">من الحوارات المجتمعية إلى حركة سياسية شبابية.</h2>
+    <div class="steps">
+      <i class="line" aria-hidden="true"></i>
+      <div class="s"><div class="dotc">1</div><h3>ميثاق</h3></div>
+      <div class="s"><div class="dotc">2</div><h3>مشروع سياسي جامع</h3></div>
+      <div class="s"><div class="dotc">3</div><h3>حركة سياسية شبابية</h3></div>
+    </div>
+    <p class="note rv">نصوغ ميثاقاً ومشروعاً سياسياً شبابياً منبثقاً من جلسات الحوار مع النساء والشباب ومختلف المكونات في أنحاء ليبيا، يمهّد لحركة تقودها الكفاءات الشابة في الاستحقاق الانتخابي القادم، وتدعم المصالحة الوطنية.</p>
+  </section>
+
+  <!-- ٧. كلمة رئيس المنتدى (النص كما هو حرفياً من الموقع) -->
+  <section class="word" aria-labelledby="word-t">
+    <div class="portrait">
+      <p class="eyebrow" id="word-t">كلمة رئيس المنتدى</p>
+      <figure class="scrap tape"><img src="https://ydf.ly/wp-content/uploads/2026/06/new-new.jpeg" alt="م. عماد شنب، رئيس منتدى حوار الشباب" loading="lazy"><figcaption>م. عماد شنب</figcaption></figure>
+    </div>
+    <article class="letter">
+      <div class="head"><span class="thuluth">منتدى حوار الشباب</span><span>طرابلس، ليبيا</span></div>
+      <div class="lines"><p>شباب ليبيا المبدع.. شركاء الحلم والبناء</p><p>السلام عليكم</p><p>أرحب بكم في الموقع الرسمي لـ منتدى حوار الشباب، هذا الفضاء الذي لم يكن يوما مجرد فكرة عابرة، بل هو تجسيد ً لإيماننا العميق بأنكم أنتم – شباب ليبيا – المحرك الفعلي لكل تغيير إيجابي، ورواد صناعة التغيير الحقيقي، والرهان الرابح لحاضر ليبيا ومستقبلها في مسيرة بناء الوطن.</p><p>نحن نؤمن بأن الحوار ليس مجرد كلمات تقال، بل هو جسر نعبر عليه من ضفة التحديات إلى آفاق التمكين، سعيا منا لـ ًتمكين شباب واع وقادر على اإلنجاز. في منتدى حوار الشباب، وضعنا نصب أعيننا أن نكون المنصة التي تهدف إلى ٍإسماع صوت الشباب والشابات وإيصال صوتهم، والمظلة التي تحتضن طموحاتكم، والمختبر الذي تتحول فيه أفكاركم الجريئة إلى واقع ملموس يخدم المجتمع والدولة.</p><p>لقد قطعنا شوطا كبيرا،ً وحققنا بفضل الله ثم بجهودكم إنجازات نفخر بها؛ من برامج تدريبية استهدفت بناء قدرات الشباب ً وصقل المهارات القيادية بهدف صناعة قادة مستقبل مؤهلين لتحمل المسؤولية، إلى جلسات حوارية وطنية وضعت قضايا الشباب على طاولة القرار، وسلسلة طويلة من الأنشطة واللقاءات والإجتماعات والمبادرات تجدون جميعها على الموقع ليكون نافذتكم الدائمة على كل جديد المنتدى.</p><p>أدعو كل شاب وشابة في ربوع ليبيا الحبيبة، من شرقها إلى غربها ومن شمالها إلى جنوبها، لتصفح هذا الموقع، والإطلاع على ما نقدمه، والتواصل معنا بشكل مباشر.</p><p>نحن ال نبحث عن متابعين، بل نبحث عن شركاء حقيقيين مقترحاتكم، انتقاداتكم البناءة، ورؤاكم هي الوقود الذي يحركنا لنقدم المزيد.</p><p>ليبيا تبنى بسواعدكم، وتزدهر بعقولكم، ونحن هنا لنخطو معكم كل خطوة نحو القمة.</p><p>دمتم لليبيا ذخرا،ً ودمتم شباباً طموحاً لا يعرف المستحيل.</p><p>ومرحبا بكم في الموقع الرسمي لـ منتدى حوار الشباب</p><p>عماد شنب رئيس منتدى حوار الشباب</p></div>
+      <div class="sign">
+        <span class="name">عماد شنب</span>
+        <svg class="seal ink" viewBox="0 0 200 200" aria-hidden="true">
+          <path id="sealPath" d="M100 100m-72 0a72 72 0 1 1 144 0a72 72 0 1 1-144 0" fill="none"/>
+          <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="3"/>
+          <circle cx="100" cy="100" r="54" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <text font-family="Thmanyah Serif Display, serif" font-size="17" font-weight="700" fill="currentColor"><textPath href="#sealPath">منتدى حوار الشباب • ليبيا • منتدى حوار الشباب •</textPath></text>
+          <g fill="none" stroke="currentColor" stroke-width="4"><circle cx="88" cy="88" r="11"/><circle cx="112" cy="112" r="11"/></g>
+          <circle cx="112" cy="88" r="8" fill="currentColor"/><circle cx="88" cy="112" r="8" fill="currentColor"/>
+        </svg>
+      </div>
+    </article>
+    <div class="bio">
+      <h3 class="ink rv">من ساحات الحوار<br>إلى دوائر التأثير</h3>
+      <div>
+        <p class="rv">قيادي سياسي ليبي، ومستشار في بناء السلام والتطوير المؤسسي. يقود منتدى حوار الشباب ومؤسسة الحوار والمناظرة، ويوظف خلفيته في الهندسة المعمارية في تصميم مسارات الحوار وإدارة الأزمات.</p>
+        <div class="chips rv">
+          <span class="chip"><b>2019–2021</b> مستشار وزير الداخلية الليبي</span>
+          <span class="chip">مستشار برامج بناء السلام في <b>UNDP</b></span>
+          <span class="chip">مستشار ضمن بعثة <b>UNSMIL</b></span>
+          <span class="chip"><b>2025</b> شخصية المستقبل (PIPA)، فرنسا</span>
+          <span class="chip">ضمن أهم <b>40</b> شخصية شبابية ليبية مؤثرة 2021</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ٨. الحضور: الخريطة والأرقام -->
+  <section class="reach" id="reach" aria-labelledby="reach-t">
+    <div>
+      <p class="eyebrow">حضورنا</p>
+      <h2 id="reach-t" class="ink rv">من الساحل<br>إلى الواحات.</h2>
+      <p class="sub rv">مسيرة حافلة بالعمل والتأسيس: منسقونا في الدوائر الانتخابية، وجلساتنا تُعقد حيث يعيش الشباب.</p>
+      <div class="stats">
+        <div class="stat"><b data-to="13">0</b><span>دائرة انتخابية</span></div>
+        <div class="stat"><b data-to="65">0</b><span>جلسة حوارية</span></div>
+        <div class="stat"><b data-to="5500">0</b><span>شاب وشابة شاركوا</span></div>
+        <div class="stat"><b data-to="10000">0</b><span>منتسب</span></div>
+      </div>
+    </div>
+    <svg class="map" viewBox="-10 -10 420 380" role="img" aria-label="خريطة ليبيا ومواقع حضور المنتدى">
+      <g class="grid"><path d="M0 100H400M0 200H400M0 300H400M100 0V360M200 0V360M300 0V360"/></g>
+      <path class="land ink" d="M60 8 100.8 15 146.4 27.5 153.6 42.5 182.4 57.5 228 75 254.4 77.5 266.4 65 265.7 35 288 20 326.4 17.5 340.8 30 359.3 35.5 387.6 47.5 379.2 87.5 384 112.5 384 287.5 384 337.5 360 337.5 360 350 167.5 251 124.8 272.5 71.3 250 33.6 225 28.8 202.5 9.6 182.5 19.2 150 19.2 112.5 12 82.5 31.2 62.5 48 30Z"/>
+      <g id="cities"></g>
+    </svg>
+  </section>
+
+  <!-- ٩. الأرشيف والخط الزمني -->
+  <section class="archive" id="archive" aria-labelledby="arch-t">
+    <div class="arch-sticky">
+      <canvas id="cosmos" aria-hidden="true"></canvas>
+      <div class="year-big" aria-hidden="true">2024</div>
+      <div class="arch-3d"><div class="world" id="world"></div></div>
+      <div class="arch-title"><div><p class="eyebrow">الأرشيف</p><h2 id="arch-t" class="ink">ذاكرة المنتدى</h2><p>مرّر لتسافر عبر السنوات</p></div></div>
+      <div class="tl" aria-hidden="true">
+        <div class="bar"><i class="fill"></i><i class="knob"></i></div>
+        <div class="ticks"><span>2024</span><span>2025</span><span>2026</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ١٠. مبادئنا الحاكمة -->
+  <section class="principles" id="principles" aria-labelledby="pr-t">
+    <p class="eyebrow">مبادئنا الحاكمة</p>
+    <h2 id="pr-t" class="ink rv">ليبيا لكل الليبيين.</h2>
+    <p class="body rv">نؤسس لليبيا جديدة: دولة ينال فيها كل الليبيين حقوقهم كاملة، دون إقصاء أو تمييز على أي أساس. ويضبط عملنا ميثاق شرف يُعلي قيم العدل والمساواة.</p>
+    <div class="seals"></div>
+  </section>
+
+  <!-- ١١. هذا وقتنا -->
+  <section class="close" aria-labelledby="close-t">
+    <div>
+      <h2 id="close-t"><span class="ink-in">هذا <span class="thuluth">وقتنا.</span></span></h2>
+      <p>كن جزءاً من شبكة وطنية تضع مصلحة ليبيا فوق كل اعتبار.</p>
+      <div class="ctas">
+        <a class="magnet" href="https://ydf.ly/?page_id=5629" data-magnet>التسجيل في العضوية <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="ghost" href="https://ydf.ly/?page_id=4022">تواصل معنا</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© منتدى حوار الشباب، ليبيا 2026</span>
+  <a href="mailto:info@ydf.ly">info@ydf.ly</a>
+  <span class="soc">
+    <a href="https://www.facebook.com/YDForumLY">فيسبوك</a>
+    <a href="https://x.com/YDForum_ly">إكس</a>
+    <a href="https://www.instagram.com/ydforumly/">إنستغرام</a>
+    <a href="https://www.youtube.com/channel/UC0wHgo-4RE2iXFrUI0Ld75g">يوتيوب</a>
+    <a href="https://www.linkedin.com/company/%D9%85%D9%86%D8%AA%D8%AF%D9%89-%D8%AD%D9%88%D8%A7%D8%B1-%D8%A7%D9%84%D8%B4%D8%A8%D8%A7%D8%A8">لينكدإن</a>
+    <a href="https://wa.me/218912000932">واتساب</a>
+  </span>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="صورة من الأرشيف">
+  <figure class="scrap tape"><img alt=""><figcaption></figcaption></figure>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  var U = "https://ydf.ly/wp-content/uploads/";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine = window.matchMedia("(pointer: fine)").matches;
+  var mobile = window.matchMedia("(max-width: 900px)").matches;
+  if (reduce) document.documentElement.classList.add("rm");
+
+  /* ── البيانات ── */
+  var slogans = [
+    ["2026/05/WhatsApp-Image-2026-05-06-at-14.31.29.jpeg","من التدريب إلى القيادة","نستثمر في طاقات الشباب ببرامج متخصصة، لنبني <span class='thuluth'>قادة</span> يصنعون مستقبل ليبيا."],
+    ["2026/02/630717056_1218183963832632_2377634606846015499_n.jpg","الحوار من أجل البناء","شبابٌ يصنعون جسور الحوار، إيماناً بدورهم في بناء <span class='thuluth'>السلام</span>."],
+    ["2026/05/WhatsApp-Image-2026-05-06-at-14.31.49.jpeg","نحو مشروع سياسي وطني","نبلور رؤى الشباب، وندعم الفاعلين منهم ليشاركوا في الحياة العامة <span class='thuluth'>بفاعلية</span>."],
+    ["2026/05/WhatsApp-Image-2026-05-06-at-14.32.19.jpeg","ليبيا العدل والمساواة","دولة ينال فيها كل ليبي وليبية حقوقهم كاملة، بلا <span class='thuluth'>إقصاء</span> ولا تمييز."],
+    ["2026/05/WhatsApp-Image-2026-05-24-at-12.48.58.jpeg","نؤمن بدورنا","للشباب دور محوري في هذه المرحلة <span class='thuluth'>المفصلية</span> من تاريخ ليبيا."],
+    ["2026/05/WhatsApp-Image-2026-05-24-kkkat-13.46.07.jpeg","مبادرة شبابية.. رؤية وطنية","لا ننتظر المستقبل، بل نبادر <span class='thuluth'>بصناعته</span>."],
+    ["2026/05/WhatsApp-Image-2026-05-24-at-20.28.59.jpeg","شباب يقودون التغيير","قوةٌ ترفض التهميش، وتتجاوز كل <span class='thuluth'>الانقسامات</span>."],
+    ["2026/05/WhatsApp-Image-2026-05-24-at-21.02.13.jpeg","وطن واحد","تكاتفنا اليوم هو أساس <span class='thuluth'>استقرارنا</span> غداً."]
+  ];
+  var railPics = ["2021/11/243405981_172024395083713_4654758045290643567_n.jpg","2022/06/192994455_112264824393004_5513289700612502780_n.jpg","2021/11/244474924_176925664593586_6595117815727313914_n.jpg","2021/11/224114957_132136739072479_3313338143241318491_n.jpg","2021/11/241022530_152705227015630_6995111662493618868_n.jpg","2021/11/214494964_126581852961301_6315142860448373681_n.jpg","2021/11/245192639_182432450709574_5153696391522207360_n.jpg","2021/11/202882718_120345016918318_896924741164058306_n.jpg"];
+  // الأرشيف: توزيع الصور على السنوات مؤقت حتى يحدد المنتدى سنة كل صورة
+  var archive = [
+    "2021/11/202988723_121234696829350_1564209249090785662_n.jpg","2021/11/213675016_126312796321540_6009158286969901250_n.jpg","2021/11/246660509_186827183603434_1074880925779357472_n.jpg","2021/11/244995841_180473984238754_816994980522062774_n.jpg","2021/11/250470368_193344239618395_263860721331839824_n-1.jpg","2022/06/IMG_3025.jpg","2022/06/photo_2022-02-21_15-11-09.jpg","2022/06/247854071_201764755443010_4433241815726277344_n.jpg","2022/06/IMG_%D9%A2%D9%A0%D9%A2%D9%A2%D9%A0%D9%A3%D9%A1%D9%A0_%D9%A1%D9%A9%D9%A0%D9%A9%D9%A4%D9%A2.jpg","2022/06/8.jpg",
+    "2021/11/247081734_188116666807819_5572166628102927295_n.jpg","2021/11/221966908_131882439097909_8416417797755125159_n.jpg","2021/11/251551627_196013366018149_7371423362934037377_n.jpg","2021/11/216101139_127733326179487_2643374512653654630_n.jpg","2021/11/A.jpg","2021/11/251723168_194772922808860_5577714528596965630_n.jpg","2021/11/241359693_156876293265190_8131996466181040411_n.jpg","2021/11/242301852_165772745708878_1073554614210643519_n.jpg","2021/11/237135123_146523377633815_1777014231825098027_n.jpg","2021/11/237531878_143818124571007_726962605402246639_n.jpg",
+    "2021/11/248693863_190714423214710_5976678023509192876_n.jpg","2021/11/249217281_192002946419191_340219890553801570_n.jpg","2021/11/241959539_162493962703423_4304015931709262180_n.jpg","2021/11/253168876_197642722521880_9184793155804047265_n.jpg","2021/11/248711186_191313709821448_1543832366961862768_n.jpg","2021/11/240606817_158339996452153_5447952746597996487_n.jpg","2021/11/206667558_123366996616120_6222880697956064453_n.jpg","2021/11/216311733_127409606211859_459351539061653872_n.jpg","2026/05/480726190_947422767575421_6286941039154100367_n.jpg"
+  ];
+  var years = ["2024","2025","2026"];
+  var myths = ["السياسة ليست للشباب","صوتي لن يغيّر شيئاً","الحوار مضيعة للوقت","الانقسام قدرنا","التغيير يأتي من فوق فقط"];
+  var principles = ["الاستقلالية","مدنية الدولة","الحرية","العمل المدني"];
+
+  /* ── بناء العناصر ── */
+  document.querySelector(".deck").innerHTML = slogans.map(function(s){
+    return '<article class="scard"><div class="in"><img src="'+U+s[0]+'" alt="" loading="lazy"><div class="shade"></div>'+
+      '<div class="copy"><div class="label"><h3>'+s[1]+'</h3></div><p>'+s[2]+'</p></div></div></article>';
+  }).join("");
+
+  var mh = "";
+  for (var r = 0; r < 2; r++) myths.forEach(function(m){ mh += '<span class="myth"><s>'+m+'</s><em>غير صحيح</em><span class="dot"></span></span>'; });
+  document.querySelector(".track").innerHTML = mh;
+
+  document.querySelector(".rail").innerHTML = railPics.map(function(p){
+    return '<figure class="scrap tape"><img src="'+U+p+'" alt="" loading="lazy"></figure>';
+  }).join("");
+
+  document.querySelector(".seals").innerHTML = principles.map(function(p, i){
+    var id = "sp" + i;
+    return '<div class="sl"><svg class="ink" viewBox="0 0 200 200" aria-hidden="true">'+
+      '<path id="'+id+'" d="M100 100m-72 0a72 72 0 1 1 144 0a72 72 0 1 1-144 0" fill="none"/>'+
+      '<circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="100" cy="100" r="54" fill="none" stroke="currentColor" stroke-width="1.6"/>'+
+      '<text font-family="Thmanyah Serif Display, serif" font-size="16" font-weight="700" fill="currentColor"><textPath href="#'+id+'">مبادئنا الحاكمة • منتدى حوار الشباب • مبادئنا الحاكمة •</textPath></text>'+
+      '<text x="100" y="110" text-anchor="middle" font-family="Aref Ruqaa, serif" font-size="'+(p.length > 8 ? 18 : 24)+'" font-weight="700" fill="currentColor">'+p+'</text></svg><h3>'+p+'</h3></div>';
+  }).join("");
+
+  var cities = [["طرابلس",13.19,32.89],["الزاوية",12.73,32.76],["مصراتة",15.09,32.38],["سرت",16.59,31.21],["بنغازي",20.07,32.12],["البيضاء",21.76,32.76],["طبرق",23.96,32.08],["الجغبوب",24.52,29.74],["الجفرة",15.95,29.12],["براك الشاطئ",14.27,27.55],["سبها",14.43,27.04],["أوباري",12.78,26.59],["غات",10.17,24.96],["القطرون",14.65,24.93],["الكفرة",23.31,24.18]];
+  var below = {"الزاوية":1,"سرت":1,"سبها":1,"الجغبوب":1};
+  var cg = document.getElementById("cities");
+  cities.forEach(function(c){
+    var x = (c[1]-9)*24, y = (33.5-c[2])*25;
+    var el = document.createElementNS("http://www.w3.org/2000/svg","g"); el.setAttribute("class","city");
+    el.innerHTML = '<circle class="halo" cx="'+x+'" cy="'+y+'" r="9"/><circle class="pin" cx="'+x+'" cy="'+y+'" r="3.6"/><text x="'+x+'" y="'+(below[c[0]]?y+19:y-10)+'" text-anchor="middle">'+c[0]+'</text>';
+    cg.appendChild(el);
+  });
+
+  // صور الأرشيف في الفضاء
+  var world = document.getElementById("world"), per = Math.ceil(archive.length/3), GAP = mobile ? 520 : 620;
+  var aphs = archive.map(function(p, i){
+    var f = document.createElement("figure"), yr = years[Math.min(2, Math.floor(i/per))];
+    f.className = "aph scrap"; f.tabIndex = 0;
+    f.innerHTML = '<img src="'+U+p+'" alt="صورة من أرشيف المنتدى" loading="lazy"><figcaption>'+yr+'</figcaption>';
+    f.dataset.src = U+p; f.dataset.year = yr;
+    world.appendChild(f);
+    var side = i % 2 ? 1 : -1;
+    return {el:f, x: side*(mobile ? 20 + Math.random()*8 : 24 + Math.random()*13), y: (Math.random()*2-1)*(mobile ? 26 : 24), z: -(i+1)*GAP, r:(Math.random()*2-1)*6};
+  });
+
+  /* ── الصورة المكبّرة ── */
+  var lb = document.getElementById("lightbox"), lbImg = lb.querySelector("img"), lbCap = lb.querySelector("figcaption"), lbTimer = null;
+  function openLB(el){ lbImg.src = el.dataset.src; lbCap.textContent = "من أرشيف المنتدى · " + el.dataset.year; lb.classList.add("open"); }
+  function closeLB(){ lb.classList.remove("open"); }
+  aphs.forEach(function(a){
+    a.el.addEventListener("mouseenter", function(){ if (!fine) return; clearTimeout(lbTimer); lbTimer = setTimeout(function(){ openLB(a.el); }, 260); });
+    a.el.addEventListener("mouseleave", function(){ clearTimeout(lbTimer); });
+    a.el.addEventListener("click", function(){ openLB(a.el); });
+    a.el.addEventListener("keydown", function(e){ if (e.key === "Enter") openLB(a.el); });
+  });
+  lb.querySelector(".scrap").addEventListener("mouseleave", function(){ if (fine) closeLB(); });
+  lb.addEventListener("click", closeLB);
+  addEventListener("keydown", function(e){ if (e.key === "Escape") closeLB(); });
+  addEventListener("wheel", function(){ if (lb.classList.contains("open")) closeLB(); }, {passive:true});
+
+  /* ── الفيديو ── */
+  var reel = document.getElementById("reel"), iframe = null;
+  document.getElementById("play").addEventListener("click", function(){
+    if (iframe) return;
+    iframe = document.createElement("iframe");
+    iframe.src = "https://www.youtube-nocookie.com/embed/BW_EtjHYHyo?autoplay=1&rel=0&enablejsapi=1&playsinline=1";
+    iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    iframe.title = "فيديو منتدى حوار الشباب";
+    reel.querySelector(".screen").appendChild(iframe);
+    reel.classList.add("playing");
+  });
+  function pauseVideo(){ if (iframe && iframe.contentWindow) iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', "*"); }
+
+  /* ── أثر الحبر خلف المؤشر ── */
+  if (fine && !reduce) {
+    var cv = document.getElementById("trail"), cx = cv.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1);
+    var size = function(){ cv.width = innerWidth*dpr; cv.height = innerHeight*dpr; cv.style.width = innerWidth+"px"; cv.style.height = innerHeight+"px"; cx.setTransform(dpr,0,0,dpr,0,0); };
+    size(); addEventListener("resize", size);
+    var last = null;
+    addEventListener("pointermove", function(e){
+      var p = {x:e.clientX, y:e.clientY};
+      if (last) {
+        var d = Math.hypot(p.x-last.x, p.y-last.y), n = Math.min(12, Math.ceil(d/8));
+        for (var i = 0; i < n; i++) {
+          var t = i/n, x = last.x+(p.x-last.x)*t, y = last.y+(p.y-last.y)*t, rad = 26 + Math.random()*22;
+          var gr = cx.createRadialGradient(x,y,0,x,y,rad);
+          gr.addColorStop(0,"rgba(0,142,165,0.05)"); gr.addColorStop(1,"rgba(0,142,165,0)");
+          cx.fillStyle = gr; cx.beginPath(); cx.arc(x,y,rad,0,Math.PI*2); cx.fill();
+        }
+      }
+      last = p;
+    });
+    (function fade(){
+      cx.globalCompositeOperation = "destination-out"; cx.fillStyle = "rgba(0,0,0,0.035)"; cx.fillRect(0,0,innerWidth,innerHeight);
+      cx.globalCompositeOperation = "source-over"; requestAnimationFrame(fade);
+    })();
+  }
+
+  /* ── الأزرار المغناطيسية ── */
+  var magnets = [].slice.call(document.querySelectorAll("[data-magnet]"));
+  if (fine && !reduce) {
+    addEventListener("pointermove", function(e){
+      magnets.forEach(function(b){
+        var r = b.getBoundingClientRect(); if (r.bottom < -200 || r.top > innerHeight + 200) return;
+        var dx = e.clientX - (r.left + r.width/2), dy = e.clientY - (r.top + r.height/2), d = Math.hypot(dx, dy);
+        var t = Math.max(0, 1 - d/220);
+        b.style.setProperty("--g", (t*t).toFixed(3));
+        b.style.transform = "translate(" + (dx*.22*t).toFixed(1) + "px," + (dy*.3*t).toFixed(1) + "px)";
+        b.classList.toggle("near", d < Math.max(r.width, r.height)*.75);
+      });
+    });
+  } else if (!reduce && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(en){ en.target.classList.toggle("near", en.isIntersecting); en.target.style.setProperty("--g", en.isIntersecting ? ".55" : "0"); }); }, {threshold:.9});
+    magnets.forEach(function(b){ io.observe(b); });
+  }
+
+  /* ── صور الواجهة تميل نحو المؤشر ── */
+  if (fine && !reduce) {
+    var tilts = [].slice.call(document.querySelectorAll("[data-tilt]"));
+    var base = tilts.map(function(el){ return getComputedStyle(el).transform; });
+    addEventListener("pointermove", function(e){
+      if (scrollY > innerHeight) return;
+      var nx = e.clientX/innerWidth - .5, ny = e.clientY/innerHeight - .5;
+      tilts.forEach(function(el, i){
+        var k = parseFloat(el.dataset.tilt);
+        el.style.transform = base[i] + " rotateY(" + (nx*10*k) + "deg) rotateX(" + (-ny*8*k) + "deg) translate(" + (nx*-14*k) + "px," + (ny*-10*k) + "px)";
+      });
+    });
+  }
+
+  var stepsEl = [].slice.call(document.querySelectorAll(".st")), stepN = document.getElementById("stepN");
+  function setStep(i){ stepsEl.forEach(function(s, j){ s.classList.toggle("on", j === i); }); stepN.textContent = i + 1; }
+
+  if (reduce || !window.gsap) {
+    document.documentElement.classList.add("rm");
+    document.querySelectorAll("[data-to]").forEach(function(b){ b.textContent = (+b.dataset.to).toLocaleString("en-US") + "+"; });
+    document.querySelector(".heart").style.opacity = ".9";
+    document.querySelectorAll(".mark-ink").forEach(function(m){ m.style.backgroundSize = "100% 100%"; });
+    reel.classList.add("ready");
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── تمرير ناعم ── */
+  if (window.Lenis && !mobile) {
+    var lenis = new Lenis({lerp:.09, smoothWheel:true});
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener("click", function(e){ var t = document.querySelector(a.getAttribute("href")); if (t) { e.preventDefault(); lenis.scrollTo(t, {offset:-20}); } });
+    });
+  }
+
+  /* ── ١. الواجهة ── */
+  var map = document.getElementById("inkInMap"), cmap = document.getElementById("inkCycleMap");
+  gsap.timeline({defaults:{ease:"power3.out"}})
+    .fromTo([map, cmap], {attr:{scale:70}}, {attr:{scale:2.6}, duration:1.8, ease:"power2.out"}, 0)
+    .from(".hero h1 .line", {opacity:0, y:30, filter:"blur(14px)", duration:1.3, stagger:.18}, 0)
+    .from(".rv-h", {opacity:0, y:20, filter:"blur(8px)", duration:1, stagger:.1}, .5)
+    .from(".photo", {opacity:0, y:60, rotate:"+=8", duration:1.4, stagger:.15}, .3)
+    .from(".stamp", {opacity:0, scale:1.6, rotate:-40, duration:1, ease:"back.out(1.6)"}, 1.1);
+
+  var words = ["القرار","الحوار","البناء","السلام","المستقبل"], wi = 0, cyc = document.querySelector(".cycle");
+  setInterval(function(){
+    if (document.hidden || scrollY > innerHeight) return;
+    wi = (wi + 1) % words.length;
+    gsap.timeline()
+      .to(cyc, {opacity:0, y:-14, filter:"blur(10px)", duration:.45, ease:"power2.in"})
+      .add(function(){ cyc.textContent = words[wi]; })
+      .fromTo(cmap, {attr:{scale:40}}, {attr:{scale:2.6}, duration:1, ease:"power2.out"})
+      .fromTo(cyc, {opacity:0, y:14, filter:"blur(10px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:.7, ease:"power3.out"}, "<");
+  }, 3000);
+  gsap.to("[data-spin]", {rotate:200, ease:"none", scrollTrigger:{trigger:".hero", start:"top top", end:"bottom top", scrub:true}});
+  gsap.to(".stage", {yPercent:-12, ease:"none", scrollTrigger:{trigger:".hero", start:"top top", end:"bottom top", scrub:true}});
+
+  /* ── ظهور عام من الضباب ── */
+  gsap.utils.toArray(".rv").forEach(function(el){
+    gsap.from(el, {opacity:0, y:26, filter:"blur(12px)", duration:1.2, ease:"power3.out", scrollTrigger:{trigger:el, start:"top 86%"}});
+  });
+
+  /* ── ٢. البطاقات المتراكمة ── */
+  var cards = gsap.utils.toArray(".scard");
+  cards.forEach(function(c, i){
+    var inn = c.querySelector(".in"), img = c.querySelector("img");
+    gsap.fromTo(img, {scale:1.18}, {scale:1, ease:"none", scrollTrigger:{trigger:c, start:"top bottom", end:"top top", scrub:true}});
+    gsap.from(c.querySelectorAll(".label, .copy p"), {opacity:0, y:40, filter:"blur(10px)", duration:1.1, stagger:.15, ease:"power3.out", scrollTrigger:{trigger:c, start:"top 45%"}});
+    if (cards[i+1]) gsap.to(inn, {scale:.9, filter:"brightness(.55)", borderRadius:"18px", ease:"none", scrollTrigger:{trigger:cards[i+1], start:"top bottom", end:"top top", scrub:true}});
+  });
+  ScrollTrigger.create({trigger:".deck", start:"top 60px", end:"bottom 60px", toggleClass:{targets:document.body, className:"on-photo"}});
+
+  /* ── ٣. الشريط ── */
+  gsap.from(".strip", {xPercent:-8, rotate:-6, opacity:0, duration:1.4, ease:"power3.out", scrollTrigger:{trigger:".strip", start:"top 90%"}});
+
+  /* ── ٤أ. قلم التحديد والصور ── */
+  gsap.to(".mark-ink", {backgroundSize:"100% 100%", duration:.9, stagger:.45, ease:"power2.inOut", scrollTrigger:{trigger:".how-intro .body", start:"top 70%"}});
+  gsap.from(".collage .scrap", {opacity:0, y:70, rotate:"+=10", duration:1.3, stagger:.2, ease:"power3.out", scrollTrigger:{trigger:".collage", start:"top 80%"}});
+
+  /* ── ٤ب. الدوائر ── */
+  var mm = gsap.matchMedia();
+  mm.add({desk:"(min-width: 901px)", mob:"(max-width: 900px)"}, function(ctx){
+    gsap.set(".net .fill", {scale:0, transformOrigin:"50% 50%"}); gsap.set(".heart", {scale:.5, transformOrigin:"50% 50%"});
+    gsap.utils.toArray(".net .link").forEach(function(p){ var L = p.getTotalLength(); gsap.set(p, {strokeDasharray:L, strokeDashoffset:L}); });
+    gsap.timeline({defaults:{ease:"none"}, scrollTrigger:{
+      trigger:".dialog", start:"top top", end: ctx.conditions.desk ? "+=220%" : "+=180%", pin:true, scrub:.6,
+      onUpdate:function(s){ setStep(Math.min(2, Math.floor(s.progress*3*0.999))); }
+    }})
+      .to(".n1 .fill", {scale:1, duration:.3}).to(".l1", {strokeDashoffset:0, duration:.7})
+      .to(".n2 .fill", {scale:1, duration:.3}).to(".l2", {strokeDashoffset:0, duration:.7})
+      .to(".n3 .fill", {scale:1, duration:.3}).to(".l3", {strokeDashoffset:0, duration:.7})
+      .to(".heart", {opacity:.9, scale:1.15, duration:.5}).to({}, {duration:.3});
+  });
+
+  /* ── ٥. الفيديو: قصاصة تكبر حتى ملء الشاشة ثم تعود ── */
+  var small = mobile ? .62 : .36, framePad = mobile ? "10px 10px 40px" : "18px 18px 54px";
+  gsap.timeline({defaults:{ease:"none"}, scrollTrigger:{trigger:".film", start:"top top", end:"bottom bottom", scrub:.8,
+    onUpdate:function(s){ var p = s.progress; reel.classList.toggle("ready", p > .3 && p < .7); if (p > .74 || p < .2) pauseVideo(); }}})
+    .fromTo(reel, {scale:small, rotate:-5, y:"12vh", padding:framePad}, {scale:1, rotate:0, y:0, padding:"0px 0px 0px 0px", duration:.4, ease:"power2.inOut"})
+    .to(".film-head", {opacity:0, y:-40, filter:"blur(8px)", duration:.2}, 0)
+    .to({}, {duration:.25})
+    .to(reel, {scale: mobile ? .55 : .42, rotate:4, y:"-6vh", padding:framePad, duration:.25, ease:"power2.inOut"})
+    .to(reel, {opacity:0, filter:"blur(10px)", scale:.3, duration:.1});
+
+  /* ── ٦. من نحن ── */
+  gsap.timeline({scrollTrigger:{trigger:".shift", start:"top top", end:"+=120%", pin:true, scrub:.6}})
+    .from(".shift .from", {opacity:0, y:30, filter:"blur(10px)", duration:.3})
+    .to(".shift .strike", {scaleX:1, duration:.35}, ">.1")
+    .to(".shift .from", {opacity:.45, duration:.2}, "<")
+    .from(".shift .to", {opacity:0, y:30, filter:"blur(14px)", duration:.35}, ">-.05");
+  gsap.fromTo(".rail", {x: function(){ return -innerWidth*.15; }}, {x: function(){ return Math.max(0, document.querySelector(".rail").scrollWidth - innerWidth*.85); }, ease:"none", scrollTrigger:{trigger:".rail-sec", start:"top bottom", end:"bottom top", scrub:true, invalidateOnRefresh:true}});
+  gsap.from(".origin .yr", {opacity:0, scale:.8, filter:"blur(16px)", duration:1.4, ease:"power3.out", scrollTrigger:{trigger:".origin", start:"top 75%"}});
+  gsap.from(".origin .pics .scrap", {opacity:0, y:60, rotate:"+=12", duration:1.2, stagger:.2, ease:"power3.out", scrollTrigger:{trigger:".origin .pics", start:"top 85%"}});
+  gsap.from(".commit .card", {opacity:0, y:50, rotate:function(i){ return i%2 ? 3 : -3; }, filter:"blur(8px)", duration:1.1, stagger:.14, ease:"power3.out", scrollTrigger:{trigger:".commit .cards", start:"top 80%"}});
+  gsap.from(".steps .line", {scaleX:0, duration:1.6, ease:"power2.inOut", scrollTrigger:{trigger:".steps", start:"top 80%"}});
+  gsap.from(".steps .s", {opacity:0, y:30, scale:.9, duration:.9, stagger:.35, ease:"back.out(1.6)", scrollTrigger:{trigger:".steps", start:"top 80%"}});
+
+  /* ── ٧. الرسالة: السطور تُكتب بالحبر ── */
+  gsap.from(".letter", {opacity:0, y:80, rotate:2, duration:1.3, ease:"power3.out", scrollTrigger:{trigger:".letter", start:"top 85%"}});
+  gsap.utils.toArray(".letter .lines p").forEach(function(p){
+    gsap.fromTo(p, {opacity:.12, filter:"blur(3px)"}, {opacity:1, filter:"blur(0px)", ease:"none", scrollTrigger:{trigger:p, start:"top 90%", end:"top 64%", scrub:true}});
+  });
+  gsap.timeline({scrollTrigger:{trigger:".sign", start:"top 85%"}})
+    .to(".sign .name", {clipPath:"inset(0 0 0 0%)", duration:1.6, ease:"power2.inOut"})
+    .fromTo(".sign .seal", {opacity:0, scale:1.8, rotate:-30}, {opacity:.9, scale:1, rotate:-8, duration:.5, ease:"back.out(2.2)"}, "-=.2");
+
+  /* ── ٨. الخريطة والأرقام ── */
+  var cityEls = gsap.utils.toArray(".city");
+  gsap.set(cityEls, {opacity:0, scale:.2, transformOrigin:"center"});
+  var reach = gsap.timeline({scrollTrigger:{trigger:".reach", start:"top 65%", end:"bottom 75%", scrub:.8}});
+  reach.from(".map .land", {opacity:0, scale:.94, transformOrigin:"center", duration:.6})
+       .to(cityEls, {opacity:1, scale:1, stagger:.12, duration:.4, ease:"back.out(2)"}, .3);
+  gsap.utils.toArray("[data-to]").forEach(function(b, i){
+    var o = {v:0}, to = +b.dataset.to;
+    reach.to(o, {v:to, duration:1.4, ease:"power1.out", onUpdate:function(){ b.textContent = Math.round(o.v).toLocaleString("en-US") + (o.v >= to ? "+" : ""); }}, .3 + i*.2);
+  });
+
+  /* ── ٩. الأرشيف: الغوص في كرة الغبار عبر السنوات ── */
+  var cos = document.getElementById("cosmos"), cc = cos.getContext("2d"), cdpr = Math.min(1.75, window.devicePixelRatio || 1);
+  var N = mobile ? 900 : 2000, pts = [];
+  for (var k = 0; k < N; k++) {
+    var u = Math.random()*2-1, th = Math.random()*Math.PI*2, rr = Math.sqrt(1-u*u), shell = .82 + Math.random()*.22;
+    pts.push([rr*Math.cos(th)*shell, u*shell, rr*Math.sin(th)*shell, Math.random()]);
+  }
+  var arch = {p:0, live:false}, mxs = 0, mys = 0, tmx = 0, tmy = 0;
+  function sizeCos(){ cos.width = cos.clientWidth*cdpr; cos.height = cos.clientHeight*cdpr; cc.setTransform(cdpr,0,0,cdpr,0,0); }
+  sizeCos(); addEventListener("resize", sizeCos);
+  addEventListener("pointermove", function(e){ tmx = e.clientX/innerWidth - .5; tmy = e.clientY/innerHeight - .5; });
+  var yearEl = document.querySelector(".year-big"), ticks = [].slice.call(document.querySelectorAll(".tl .ticks span")), curYear = -1;
+  var tlFill = document.querySelector(".tl .fill"), tlKnob = document.querySelector(".tl .knob");
+  var depth = aphs.length*GAP + 500;
+
+  function drawCosmos(t){
+    var W = cos.clientWidth, H = cos.clientHeight, f = Math.min(W, H)*.95, R = 950;
+    var cz = -2300 + arch.p*2600, rot = t*0.00005;
+    mxs += (tmx - mxs)*.05; mys += (tmy - mys)*.05;
+    var ry = rot + mxs*.6, rx = mys*.4, cy = Math.cos(ry), sy = Math.sin(ry), cxr = Math.cos(rx), sxr = Math.sin(rx);
+    cc.clearRect(0,0,W,H);
+    var gr = Math.max(80, f*R/Math.max(300,-cz)*.9);
+    var g = cc.createRadialGradient(W/2,H/2,0,W/2,H/2,gr);
+    g.addColorStop(0,"rgba(0,142,165,"+(0.18*(1-arch.p*.6))+")"); g.addColorStop(1,"rgba(0,142,165,0)");
+    cc.fillStyle = g; cc.fillRect(0,0,W,H);
+    for (var i = 0; i < N; i++) {
+      var q = pts[i], x = q[0]*R, y = q[1]*R, z = q[2]*R;
+      var x1 = x*cy - z*sy, z1 = x*sy + z*cy;
+      var y1 = y*cxr - z1*sxr, z2 = y*sxr + z1*cxr;
+      var zz = z2 + cz;
+      if (zz > -40) continue;
+      var s = f/(-zz), px = W/2 + x1*s, py = H/2 + y1*s;
+      if (px < -10 || px > W+10 || py < -10 || py > H+10) continue;
+      var sz = Math.min(4.5, Math.max(.7, 3.4*s)), a = Math.min(.85, .25 + s*.9) * (.5 + q[3]*.5);
+      cc.fillStyle = q[3] > .86 ? "rgba(0,142,165,"+a.toFixed(3)+")" : "rgba(6,47,71,"+a.toFixed(3)+")";
+      cc.fillRect(px, py, sz, sz);
+    }
+  }
+  function placePhotos(){
+    var cam = arch.p*depth, W = innerWidth, H = innerHeight;
+    aphs.forEach(function(a){
+      var z = a.z + cam;
+      var op = z > 380 ? 0 : z > 120 ? (380 - z)/260 : z < -4200 ? 0 : z < -2800 ? (z + 4200)/1400 : 1;
+      a.el.style.opacity = op.toFixed(3);
+      a.el.style.visibility = op < .01 ? "hidden" : "visible";
+      a.el.style.transform = "translate(-50%,-50%) translate3d(" + (a.x*W/100).toFixed(1) + "px," + (a.y*H/100).toFixed(1) + "px," + z.toFixed(1) + "px) rotate(" + a.r.toFixed(2) + "deg)";
+    });
+    var yi = Math.min(2, Math.floor(arch.p*3*0.9999));
+    if (yi !== curYear) {
+      curYear = yi; yearEl.textContent = years[yi];
+      gsap.fromTo(yearEl, {scale:.9, filter:"blur(12px)"}, {scale:1, filter:"blur(0px)", duration:.7});
+      ticks.forEach(function(s, j){ s.classList.toggle("on", j <= yi); });
+    }
+    tlFill.style.width = (arch.p*100) + "%";
+    tlKnob.style.right = (arch.p*100) + "%";
+  }
+  function loop(t){ if (arch.live) { drawCosmos(t); requestAnimationFrame(loop); } }
+  ScrollTrigger.create({trigger:".archive", start:"top bottom", end:"bottom top",
+    onToggle:function(s){ arch.live = s.isActive; if (s.isActive) requestAnimationFrame(loop); }});
+  ScrollTrigger.create({trigger:".archive", start:"top top", end:"bottom bottom", scrub:true,
+    onUpdate:function(s){ arch.p = s.progress; placePhotos(); }});
+  placePhotos();
+  gsap.timeline({scrollTrigger:{trigger:".archive", start:"top top", end:"+=90%", scrub:true}})
+    .to(".arch-title", {opacity:0, scale:1.4, filter:"blur(14px)", ease:"none"})
+    .fromTo([".tl", ".year-big"], {opacity:0}, {opacity:1, ease:"none"}, "<.3");
+  gsap.to(".tl", {opacity:0, scrollTrigger:{trigger:".archive", start:"bottom 130%", end:"bottom bottom", scrub:true}});
+
+  /* ── ١٠. المبادئ: أختام تُختم ── */
+  gsap.from(".seals .sl", {opacity:0, scale:1.7, rotate:function(i){ return i%2 ? 25 : -25; }, duration:.55, stagger:.28, ease:"back.out(2.4)", scrollTrigger:{trigger:".seals", start:"top 78%"}});
+
+  /* ── ١١. الخاتمة ── */
+  ScrollTrigger.create({trigger:".close", start:"top 60%", once:true, onEnter:function(){
+    gsap.fromTo(map, {attr:{scale:60}}, {attr:{scale:2.6}, duration:1.6, ease:"power2.out"});
+    gsap.from(".close p, .close .ctas", {opacity:0, y:20, filter:"blur(8px)", duration:1, stagger:.12, delay:.2});
+  }});
+
+  addEventListener("load", function(){ ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>
