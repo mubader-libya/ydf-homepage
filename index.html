@@ -48,6 +48,7 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 .blot.a{width:46vw;height:46vw;background:#9cc9cf;top:-12vw;left:-10vw}
 .blot.b{width:38vw;height:38vw;background:#c9b99a;bottom:-14vw;right:-8vw;opacity:.2}
 #trail{position:fixed;inset:0;z-index:1;pointer-events:none}
+html.drawing,html.drawing *{-webkit-user-select:none;user-select:none;cursor:crosshair}
 main,header,footer{position:relative;z-index:2}
 
 /* ── الحبر ── */
@@ -770,24 +771,37 @@ footer a:hover{color:var(--teal)}
     var cv = document.getElementById("trail"), cx = cv.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1);
     var size = function(){ cv.width = innerWidth*dpr; cv.height = innerHeight*dpr; cv.style.width = innerWidth+"px"; cv.style.height = innerHeight+"px"; cx.setTransform(dpr,0,0,dpr,0,0); };
     size(); addEventListener("resize", size);
-    var last = null;
-    addEventListener("pointermove", function(e){
-      var p = {x:e.clientX, y:e.clientY};
-      if (last) {
-        var d = Math.hypot(p.x-last.x, p.y-last.y), n = Math.min(12, Math.ceil(d/8));
-        for (var i = 0; i < n; i++) {
-          var t = i/n, x = last.x+(p.x-last.x)*t, y = last.y+(p.y-last.y)*t, rad = 26 + Math.random()*22;
-          var gr = cx.createRadialGradient(x,y,0,x,y,rad);
-          gr.addColorStop(0,"rgba(0,142,165,0.05)"); gr.addColorStop(1,"rgba(0,142,165,0)");
-          cx.fillStyle = gr; cx.beginPath(); cx.arc(x,y,rad,0,Math.PI*2); cx.fill();
-        }
-      }
-      last = p;
-    });
-    (function fade(){
+    // الرسم بالحبر فقط أثناء الضغط على زر الماوس
+    var last = null, drawing = false, fading = false, lastInk = 0;
+    function blot(x, y){
+      var rad = 26 + Math.random()*22, gr = cx.createRadialGradient(x,y,0,x,y,rad);
+      gr.addColorStop(0,"rgba(0,142,165,0.08)"); gr.addColorStop(1,"rgba(0,142,165,0)");
+      cx.fillStyle = gr; cx.beginPath(); cx.arc(x,y,rad,0,Math.PI*2); cx.fill();
+    }
+    function fade(){
       cx.globalCompositeOperation = "destination-out"; cx.fillStyle = "rgba(0,0,0,0.035)"; cx.fillRect(0,0,innerWidth,innerHeight);
-      cx.globalCompositeOperation = "source-over"; requestAnimationFrame(fade);
-    })();
+      cx.globalCompositeOperation = "source-over";
+      if (drawing || performance.now() - lastInk < 4000) requestAnimationFrame(fade);
+      else { cx.clearRect(0,0,innerWidth,innerHeight); fading = false; }
+    }
+    function startFade(){ if (!fading) { fading = true; requestAnimationFrame(fade); } }
+    function stop(){ drawing = false; last = null; document.documentElement.classList.remove("drawing"); }
+    addEventListener("pointerdown", function(e){
+      if (e.button !== 0 || e.target.closest("a,button,input,textarea,select,iframe,.aph,.lightbox,.reel")) return;
+      drawing = true; last = {x:e.clientX, y:e.clientY}; lastInk = performance.now();
+      document.documentElement.classList.add("drawing");
+      blot(last.x, last.y); startFade();
+    });
+    addEventListener("pointermove", function(e){
+      if (!drawing) return;
+      var p = {x:e.clientX, y:e.clientY};
+      var d = Math.hypot(p.x-last.x, p.y-last.y), n = Math.min(12, Math.ceil(d/8));
+      for (var i = 0; i < n; i++) { var t = i/n; blot(last.x+(p.x-last.x)*t, last.y+(p.y-last.y)*t); }
+      last = p; lastInk = performance.now();
+    });
+    addEventListener("pointerup", stop);
+    addEventListener("pointercancel", stop);
+    addEventListener("blur", stop);
   }
 
   /* ── الأزرار المغناطيسية ── */
