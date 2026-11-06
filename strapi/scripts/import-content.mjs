@@ -102,3 +102,20 @@ for (const a of ACT) {
   console.log(`نشاط + (${made}) ${a.t} — ${ids.length} صورة`);
 }
 console.log(`\nتم: ${made} نشاطاً جديداً، و ${skipped} موجود مسبقاً.`);
+
+/* الأخبار */
+let nMade = 0, nSkipped = 0;
+for (const n of NEWS) {
+  const found = await api('GET', `/api/news-items?filters[legacyId][$eq]=${n.id}`);
+  if (found.data.length) { nSkipped++; continue; }
+  const ids = [];
+  for (const f of n.img) ids.push(await upload(imgFile(f)));
+  const data = { title: n.t, date: n.date, kind: n.kind, entity: n.entity || null, legacyId: n.id, body: blocks(n.p) };
+  if (n.sum) data.summary = n.sum;
+  if (n.proj && projDoc[n.proj]) data.project = { connect: [projDoc[n.proj]] };
+  if (ids.length) { data.cover = ids[0]; data.gallery = ids.slice(1); }
+  await api('POST', '/api/news-items?status=published', { data });
+  nMade++;
+  console.log(`خبر + (${nMade}) ${n.t} — ${ids.length} صورة`);
+}
+console.log(`الأخبار: ${nMade} جديد، و ${nSkipped} موجود مسبقاً.`);

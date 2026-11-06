@@ -49,6 +49,9 @@ main,header,footer{position:relative;z-index:2}
 
 /* ── الحبر ── */
 .ink,.ink-in,.ink-cycle{-webkit-mask:url("img/ink-mask.png") 0 0/220px 220px repeat;mask:url("img/ink-mask.png") 0 0/220px 220px repeat}
+:is(h1,h2,h3).ink,:is(h1,h2,h3) .ink,:is(h1,h2,h3) .ink-in,:is(h1,h2,h3).ink-in{
+  -webkit-mask:url("img/ink-mask.png") 0 0/220px 220px repeat,linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));-webkit-mask-composite:source-over;
+  mask:url("img/ink-mask.png") 0 0/220px 220px repeat,linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));mask-composite:add}
 .ink-in.live{filter:url(#inkIn)}
 .ink-cycle.live{filter:url(#inkCycle)}
 .thuluth{font-family:var(--f-thuluth);font-weight:700;color:var(--teal);line-height:1.2}
@@ -135,3 +138,26 @@ nav a[aria-current="page"]::after{width:100%}
 
 /* الفيروزي للنصوص الكبيرة (عناوين الرقعة): أغمق قليلاً ليبلغ تباين 3:1 على الورق */
 .thuluth,.eyebrow{color:var(--teal-text)}
+
+/* ── مسار «أنت هنا» ── */
+.trail{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:14px;font-weight:600;color:var(--ink-soft);margin-bottom:22px}
+.trail a,.trail span{display:inline-flex;align-items:center;min-height:32px}
+.trail a:hover{color:var(--teal-ink)}
+.trail i{width:22px;height:1.5px;background:var(--edge);display:inline-block}
+.trail [aria-current]{color:var(--ink-deep);font-weight:800}
+.trail [aria-current]::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);margin-left:8px}
+
+/* ── الفصل التالي ── */
+.next-ch{display:block;position:relative;margin:0 var(--pad) 60px;padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px);border-top:5px double var(--ink-deep);border-bottom:1.5px dashed var(--edge);transition:background .3s}
+.next-ch:hover{background:rgba(8,80,120,.04)}
+.next-ch small{font-family:var(--f-thuluth);color:var(--teal-text);font-size:22px}
+.next-ch b{display:block;font-family:var(--f-display);font-weight:900;font-size:clamp(32px,4.4vw,64px);line-height:1.2;color:var(--ink-deep);margin:4px 0 8px}
+.next-ch span{display:block;color:var(--ink-soft);max-width:34em}
+.next-ch em{position:absolute;left:clamp(24px,4vw,56px);top:50%;margin-top:-28px;width:56px;height:56px;border-radius:50%;background:var(--ink-deep);color:var(--paper);display:grid;place-items:center;font-style:normal;transition:transform .4s}
+.next-ch:hover em{transform:translateX(-8px)}
+@media (max-width:560px){.next-ch em{position:static;margin-top:16px}}
+
+/* ── أهداف لمس مريحة ── */
+.chip{min-height:44px}
+footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+nav a.nl{padding:10px 0}

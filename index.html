@@ -70,6 +70,10 @@ main,header,footer{position:relative;z-index:2}
 
 /* ── الحبر ── */
 .ink,.ink-in,.ink-cycle{-webkit-mask:url("img/ink-mask.png") 0 0/220px 220px repeat;mask:url("img/ink-mask.png") 0 0/220px 220px repeat}
+/* العناوين الكبيرة: نصف الحبيبات فقط، طبقة صلبة 50% تحت قناع الحبر */
+:is(h1,h2,h3).ink,:is(h1,h2,h3) .ink,:is(h1,h2,h3) .ink-in,:is(h1,h2,h3).ink-in,:is(h1,h2,h3) .ink-cycle{
+  -webkit-mask:url("img/ink-mask.png") 0 0/220px 220px repeat,linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));-webkit-mask-composite:source-over;
+  mask:url("img/ink-mask.png") 0 0/220px 220px repeat,linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));mask-composite:add}
 .ink-in.live{filter:url(#inkIn)}
 .ink-cycle.live{filter:url(#inkCycle)}
 .thuluth{font-family:var(--f-thuluth);font-weight:700;color:var(--teal);line-height:1.2}
@@ -137,7 +141,9 @@ body.on-photo .brand,body.on-photo nav{background:rgba(243,238,228,.82);border-r
 
 /* ── ٢. بطاقات الصور المتراكمة ── */
 .deck{position:relative}
-.scard{position:sticky;top:0;height:100svh}
+.scard{position:sticky;top:0;height:100svh;margin-bottom:35vh}
+.scard:last-child{margin-bottom:0}
+@media (max-width:900px){.scard{margin-bottom:20vh}}
 .scard .in{position:absolute;inset:0;background:var(--ink-deep);overflow:hidden;box-shadow:0 -40px 80px -10px rgba(4,24,36,.7),0 -10px 24px -6px rgba(4,24,36,.45)}
 .scard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
 .scard .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,47,71,.85) 0%,rgba(6,47,71,.35) 40%,transparent 64%),linear-gradient(to left,rgba(6,47,71,.35),transparent 50%)}
@@ -180,12 +186,21 @@ body.on-photo .brand,body.on-photo nav{background:rgba(243,238,228,.82);border-r
 .st.on{opacity:1;transform:none}
 .st h2{font-size:clamp(38px,5vw,76px);line-height:1.15;color:var(--ink-deep);font-weight:900;margin-bottom:22px}
 .st p{max-width:30em}
-.net{width:100%;max-width:520px;margin-inline:auto}
-.net .node circle.c{fill:var(--paper);stroke:var(--ink);stroke-width:2.2}
-.net .node .fill{fill:var(--teal)}
-.net text{font-family:var(--f-thuluth);font-size:24px;fill:var(--ink-deep);text-anchor:middle}
-.net path.link{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
-.net .heart{fill:var(--teal);opacity:0}
+.weave{width:100%;max-width:500px;margin-inline:auto;overflow:visible}
+.weave path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.weave .voices path{stroke:var(--ink);stroke-width:2.4}
+.weave .voices path.t{stroke:var(--teal)}
+.weave .strand{stroke:var(--ink);stroke-width:2.6}
+.weave .sb{stroke:var(--teal)}
+.weave .echo{stroke-width:1.3;opacity:.45}
+.weave .knot{stroke:var(--ink-deep);stroke-width:3}
+.weave .wseal{color:var(--teal-ink,#00697A)}
+.weave .wseal .r1{fill:rgba(251,248,242,.92);stroke:currentColor;stroke-width:3}
+.weave .wseal .r2{fill:none;stroke:currentColor;stroke-width:1.4;stroke-dasharray:2 4}
+.weave .wseal .mk circle{fill:none;stroke:currentColor;stroke-width:3}
+.weave .wseal .dt{fill:currentColor}
+.weave .wl{font-family:var(--f-thuluth);font-size:22px;fill:var(--ink-soft);text-anchor:middle;opacity:.35;transition:opacity .5s,fill .5s}
+.weave .wl.on{opacity:1;fill:var(--ink-deep)}
 
 /* ── ٥. الفيديو ── */
 .film{position:relative;height:340vh}
@@ -229,16 +244,29 @@ body.on-photo .brand,body.on-photo nav{background:rgba(243,238,228,.82);border-r
 .card{position:relative;padding:28px 26px 30px}
 .card::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 12px 26px -18px rgba(6,47,71,.45)}
 .card .n{font-family:var(--f-thuluth);font-size:24px;color:var(--teal)}
-.card svg{width:70px;height:70px;margin:12px 0 16px}
+.card svg.draw{display:block;width:100%;max-width:260px;height:auto;margin:14px 0 18px}
+.draw path{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.draw path.t{stroke:var(--teal)}
+.draw path.e{stroke-width:1.2;opacity:.5}
+.draw .dot{fill:var(--teal)}
+.draw .ring{fill:none;stroke:var(--teal);stroke-width:2;stroke-dasharray:3 4}
 .card h3{font-size:30px;line-height:1.3;color:var(--ink-deep);font-weight:900;margin-bottom:8px}
 .card p{font-size:16.5px;color:var(--ink-soft);line-height:1.8}
 .goal{padding:20px var(--pad) 140px}
-.steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px;text-align:center}
-.steps .line{position:absolute;top:44px;right:16%;left:16%;height:2px;background:repeating-linear-gradient(to left,var(--ink-soft) 0 8px,transparent 8px 16px);transform-origin:right}
-.steps .s{position:relative}
-.steps .dotc{width:88px;height:88px;margin:0 auto 18px;border-radius:50%;border:2.2px solid var(--ink);background:var(--paper);display:grid;place-items:center;font-family:var(--f-thuluth);font-size:30px;color:var(--teal)}
-.steps .s:last-child .dotc{background:var(--ink-deep);color:var(--paper);border-color:var(--ink-deep)}
-.steps h3{font-size:clamp(24px,2.4vw,34px);color:var(--ink-deep);font-weight:900}
+.path{margin-top:50px}
+.pathsvg{display:block;width:100%;height:auto;overflow:visible}
+.pathsvg path{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pathsvg .sig{stroke:var(--ink-deep);stroke-width:2.8}
+.pathsvg .fan path{stroke-width:1.8}
+.pathsvg .fan path.t{stroke:var(--teal)}
+.pathsvg .node{fill:var(--paper);stroke:var(--ink);stroke-width:2.4}
+.pathsvg .here circle{fill:none;stroke:var(--teal);stroke-width:2;stroke-dasharray:4 5}
+.pathsvg .here text{font-family:var(--f-thuluth);font-size:26px;fill:#00697A;text-anchor:middle}
+.path-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:22px}
+.ps .tag{display:inline-block;font-size:13px;font-weight:700;color:var(--ink-soft);border:1.5px solid var(--edge);border-radius:99px;padding:3px 12px 4px}
+.ps.on .tag{background:var(--ink-deep);border-color:var(--ink-deep);color:var(--paper)}
+.ps h3{font-size:clamp(24px,2.4vw,34px);color:var(--ink-deep);font-weight:900;margin:10px 0 6px}
+.ps p{font-size:16px;color:var(--ink-soft);max-width:22em}
 .goal .note{margin-top:46px;max-width:40em;font-size:clamp(17px,1.15vw + 8px,20px)}
 
 /* ── ٧. كلمة الرئيس ── */
@@ -332,12 +360,11 @@ footer a:hover{color:var(--teal)}
   .stage{height:380px;order:2}
   .dialog{gap:20px}
   .dialog .viz{order:-1}
-  .net{max-width:340px}
+  .weave{max-width:330px}
   .stages{min-height:300px}
   .collage{height:380px}
   .cards{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr;gap:34px}
-  .steps .line{display:none}
+  .path-steps{grid-template-columns:1fr;gap:22px}
   .word .portrait{position:relative;top:0;max-width:420px}
   .word .portrait .scrap{height:420px}
   .seals{grid-template-columns:1fr 1fr}
@@ -368,6 +395,15 @@ footer a:hover{color:var(--teal)}
 .rm .sign .name{clip-path:none}
 .rm .sign .seal{opacity:1}
 :focus-visible{outline:2.5px solid var(--teal);outline-offset:4px;border-radius:6px}
+.next-ch{display:block;position:relative;z-index:2;margin:0 var(--pad) 60px;padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px);border-top:5px double var(--ink-deep);border-bottom:1.5px dashed var(--edge);transition:background .3s}
+.next-ch:hover{background:rgba(8,80,120,.04)}
+.next-ch small{font-family:var(--f-thuluth);color:#00849A;font-size:22px}
+.next-ch b{display:block;font-family:var(--f-display);font-weight:900;font-size:clamp(32px,4.4vw,64px);line-height:1.2;color:var(--ink-deep);margin:4px 0 8px}
+.next-ch span{display:block;color:var(--ink-soft);max-width:34em}
+.next-ch em{position:absolute;left:clamp(24px,4vw,56px);top:50%;margin-top:-28px;width:56px;height:56px;border-radius:50%;background:var(--ink-deep);color:var(--paper);display:grid;place-items:center;font-style:normal;transition:transform .4s}
+.next-ch:hover em{transform:translateX(-8px)}
+@media (max-width:560px){.next-ch em{position:static;margin-top:16px}}
+footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
 </style>
 </head>
 <body>
@@ -491,14 +527,21 @@ footer a:hover{color:var(--teal)}
       </div>
     </div>
     <div class="viz" aria-hidden="true">
-      <svg class="net ink" viewBox="0 -24 400 404">
-        <path class="link l1" d="M200 80 C 120 120, 90 190, 95 270"/>
-        <path class="link l2" d="M110 290 C 170 330, 240 330, 292 290"/>
-        <path class="link l3" d="M305 270 C 310 190, 280 120, 205 80"/>
-        <circle class="heart" cx="200" cy="215" r="34"/>
-        <g class="node n1"><circle class="c" cx="200" cy="64" r="34"/><circle class="fill" cx="200" cy="64" r="22"/><text x="200" y="12">نصغي</text></g>
-        <g class="node n2"><circle class="c" cx="95" cy="290" r="34"/><circle class="fill" cx="95" cy="290" r="22"/><text x="95" y="362">نتحاور</text></g>
-        <g class="node n3"><circle class="c" cx="305" cy="290" r="34"/><circle class="fill" cx="305" cy="290" r="22"/><text x="305" y="362">نقرر</text></g>
+      <svg class="weave" viewBox="0 0 400 420">
+        <g class="voices"></g>
+        <path class="strand sa" d="M58 172 C 122 164, 142 236, 200 242 S 264 306, 200 330"/>
+        <path class="strand sb" d="M342 172 C 278 164, 258 236, 200 242 S 136 306, 200 330"/>
+        <path class="strand echo" d="M62 180 C 124 172, 146 240, 202 248 S 260 304, 202 326"/>
+        <path class="strand echo sb" d="M338 180 C 276 172, 254 240, 198 248 S 140 304, 198 326"/>
+        <path class="knot" d="M200 330 c -24 -6 -30 24 -8 27 c 22 3 30 -27 8 -27"/>
+        <g class="wseal">
+          <circle cx="200" cy="340" r="44" class="r1"/><circle cx="200" cy="340" r="33" class="r2"/>
+          <g class="mk"><circle cx="191" cy="331" r="7"/><circle cx="209" cy="349" r="7"/></g>
+          <circle cx="209" cy="331" r="5" class="dt"/><circle cx="191" cy="349" r="5" class="dt d2"/>
+        </g>
+        <text class="wl w1" x="200" y="34">نصغي</text>
+        <text class="wl w2" x="200" y="214">نتحاور</text>
+        <text class="wl w3" x="200" y="410">نقرر</text>
       </svg>
     </div>
   </section>
@@ -546,25 +589,47 @@ footer a:hover{color:var(--teal)}
     <h2 id="commit-t" class="ink rv">ثلاثة التزامات تضبط عملنا.</h2>
     <div class="cards">
       <article class="card"><span class="n">1</span>
-        <svg viewBox="0 0 80 80" class="ink" aria-hidden="true"><rect x="18" y="12" width="44" height="56" rx="3" fill="#fbf8f2" stroke="#085078" stroke-width="2.4"/><path d="M27 30h26M27 40h26M27 50h14" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/><path d="m50 52 6 6 10-14" fill="none" stroke="#008EA5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="draw" viewBox="0 0 240 110" aria-hidden="true"><g>
+<path d="M222 22 q6 4 2 11"/><path d="M200 16 q8 -2 10 6"/><path d="M214 48 q-7 3 -12 -2"/><path d="M188 38 q2 7 -4 11"/><path d="M226 72 q-5 5 -11 2"/><path d="M196 66 q7 1 9 8"/><path d="M176 84 q5 -5 11 -3"/>
+<path d="M150 30 C 124 27, 96 33, 40 30"/><path d="M150 55 C 120 52, 92 58, 58 55"/><path d="M150 80 C 128 78, 104 83, 80 80"/>
+</g><circle class="dot" cx="30" cy="30" r="6"/></svg>
         <h3>صياغة الأولويات</h3><p>نبلور من حواراتنا الميدانية رؤية مجتمعية للتحديات، ونحدد أولويات الحكومة القادمة.</p></article>
       <article class="card"><span class="n">2</span>
-        <svg viewBox="0 0 80 80" class="ink" aria-hidden="true"><path d="M14 46V34l34-14v40L14 46z" fill="#fbf8f2" stroke="#085078" stroke-width="2.4" stroke-linejoin="round"/><path d="M22 48l4 16h8l-3-14" fill="none" stroke="#085078" stroke-width="2.4" stroke-linejoin="round"/><path d="M58 30c4 3 4 17 0 20M64 24c8 6 8 26 0 32" fill="none" stroke="#008EA5" stroke-width="3" stroke-linecap="round"/></svg>
+        <svg class="draw" viewBox="0 0 240 110" aria-hidden="true"><g>
+<path d="M226 96 C 176 96, 150 86, 118 64 S 64 22, 30 18"/>
+<path class="e" d="M226 104 C 172 104, 144 94, 112 72 S 60 32, 34 28"/>
+<path class="e" d="M220 88 C 180 88, 156 78, 126 58 S 76 18, 42 10"/>
+</g><circle class="dot" cx="26" cy="18" r="7"/></svg>
         <h3>المناصرة والتأثير</h3><p>حملات ضغط مدروسة على الأجسام التشريعية والتنفيذية، لتبقى قضايا الشباب في صدارة القرار.</p></article>
       <article class="card"><span class="n">3</span>
-        <svg viewBox="0 0 80 80" class="ink" aria-hidden="true"><rect x="20" y="30" width="40" height="36" rx="3" fill="#fbf8f2" stroke="#085078" stroke-width="2.4"/><path d="M30 30V20h20v10" fill="none" stroke="#085078" stroke-width="2.4"/><path d="M34 20l6-8 6 8" fill="#008EA5"/><path d="M28 44h24" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <svg class="draw" viewBox="0 0 240 110" aria-hidden="true"><g>
+<path d="M232 8 C 170 14, 110 40, 52 55"/><path d="M234 30 C 170 34, 116 48, 52 55"/><path d="M236 55 C 170 56, 110 55, 52 55"/><path d="M234 80 C 170 76, 116 62, 52 55"/><path d="M232 102 C 170 96, 110 70, 52 55"/>
+<path class="t" d="M210 20 C 160 30, 110 46, 52 55"/><path class="t" d="M210 92 C 160 82, 110 64, 52 55"/>
+</g><circle class="ring" cx="40" cy="55" r="15"/><circle class="dot" cx="40" cy="55" r="6"/></svg>
         <h3>الحشد الانتخابي</h3><p>نوحّد الصفوف في حملة وطنية شاملة تدعم مشاركة الشباب الفاعلة في العملية الانتخابية.</p></article>
     </div>
   </section>
 
-  <section class="goal" aria-labelledby="goal-t">
+  <section class="goal" id="goal" aria-labelledby="goal-t">
     <p class="eyebrow">إلى أين؟</p>
     <h2 id="goal-t" class="ink rv">من الحوارات المجتمعية إلى حركة سياسية شبابية.</h2>
-    <div class="steps">
-      <i class="line" aria-hidden="true"></i>
-      <div class="s"><div class="dotc">1</div><h3>ميثاق</h3></div>
-      <div class="s"><div class="dotc">2</div><h3>مشروع سياسي جامع</h3></div>
-      <div class="s"><div class="dotc">3</div><h3>حركة سياسية شبابية</h3></div>
+    <div class="path">
+      <svg class="pathsvg" viewBox="0 0 1000 230" aria-hidden="true">
+        <path class="sig" d="M968 116 c -14 -34 -46 -30 -40 -4 c 5 20 34 18 30 -6 c -4 -22 -40 -26 -52 2 c -9 22 12 34 26 18 c 10 -12 -8 -26 -26 -16 C 880 118, 830 116, 760 116"/>
+        <path class="one" d="M760 116 C 680 116, 600 114, 520 116 S 440 118, 420 116"/>
+        <g class="fan">
+          <path d="M420 116 C 330 116, 220 40, 40 26"/><path d="M420 116 C 320 116, 220 74, 40 66"/><path d="M420 116 C 320 116, 220 108, 40 106"/>
+          <path d="M420 116 C 320 116, 220 140, 40 146"/><path d="M420 116 C 330 116, 220 190, 40 192"/>
+          <path class="t" d="M420 116 C 330 116, 220 56, 40 46"/><path class="t" d="M420 116 C 330 116, 220 168, 40 170"/>
+        </g>
+        <circle class="node" cx="590" cy="115" r="9"/>
+        <g class="here"><circle cx="905" cy="116" r="30"/><text x="905" y="64">نحن هنا</text></g>
+      </svg>
+      <div class="path-steps">
+        <div class="ps on"><span class="tag">نصوغه الآن</span><h3>ميثاق</h3><p>نكتبه من جلسات الحوار مع الشباب والنساء ومختلف المكونات في أنحاء ليبيا.</p></div>
+        <div class="ps"><span class="tag">ينبثق من الميثاق</span><h3>مشروع سياسي جامع</h3><p>يجمع ما اتفقنا عليه في رؤية وطنية واحدة يحملها الشباب.</p></div>
+        <div class="ps"><span class="tag">الوجهة</span><h3>حركة سياسية شبابية</h3><p>يقودها الشباب أنفسهم، ويشاركون بها في القرار.</p></div>
+      </div>
     </div>
     <p class="note rv">نصوغ ميثاقاً ومشروعاً سياسياً شبابياً منبثقاً من جلسات الحوار مع النساء والشباب ومختلف المكونات في أنحاء ليبيا، يمهّد لحركة تقودها الكفاءات الشابة في الاستحقاق الانتخابي القادم، وتدعم المصالحة الوطنية.</p>
   </section>
@@ -659,6 +724,8 @@ footer a:hover{color:var(--teal)}
     </div>
   </section>
 </main>
+
+<a class="next-ch" href="activities.html"><small>الفصل التالي</small><b>ما نفعله في الميدان</b><span>المشاركات والأنشطة: جلسات حوارية وتدريبات في المدن والقرى والواحات، صورةً صورة.</span><em aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a>
 
 <footer>
   <span>© منتدى حوار الشباب، ليبيا 2026</span>
@@ -855,18 +922,41 @@ footer a:hover{color:var(--teal)}
     });
   }
 
+  /* أصوات متفرقة: خطوط حبر قصيرة ثابتة التوزيع */
+  (function(){
+    var g = document.querySelector(".weave .voices"), seed = 11, out = "";
+    function rnd(){ seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    for (var i = 0; i < 26; i++) {
+      var x = 46 + rnd()*308, y = 56 + rnd()*104, a = (rnd()*2-1)*1.1, L = 16 + rnd()*16, c = (rnd()*2-1)*9;
+      var ex = Math.cos(a)*L, ey = Math.sin(a)*L;
+      out += '<path class="' + (rnd() > .72 ? 't' : '') + '" data-side="' + (x < 200 ? 'l' : 'r') + '" d="M' + x.toFixed(1) + ' ' + y.toFixed(1) + ' q' + (ex/2 - ey*c/L).toFixed(1) + ' ' + (ey/2 + ex*c/L).toFixed(1) + ' ' + ex.toFixed(1) + ' ' + ey.toFixed(1) + '"/>';
+    }
+    g.innerHTML = out;
+  })();
+  var wl = [].slice.call(document.querySelectorAll(".weave .wl"));
   var stepsEl = [].slice.call(document.querySelectorAll(".st")), stepN = document.getElementById("stepN");
-  function setStep(i){ stepsEl.forEach(function(s, j){ s.classList.toggle("on", j === i); }); stepN.textContent = i + 1; }
+  function setStep(i){ stepsEl.forEach(function(s, j){ s.classList.toggle("on", j === i); }); wl.forEach(function(w, j){ w.classList.toggle("on", j === i); }); stepN.textContent = i + 1; }
+  wl[0].classList.add("on");
 
   if (reduce || !window.gsap) {
     document.documentElement.classList.add("rm");
     document.querySelectorAll("[data-to]").forEach(function(b){ b.textContent = (+b.dataset.to).toLocaleString("en-US") + "+"; });
-    document.querySelector(".heart").style.opacity = ".9";
     document.querySelectorAll(".mark-ink").forEach(function(m){ m.style.backgroundSize = "100% 100%"; });
     reel.classList.add("ready");
     return;
   }
   gsap.registerPlugin(ScrollTrigger);
+  /* ── دخول وخروج ناعمان لكل قسم يتثبّت ──
+     قبل التثبيت بمسافة 2D يتباطأ المحتوى تدريجياً حتى يقف (إزاحة تتراكم حتى D)،
+     وقبل فكّه بمسافة 2D يتسارع تدريجياً حتى يلحق بسرعة التمرير. D = 10% من ارتفاع الشاشة */
+  function soften(targets, stickAt, unstickAt){
+    var D = function(){ return Math.round(innerHeight * .1); };
+    gsap.fromTo(targets, {y:0}, {y:function(){ return D(); }, ease:"power2.in", immediateRender:false,
+      scrollTrigger:{start:function(){ return stickAt() - 2*D(); }, end:function(){ return stickAt(); }, scrub:true, invalidateOnRefresh:true}});
+    gsap.fromTo(targets, {y:function(){ return D(); }}, {y:0, ease:"power2.in", immediateRender:false,
+      scrollTrigger:{start:function(){ return unstickAt() - 2*D(); }, end:function(){ return unstickAt(); }, scrub:true, invalidateOnRefresh:true}});
+  }
+  function absTop(el){ return el.getBoundingClientRect().top + scrollY; }
 
   /* ── تمرير ناعم ── */
   if (window.Lenis && !mobile) {
@@ -928,16 +1018,26 @@ footer a:hover{color:var(--teal)}
   /* ── ٤ب. الدوائر ── */
   var mm = gsap.matchMedia();
   mm.add({desk:"(min-width: 901px)", mob:"(max-width: 900px)"}, function(ctx){
-    gsap.set(".net .fill", {scale:0, transformOrigin:"50% 50%"}); gsap.set(".heart", {scale:.5, transformOrigin:"50% 50%"});
-    gsap.utils.toArray(".net .link").forEach(function(p){ var L = p.getTotalLength(); gsap.set(p, {strokeDasharray:L, strokeDashoffset:L}); });
-    gsap.timeline({defaults:{ease:"none"}, scrollTrigger:{
-      trigger:".dialog", start:"top top", end: ctx.conditions.desk ? "+=220%" : "+=180%", pin:true, scrub:.6,
+    var voices = gsap.utils.toArray(".weave .voices path");
+    voices.concat(gsap.utils.toArray(".weave .strand, .weave .knot")).forEach(function(p){ var L = p.getTotalLength(); gsap.set(p, {strokeDasharray:L, strokeDashoffset:L}); });
+    gsap.set(".wseal", {opacity:0, scale:1.9, rotation:-38, svgOrigin:"200 340"});
+    var tl = gsap.timeline({defaults:{ease:"power2.inOut"}, scrollTrigger:{
+      trigger:".dialog", start:"top top", end: ctx.conditions.desk ? "+=240%" : "+=190%", pin:true, scrub:.6,
       onUpdate:function(s){ setStep(Math.min(2, Math.floor(s.progress*3*0.999))); }
     }})
-      .to(".n1 .fill", {scale:1, duration:.3}).to(".l1", {strokeDashoffset:0, duration:.7})
-      .to(".n2 .fill", {scale:1, duration:.3}).to(".l2", {strokeDashoffset:0, duration:.7})
-      .to(".n3 .fill", {scale:1, duration:.3}).to(".l3", {strokeDashoffset:0, duration:.7})
-      .to(".heart", {opacity:.9, scale:1.15, duration:.5}).to({}, {duration:.3});
+      /* ١. نصغي: أصوات متفرقة تظهر */
+      .to(voices, {strokeDashoffset:0, duration:.5, stagger:{each:.03, from:"random"}})
+      .to({}, {duration:.25})
+      /* ٢. نتحاور: الأصوات تتجمع نحو طرفين، ومنهما يولد خيطان متشابكان */
+      .to(voices, {x:function(i, el){ return ((el.dataset.side === "l" ? 58 : 342) - el.getBBox().x) * .85; }, y:function(i, el){ return (172 - el.getBBox().y) * .85; }, opacity:.12, duration:.7, stagger:{each:.012, from:"random"}})
+      .to(".weave .strand", {strokeDashoffset:0, duration:.8, stagger:.08}, "<.25")
+      .to({}, {duration:.2})
+      /* ٣. نقرر: الخيطان ينعقدان، ويختم الختم */
+      .to(voices, {opacity:0, duration:.3})
+      .to(".weave .knot", {strokeDashoffset:0, duration:.35}, "<")
+      .to(".wseal", {opacity:1, scale:1, rotation:-8, duration:.45, ease:"back.out(1.4)"})
+      .to({}, {duration:.3});
+    soften(".dialog > *", function(){ return tl.scrollTrigger.start; }, function(){ return tl.scrollTrigger.end; });
   });
 
   /* ── ٥. الفيديو: قصاصة تكبر حتى ملء الشاشة ثم تعود ── */
@@ -951,7 +1051,9 @@ footer a:hover{color:var(--teal)}
     .to(reel, {opacity:0, scale:.3, duration:.1});
 
   /* ── ٦. من نحن ── */
-  gsap.timeline({scrollTrigger:{trigger:".shift", start:"top top", end:"+=120%", pin:true, scrub:.6}})
+  var shiftTl = gsap.timeline({scrollTrigger:{trigger:".shift", start:"top top", end:"+=120%", pin:true, scrub:.6}});
+  soften(".shift > *", function(){ return shiftTl.scrollTrigger.start; }, function(){ return shiftTl.scrollTrigger.end; });
+  shiftTl
     .from(".shift .from", {opacity:0, y:30, duration:.3})
     .to(".shift .strike", {scaleX:1, duration:.35}, ">.1")
     .to(".shift .from", {opacity:.45, duration:.2}, "<")
@@ -960,8 +1062,29 @@ footer a:hover{color:var(--teal)}
   gsap.from(".origin .yr", {opacity:0, scale:.8, duration:1.4, ease:"power3.out", scrollTrigger:{trigger:".origin", start:"top 75%"}});
   gsap.from(".origin .pics .scrap", {opacity:0, y:60, rotate:"+=12", duration:1.2, stagger:.2, ease:"power3.out", scrollTrigger:{trigger:".origin .pics", start:"top 85%"}});
   gsap.from(".commit .card", {opacity:0, y:50, rotate:function(i){ return i%2 ? 3 : -3; }, duration:1.1, stagger:.14, ease:"power3.out", scrollTrigger:{trigger:".commit .cards", start:"top 80%"}});
-  gsap.from(".steps .line", {scaleX:0, duration:1.6, ease:"power2.inOut", scrollTrigger:{trigger:".steps", start:"top 80%"}});
-  gsap.from(".steps .s", {opacity:0, y:30, scale:.9, duration:.9, stagger:.35, ease:"back.out(1.6)", scrollTrigger:{trigger:".steps", start:"top 80%"}});
+  /* خطوط الحبر تُرسم: رسومات الالتزامات، ومسار الميثاق إلى الحركة */
+  function drawIn(paths){ paths.forEach(function(p){ var L = p.getTotalLength(); gsap.set(p, {strokeDasharray:L, strokeDashoffset:L}); }); }
+  gsap.utils.toArray(".commit .card").forEach(function(c){
+    var ps = gsap.utils.toArray(c.querySelectorAll(".draw path")); drawIn(ps);
+    gsap.timeline({scrollTrigger:{trigger:c, start:"top 78%"}})
+      .to(ps, {strokeDashoffset:0, duration:1.1, stagger:.06, ease:"power2.inOut"}, .3)
+      .from(c.querySelectorAll(".draw .dot, .draw .ring"), {scale:0, transformOrigin:"50% 50%", duration:.6, ease:"back.out(2)"}, "-=.3");
+  });
+  var pathParts = gsap.utils.toArray(".pathsvg .sig, .pathsvg .one, .pathsvg .fan path"); drawIn(pathParts);
+  gsap.set(".pathsvg .here, .pathsvg .node", {opacity:0});
+  gsap.timeline({defaults:{ease:"power2.inOut"}, scrollTrigger:{trigger:".path", start:"top 82%", end:"bottom 55%", scrub:.6}})
+    .to(".pathsvg .sig", {strokeDashoffset:0, duration:.35})
+    .to(".pathsvg .here", {opacity:1, duration:.1})
+    .to(".pathsvg .one", {strokeDashoffset:0, duration:.25})
+    .to(".pathsvg .node", {opacity:1, duration:.08})
+    .to(".pathsvg .fan path", {strokeDashoffset:0, duration:.35, stagger:.02});
+  gsap.from(".ps", {opacity:0, y:24, duration:.9, stagger:.15, ease:"power3.out", scrollTrigger:{trigger:".path-steps", start:"top 88%"}});
+
+  /* الأقسام اللاصقة (CSS sticky): تُنشأ بعد كل التثبيتات حتى تُحسب مواضعها بعد مسافاتها */
+  [[".film", ".film-sticky"], [".archive", ".arch-sticky"]].forEach(function(p){
+    var box = document.querySelector(p[0]), st = document.querySelector(p[1]);
+    soften(st, function(){ return absTop(box); }, function(){ return absTop(box) + box.offsetHeight - innerHeight; });
+  });
 
   /* ── ٧. الرسالة: السطور تُكتب بالحبر ── */
   gsap.from(".letter", {opacity:0, y:80, rotate:2, duration:1.3, ease:"power3.out", scrollTrigger:{trigger:".letter", start:"top 85%"}});

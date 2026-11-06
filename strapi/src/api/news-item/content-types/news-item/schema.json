@@ -38,6 +38,14 @@
     "entity": {
       "type": "string"
     },
+    "summary": {
+      "type": "text"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project"
+    },
     "body": {
       "type": "blocks"
     },

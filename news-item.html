@@ -27,6 +27,7 @@
 .kind{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--teal-ink);font-size:15px}
 .kind .st{background:var(--ink-deep);color:var(--paper);padding:5px 12px 6px;border-radius:4px;line-height:1.4}
 .art h1{font-size:clamp(32px,4.4vw,64px);line-height:1.28;color:var(--ink-deep);font-weight:900;margin:14px 0 18px;max-width:20em}
+.lead-sum{font-family:var(--f-display);font-weight:500;font-size:clamp(19px,1.3vw + 8px,24px);line-height:1.75;color:var(--ink-deep);border-right:3px solid var(--teal);padding-right:16px;margin:-4px 0 20px;max-width:36em}
 .byline{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;font-size:15px;color:var(--ink-soft);font-weight:500}
 .byline i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-left:8px;vertical-align:middle}
 .print{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1.5px solid var(--ink);border-radius:99px;font-size:14px;font-weight:700;color:var(--ink-deep)}
@@ -139,6 +140,7 @@ YDF.load("news").then(function(D){
       '<div class="art-head">' + (isSt ? SEAL : '') +
         '<p class="kind">' + (isSt ? '<span class="st">' + K.statement + '</span>' : (K[P.kind] || '')) + (P.entity ? ' · ' + Y.esc(P.entity) : '') + '</p>' +
         '<h1 class="ink-in">' + Y.esc(P.t) + '</h1>' +
+        (P.sum ? '<p class="lead-sum">' + Y.esc(P.sum) + '</p>' : '') +
         '<div class="byline"><span><i></i><time datetime="' + P.date + '">' + Y.date(P.date) + '</time></span><span><i></i>منتدى حوار الشباب</span>' +
           (isSt ? '<button class="print" type="button" id="print">طباعة البيان أو حفظه PDF</button>' : '') + '</div>' +
       '</div></div>' +

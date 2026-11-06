@@ -16,7 +16,7 @@
   Y.esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
   /* عدد + معدود: 1 واحد، 2 مثنى، 3–10 جمع، 11+ مفرد منصوب (many) */
   Y.n = function(n, many, few){
-    var one = many.replace(/اً$/, "");
+    var one = many.replace(/اً$/, "").replace(/ً$/, "");
     if (n === 1) return one + " واحد" + (/ة$/.test(one) ? "ة" : "");
     if (n === 2) return (/ة$/.test(one) ? one.replace(/ة$/, "تان") : one + "ان");
     return n + " " + (n % 100 >= 3 && n % 100 <= 10 ? few : many);
@@ -94,15 +94,15 @@
       },
       count: function(d){ return d.activities.length; }
     },
-    /* الأخبار: {id, date, t, kind, entity, img, p} */
+    /* الأخبار: {id, date, t, kind, entity, sum, proj, img, p} */
     news: {
       route: "/api/news-items",
-      populate: ["cover","gallery"],
+      populate: ["cover","gallery","project"],
       local: function(){ return {news:(window.NEWS || []).slice()}; },
       map: function(json, base){
         var pic = picker(base);
         return {news:(json.data || []).map(function(n){
-          return {id: idOf(n), date: n.date, t: n.title, kind: n.kind || "general", entity: n.entity || null, img: images(n, pic), p: blocksToParas(n.body)};
+          return {id: idOf(n), date: n.date, t: n.title, kind: n.kind || "general", entity: n.entity || null, sum: n.summary || "", proj: n.project ? n.project.key : null, img: images(n, pic), p: blocksToParas(n.body)};
         })};
       },
       count: function(d){ return d.news.length; }
@@ -171,6 +171,22 @@
       LB.list = list; LB.title = title; LB.last = document.activeElement;
       LB.show(k); LB.el.classList.add("open"); if (Y.lenis) Y.lenis.stop(); LB.el.querySelector(".lb-x").focus();
     }
+  };
+
+  /* ── مسار القصة: الرئيسية ← الأنشطة ← الأخبار ── */
+  Y.CHAPTERS = [["index.html","الرئيسية","home"],["activities.html","المشاركات والأنشطة","activities"],["news.html","الأخبار والمواقف","news"]];
+  Y.trail = function(el, page){
+    if (!el) return;
+    el.innerHTML = Y.CHAPTERS.map(function(c, i){
+      return (i ? '<i aria-hidden="true"></i>' : '') + (c[2] === page ? '<span aria-current="page">' + c[1] + '</span>' : '<a href="' + c[0] + '">' + c[1] + '</a>');
+    }).join("");
+  };
+  /* بطاقة الفصل التالي قبل التذييل */
+  Y.nextChapter = function(href, kicker, title, line){
+    var a = document.createElement("a");
+    a.className = "next-ch"; a.href = href;
+    a.innerHTML = '<small>' + kicker + '</small><b>' + title + '</b><span>' + line + '</span><em aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></em>';
+    var f = document.querySelector("footer"); f.parentNode.insertBefore(a, f);
   };
 
   /* ── الرأس والتذييل المشتركان: <header data-page="activities"></header> و <footer></footer> ── */
