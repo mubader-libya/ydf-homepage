@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>خبر | منتدى حوار الشباب</title>
+<meta name="description" content="خبر من نشرة منتدى حوار الشباب.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sub.css">
+<style>
+.art{max-width:980px;margin-inline:auto;padding:130px var(--pad) 40px}
+.back{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink-soft);margin-bottom:28px}
+.back:hover{color:var(--teal-ink)}
+.art-head{position:relative;padding-bottom:26px;border-bottom:5px double var(--ink-deep)}
+.kind{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--teal-ink);font-size:15px}
+.kind .st{background:var(--ink-deep);color:var(--paper);padding:2px 12px 3px;border-radius:4px}
+.art h1{font-size:clamp(32px,4.4vw,64px);line-height:1.28;color:var(--ink-deep);font-weight:900;margin:14px 0 18px;max-width:20em}
+.byline{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;font-size:15px;color:var(--ink-soft);font-weight:500}
+.byline i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-left:8px;vertical-align:middle}
+.print{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1.5px solid var(--ink);border-radius:99px;font-size:14px;font-weight:700;color:var(--ink-deep)}
+.print:hover{background:rgba(8,80,120,.06)}
+.seal{position:absolute;top:-40px;left:-10px;width:130px;height:130px;color:var(--teal);opacity:.85;transform:rotate(-14deg);pointer-events:none}
+.hero-ph{margin:38px auto 0;max-width:1100px;padding:0 var(--pad)}
+.hero-ph .scrap{padding:14px 14px 18px;transform:rotate(-.6deg);cursor:zoom-in}
+.hero-ph .ph{aspect-ratio:16/9;overflow:hidden}
+.hero-ph img{width:100%;height:100%;object-fit:cover}
+.body{max-width:760px;margin-inline:auto;padding:46px var(--pad) 40px}
+.body p{font-size:clamp(18px,1.1vw + 9px,21px);line-height:2;margin-bottom:1.05em}
+.body p:first-child{font-family:var(--f-display);font-weight:500;color:var(--ink-deep);font-size:clamp(21px,1.4vw + 10px,27px);line-height:1.8}
+.body.stmt p:first-child{font-family:var(--f-text);font-weight:400;color:inherit;font-size:clamp(18px,1.1vw + 9px,21px);line-height:2}
+.sign{margin-top:36px;padding-top:20px;border-top:1.5px dashed var(--edge);display:flex;align-items:center;gap:16px}
+.sign svg{width:54px;height:54px;flex:none}
+.sign b{display:block;font-family:var(--f-thuluth);font-size:26px;color:var(--ink-deep);line-height:1.3}
+.sign span{font-size:14px;color:var(--ink-soft)}
+.gal{padding:30px var(--pad) 70px;max-width:1300px;margin-inline:auto}
+.gal h2{font-size:clamp(30px,3.4vw,50px);color:var(--ink-deep);font-weight:900;margin-bottom:30px}
+.mas{columns:3 280px;column-gap:26px}
+.mas figure{break-inside:avoid;margin-bottom:26px;cursor:zoom-in;padding:9px 9px 11px;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.mas figure img{height:auto}
+.mas figure:hover{transform:rotate(0deg) scale(1.02) !important}
+.rel{padding:60px var(--pad);border-top:1.5px dashed var(--edge);max-width:1400px;margin-inline:auto}
+.rel h2{font-size:clamp(28px,3vw,44px);color:var(--ink-deep);font-weight:900;margin-bottom:26px}
+.rel .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.rel a{display:block;padding-top:14px;border-top:3px solid var(--ink-deep)}
+.rel small{font-size:13.5px;font-weight:700;color:var(--teal-ink)}
+.rel h3{font-size:19px;line-height:1.5;color:var(--ink-deep);font-weight:700;margin-top:6px}
+.rel a:hover h3{color:var(--teal-ink)}
+.pn{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px dashed var(--edge)}
+.pn a{display:block;padding:40px var(--pad);transition:background .3s}
+.pn a:hover{background:rgba(8,80,120,.05)}
+.pn a + a{border-right:1.5px dashed var(--edge);text-align:left}
+.pn small{font-family:var(--f-thuluth);color:var(--teal-ink);font-size:20px}
+.pn b{display:block;font-family:var(--f-display);font-size:clamp(19px,1.7vw,26px);color:var(--ink-deep);line-height:1.45;margin-top:4px}
+.missing{min-height:80svh;display:grid;place-items:center;text-align:center;padding:140px var(--pad)}
+@media (max-width:900px){
+  .rel .cols{grid-template-columns:1fr}
+  .pn{grid-template-columns:1fr}
+  .pn a + a{border-right:0;border-top:1.5px dashed var(--edge);text-align:right}
+  .seal{width:90px;height:90px;top:-30px;left:0}
+}
+@media (max-width:560px){ .mas{columns:2;column-gap:12px} .mas figure{margin-bottom:12px;padding:6px 6px 8px} }
+@media print{
+  header,footer,.veil,.blots,.back,.print,.gal,.rel,.pn,.lightbox{display:none !important}
+  body{background:#fff}
+  body::before,body::after{display:none}
+  .art{padding-top:0}
+  .seal{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="inkIn" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="inkInMap" in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="rough" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="blots" aria-hidden="true"><div class="blot a"></div><div class="blot b"></div></div>
+<div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header data-page="news"></header>
+<main id="main"></main>
+<footer></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site-config.js"></script>
+<script src="news-data.js"></script>
+<script src="sub.js"></script>
+<script>
+YDF.load("news").then(function(D){
+  "use strict";
+  var Y = YDF, N = D.news.sort(Y.byDate), K = Y.KIND_AR;
+  var id = new URLSearchParams(location.search).get("id") || "", i = -1;
+  N.forEach(function(n, k){ if (String(n.id) === id) i = k; });
+  var main = document.getElementById("main");
+  function link(n){ return "news-item.html?id=" + encodeURIComponent(n.id); }
+  if (i < 0) {
+    main.innerHTML = '<section class="missing"><div><p class="eyebrow">لم نجد هذا الخبر</p><h1 class="sec-h">ربما نُقل أو تغيّر رابطه.</h1><div class="ctas" style="justify-content:center;margin-top:30px"><a class="ghost" href="news.html">كل الأخبار</a></div></div></section>';
+    Y.init(); return;
+  }
+  var P = N[i], isSt = P.kind === "statement";
+  document.title = P.t + " | منتدى حوار الشباب";
+  var arrow = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var SEAL = '<svg class="seal" viewBox="0 0 200 200" aria-hidden="true"><path id="sealP" d="M100 100m-70 0a70 70 0 1 1 140 0a70 70 0 1 1-140 0" fill="none"/><circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="100" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="2"/><text font-family="Thmanyah Serif Display, serif" font-size="17" font-weight="700" fill="currentColor"><textPath href="#sealP">منتدى حوار الشباب • بيان رسمي • منتدى حوار الشباب •</textPath></text><text x="100" y="112" text-anchor="middle" font-family="Aref Ruqaa, serif" font-size="30" font-weight="700" fill="currentColor">بيان</text></svg>';
+  var MARK = '<svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#085078" stroke-width="2.4"><circle cx="13" cy="13" r="6"/><circle cx="27" cy="27" r="6"/></g><circle cx="27" cy="13" r="4.2" fill="#008EA5"/><circle cx="13" cy="27" r="4.2" fill="#062F47"/><path d="M17.5 17.5 22.5 22.5" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/></svg>';
+
+  var rel = N.filter(function(n){ return n.id !== P.id && n.kind === P.kind && (!P.entity || n.entity === P.entity || P.kind !== "meeting"); }).slice(0, 3);
+  if (rel.length < 3) rel = rel.concat(N.filter(function(n){ return n.id !== P.id && rel.indexOf(n) < 0; }).slice(0, 3 - rel.length));
+  var newer = N[i-1], older = N[i+1];
+
+  main.innerHTML =
+    '<article><div class="art"><a class="back" href="news.html">' + arrow + ' كل الأخبار</a>' +
+      '<div class="art-head">' + (isSt ? SEAL : '') +
+        '<p class="kind">' + (isSt ? '<span class="st">' + K.statement + '</span>' : (K[P.kind] || '')) + (P.entity ? ' · ' + Y.esc(P.entity) : '') + '</p>' +
+        '<h1 class="ink-in">' + Y.esc(P.t) + '</h1>' +
+        '<div class="byline"><span><i></i><time datetime="' + P.date + '">' + Y.date(P.date) + '</time></span><span><i></i>منتدى حوار الشباب</span>' +
+          (isSt ? '<button class="print" type="button" id="print">طباعة البيان أو حفظه PDF</button>' : '') + '</div>' +
+      '</div></div>' +
+      (P.img.length ? '<div class="hero-ph"><figure class="scrap tape" data-i="0" tabindex="0"><div class="ph"><img src="' + Y.img(P.img[0],"l") + '" srcset="' + Y.srcset(P.img[0]) + '" sizes="(max-width:1100px) 92vw, 1100px" alt="' + Y.esc(P.t) + '"></div></figure></div>' : '') +
+      '<div class="body' + (isSt ? ' stmt' : '') + '">' + P.p.map(function(t){ return '<p>' + Y.esc(t) + '</p>'; }).join("") +
+        (isSt ? '' : '<div class="sign">' + MARK + '<div><b>منتدى حوار الشباب</b><span>' + Y.date(P.date) + '</span></div></div>') +
+      '</div>' +
+    '</article>' +
+    (P.img.length > 1 ? '<section class="gal"><h2 class="ink">صور الخبر</h2><div class="mas">' + P.img.slice(1).map(function(n, k){
+      return '<figure class="scrap" data-i="' + (k+1) + '" tabindex="0" style="transform:rotate(' + (Y.tilt(P.id, k)*1.4).toFixed(2) + 'deg)"><img src="' + Y.img(n,"s") + '" alt="صورة ' + (k+2) + ' من الخبر" loading="lazy"></figure>';
+    }).join("") + '</div></section>' : '') +
+    '<section class="rel"><h2>' + (isSt ? 'بيانات أخرى' : 'أخبار ذات صلة') + '</h2><div class="cols">' + rel.map(function(n){
+      return '<a href="' + link(n) + '"><small>' + (K[n.kind] || '') + ' · ' + Y.date(n.date) + '</small><h3>' + Y.esc(n.t) + '</h3></a>';
+    }).join("") + '</div></section>' +
+    '<nav class="pn" aria-label="التنقل بين الأخبار">' +
+      (newer ? '<a href="' + link(newer) + '"><small>الخبر الأحدث</small><b>' + Y.esc(newer.t) + '</b></a>' : '<a href="news.html"><small>هذا أحدث خبر</small><b>العودة إلى كل الأخبار</b></a>') +
+      (older ? '<a href="' + link(older) + '"><small>الخبر الأقدم</small><b>' + Y.esc(older.t) + '</b></a>' : '<a href="news.html"><small>هذا أقدم خبر</small><b>العودة إلى كل الأخبار</b></a>') +
+    '</nav>';
+
+  Y.gallery(main, P.img, P.t);
+  var pr = document.getElementById("print");
+  if (pr) pr.addEventListener("click", function(){ window.print(); });
+
+  if (!Y.init()) return;
+  Y.inkIn(".art .ink-in");
+  gsap.timeline({defaults:{ease:"power3.out"}})
+    .from(".back, .kind, .art h1, .byline", {opacity:0, y:22, duration:1.1, stagger:.1}, 0)
+    .from(".art-head", {borderBottomColor:"rgba(6,47,71,0)", duration:1}, .5)
+    .from(".hero-ph", {opacity:0, y:60, duration:1.3}, .3);
+  if (document.querySelector(".seal")) gsap.from(".seal", {opacity:0, scale:1.8, rotate:-70, duration:.9, ease:"back.out(1.7)", delay:.7});
+  gsap.utils.toArray(".body p").forEach(function(p){ gsap.from(p, {opacity:0, y:18, duration:.9, ease:"power3.out", scrollTrigger:{trigger:p, start:"top 92%"}}); });
+  gsap.utils.toArray(".mas figure").forEach(function(f){ gsap.from(f, {opacity:0, y:40, duration:.9, ease:"power3.out", scrollTrigger:{trigger:f, start:"top 92%"}, clearProps:"opacity,translate"}); });
+});
+</script>
+</body>
+</html>

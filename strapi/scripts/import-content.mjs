@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 /*
-  ينقل الأنشطة الحالية (act-data.js وصور img/act) إلى Strapi مرة واحدة.
+  ينقل المحتوى الحالي إلى Strapi مرة واحدة:
+  الأنشطة (act-data.js وصور img/act) والأخبار (news-data.js وصور img/news).
   آمن للتكرار: يتخطى المدن والمشاريع والأنشطة الموجودة مسبقاً.
 
   التشغيل من جذر مستودع الموقع:
-    STRAPI_URL=https://cms.ydf.ly STRAPI_TOKEN=<Full access API token> node strapi/scripts/import-activities.mjs
+    STRAPI_URL=https://cms.ydf.ly STRAPI_TOKEN=<Full access API token> node strapi/scripts/import-content.mjs
 
   في PowerShell:
-    $env:STRAPI_URL="https://cms.ydf.ly"; $env:STRAPI_TOKEN="..."; node strapi/scripts/import-activities.mjs
+    $env:STRAPI_URL="https://cms.ydf.ly"; $env:STRAPI_TOKEN="..."; node strapi/scripts/import-content.mjs
 */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -28,8 +29,10 @@ const TYPE_KEY = {
 const THREAD_ORDER = ['jisr', 'tour', 'hilal', 'derna'];
 
 const ctx = { window: {} };
-vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'act-data.js'), 'utf8'), ctx);
-const { ACT, PROJ, CITIES } = ctx.window;
+for (const f of ['act-data.js', 'news-data.js']) vm.runInNewContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx);
+const { ACT, PROJ, CITIES, NEWS } = ctx.window;
+const imgFile = (n) => path.join(ROOT, 'img', n.includes('/') ? '' : 'act', `${n}-l.webp`);
+const blocks = (paras) => paras.map((t) => ({ type: 'paragraph', children: [{ type: 'text', text: t }] }));
 
 async function api(method, route, body) {
   const res = await fetch(URL_ + route, {
@@ -82,7 +85,7 @@ for (const a of ACT) {
   const found = await api('GET', `/api/activities?filters[legacyId][$eq]=${a.id}`);
   if (found.data.length) { skipped++; continue; }
   const ids = [];
-  for (const n of a.img) ids.push(await upload(path.join(ROOT, 'img/act', `${n}-l.webp`)));
+  for (const n of a.img) ids.push(await upload(imgFile(n)));
   const data = {
     title: a.t,
     date: a.date,
@@ -90,7 +93,7 @@ for (const a of ACT) {
     legacyId: a.id,
     cover: ids[0],
     gallery: ids.slice(1),
-    body: a.p.map((t) => ({ type: 'paragraph', children: [{ type: 'text', text: t }] })),
+    body: blocks(a.p),
   };
   if (a.city && cityDoc[a.city]) data.city = { connect: [cityDoc[a.city]] };
   if (a.proj && projDoc[a.proj]) data.project = { connect: [projDoc[a.proj]] };

@@ -12,7 +12,7 @@
 
 :root{
   --paper:#F3EEE4; --paper-2:#E8E1D3; --edge:#D9CFBD; --sheet:#FBF8F2;
-  --ink-deep:#062F47; --ink:#085078; --ink-soft:#4A6F71; --teal:#008EA5;
+  --ink-deep:#062F47; --ink:#085078; --ink-soft:#4A6F71; --teal:#008EA5; --teal-ink:#00697A;
   --f-display:"Thmanyah Serif Display","Thmanyah Serif Text",serif;
   --f-text:"Thmanyah Serif Text","Thmanyah Serif Display",serif;
   --f-thuluth:"Aref Ruqaa",serif; /* الخط الثانوي */

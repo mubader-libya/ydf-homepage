@@ -35,6 +35,9 @@
       ],
       "default": "general"
     },
+    "entity": {
+      "type": "string"
+    },
     "body": {
       "type": "blocks"
     },

@@ -105,44 +105,11 @@
 <div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
-<header>
-  <a class="brand" href="index.html" aria-label="منتدى حوار الشباب، الرئيسية">
-    <svg class="mark ink" viewBox="0 0 40 40" aria-hidden="true">
-      <g fill="none" stroke="#085078" stroke-width="2.4"><circle cx="13" cy="13" r="6"/><circle cx="27" cy="27" r="6"/></g>
-      <circle cx="27" cy="13" r="4.2" fill="#008EA5"/><circle cx="13" cy="27" r="4.2" fill="#062F47"/>
-      <path d="M17.5 17.5 22.5 22.5" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/>
-    </svg>
-    <span><b>منتدى حوار الشباب</b><small>ليبيا</small></span>
-  </a>
-  <nav aria-label="الرئيسية">
-    <a class="nl" href="index.html">الرئيسية</a>
-    <a class="nl" href="index.html#about">من نحن</a>
-    <a class="nl" href="activities.html" aria-current="page">الأنشطة</a>
-    <a class="pill" href="https://ydf.ly/?page_id=5629">انضم</a>
-  </nav>
-</header>
+<header data-page="activities"></header>
 
 <main id="main"></main>
 
-<footer>
-  <span>© منتدى حوار الشباب، ليبيا 2026</span>
-  <a href="mailto:info@ydf.ly">info@ydf.ly</a>
-  <span class="soc">
-    <a href="https://www.facebook.com/YDForumLY">فيسبوك</a>
-    <a href="https://x.com/YDForum_ly">إكس</a>
-    <a href="https://www.instagram.com/ydforumly/">إنستغرام</a>
-    <a href="https://www.youtube.com/channel/UC0wHgo-4RE2iXFrUI0Ld75g">يوتيوب</a>
-    <a href="https://wa.me/218912000932">واتساب</a>
-  </span>
-</footer>
-
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="معرض الصور">
-  <span class="lb-n" id="lbN"></span>
-  <button class="lb-x" id="lbX" aria-label="إغلاق"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-  <button class="lb-btn lb-prev" id="lbP" aria-label="الصورة السابقة"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  <figure class="scrap tape"><figcaption></figcaption></figure>
-  <button class="lb-btn lb-next" id="lbF" aria-label="الصورة التالية"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-</div>
+<footer></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -151,7 +118,7 @@
 <script src="act-data.js"></script>
 <script src="sub.js"></script>
 <script>
-YDF.data().then(function(D){
+YDF.load("activities").then(function(D){
   "use strict";
   var Y = YDF, A = D.activities.sort(Y.byDate), PROJ = D.projects;
   Y.cities = D.cities;
@@ -199,31 +166,7 @@ YDF.data().then(function(D){
     '</nav>';
 
   /* ── المعرض المكبّر ── */
-  var lb = document.getElementById("lightbox"), lbImg = lb.querySelector("figure").insertBefore(new Image(), lb.querySelector("figcaption")), lbCap = lb.querySelector("figcaption"), lbN = document.getElementById("lbN"), cur = 0, lastFocus = null;
-  function show(k){
-    cur = (k + P.img.length) % P.img.length;
-    lbImg.src = Y.img(P.img[cur], "l"); lbImg.alt = "صورة " + (cur+1) + " من " + P.img.length;
-    lbCap.textContent = P.t; lbN.textContent = (cur+1) + " من " + P.img.length;
-    var one = P.img.length < 2; document.getElementById("lbP").hidden = one; document.getElementById("lbF").hidden = one;
-    new Image().src = Y.img(P.img[(cur+1) % P.img.length], "l");
-  }
-  function open(k){ lastFocus = document.activeElement; show(k); lb.classList.add("open"); if (Y.lenis) Y.lenis.stop(); document.getElementById("lbX").focus(); }
-  function close(){ lb.classList.remove("open"); if (Y.lenis) Y.lenis.start(); if (lastFocus) lastFocus.focus(); }
-  main.addEventListener("click", function(e){ var f = e.target.closest("[data-i]"); if (f) open(+f.dataset.i); });
-  main.addEventListener("keydown", function(e){ var f = e.target.closest("[data-i]"); if (f && e.key === "Enter") open(+f.dataset.i); });
-  document.getElementById("lbX").addEventListener("click", close);
-  document.getElementById("lbP").addEventListener("click", function(e){ e.stopPropagation(); show(cur - 1); });
-  document.getElementById("lbF").addEventListener("click", function(e){ e.stopPropagation(); show(cur + 1); });
-  lb.addEventListener("click", function(e){ if (e.target === lb) close(); });
-  addEventListener("keydown", function(e){
-    if (!lb.classList.contains("open")) return;
-    if (e.key === "Escape") close();
-    if (e.key === "ArrowLeft") show(cur + 1);
-    if (e.key === "ArrowRight") show(cur - 1);
-  });
-  var sx = null;
-  lb.addEventListener("touchstart", function(e){ sx = e.touches[0].clientX; }, {passive:true});
-  lb.addEventListener("touchend", function(e){ if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(cur + (dx > 0 ? 1 : -1)); sx = null; });
+  Y.gallery(main, P.img, P.t);
 
   if (!Y.init()) return;
   Y.inkIn(".s-hero .ink-in");

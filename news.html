@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>الأخبار | منتدى حوار الشباب</title>
+<meta name="description" content="نشرة منتدى حوار الشباب: البيانات الرسمية، واللقاءات، وأخبار المشاريع.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sub.css">
+<style>
+/* ── ١. الترويسة والصفحة الأولى ── */
+.paper{padding:120px var(--pad) 70px;max-width:1400px;margin-inline:auto}
+.dateline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;font-size:14px;font-weight:600;color:var(--ink-soft);padding-bottom:12px;border-bottom:1.5px solid var(--ink-deep)}
+.mast{text-align:center;padding:26px 0 18px;border-bottom:5px double var(--ink-deep)}
+.mast h1{font-size:clamp(58px,11vw,170px);line-height:1.05;color:var(--ink-deep);font-weight:900;letter-spacing:-.01em}
+.mast p{font-family:var(--f-thuluth);color:var(--teal);font-size:clamp(20px,2vw,30px);margin-top:6px}
+.front{display:grid;grid-template-columns:1.9fr 1fr;gap:0;margin-top:34px}
+.lead{padding-left:clamp(20px,3vw,44px);border-left:1.5px dashed var(--edge)}
+.lead .ph{aspect-ratio:16/9;overflow:hidden;margin-bottom:22px}
+.lead .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(.92)}
+.lead.scrapwrap .scrap{padding:12px 12px 14px;transform:rotate(-.8deg);margin-bottom:26px}
+.lead.scrapwrap .scrap .ph{margin:0}
+.kick{display:inline-flex;gap:10px;align-items:center;font-size:14px;font-weight:700;color:var(--teal-ink)}
+.kick time{color:var(--ink-soft);font-weight:500}
+.kick .st{background:var(--ink-deep);color:var(--paper);padding:1px 10px 2px;border-radius:4px;font-size:12.5px}
+.lead h2{font-size:clamp(30px,3.4vw,54px);line-height:1.25;color:var(--ink-deep);font-weight:900;margin:10px 0 14px}
+.lead p{font-size:clamp(17px,1.1vw + 8px,20px);max-width:40em}
+.more-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:700;color:var(--ink-deep);border-bottom:2px solid var(--teal);padding-bottom:2px}
+.more-link:hover{color:var(--teal)}
+.side{padding-right:clamp(20px,3vw,44px)}
+.side article{padding:18px 0;border-bottom:1.5px dashed var(--edge)}
+.side article:first-child{padding-top:0}
+.side article:last-child{border-bottom:0}
+.side h3{font-size:clamp(19px,1.5vw,24px);line-height:1.45;color:var(--ink-deep);font-weight:700;margin-top:6px}
+.side a:hover h3,.lead a:hover h2{color:var(--ink)}
+.side p{font-size:15px;color:var(--ink-soft);margin-top:6px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ── ٢. سجلّ المواقف ── */
+.record{padding:110px var(--pad) 90px}
+.record .hd{text-align:center;max-width:760px;margin:0 auto 60px}
+.record .hd .sec-sub{margin-inline:auto}
+.tline{position:relative;max-width:1100px;margin:0 auto}
+.tline::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:rgba(8,80,120,.15)}
+.tline .ink-line{position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:var(--teal);transform-origin:top;transform:scaleY(0)}
+.doc{position:relative;width:calc(50% - 50px);margin-bottom:46px}
+.doc:nth-child(odd of .doc){margin-left:auto}
+.doc:nth-child(even of .doc){margin-right:auto}
+.doc .sheet{position:relative;display:block;padding:30px 30px 26px;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.doc .sheet::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 20px 44px -26px rgba(6,47,71,.55)}
+.doc .sheet:hover{transform:translateY(-6px) rotate(0deg) !important}
+.doc .dot{position:absolute;top:34px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--teal)}
+.doc:nth-child(odd of .doc) .dot{right:calc(100% + 42px)}
+.doc:nth-child(even of .doc) .dot{left:calc(100% + 42px)}
+.doc time{font-family:var(--f-display);font-weight:700;color:var(--ink-soft);font-size:15px}
+.doc h3{font-size:clamp(21px,1.7vw,27px);line-height:1.45;color:var(--ink-deep);font-weight:900;margin:8px 0 12px}
+.doc blockquote{font-family:var(--f-thuluth);color:var(--teal-ink);font-size:clamp(19px,1.5vw,23px);line-height:1.7;border-right:3px solid var(--teal);padding-right:14px}
+.doc .go{display:inline-block;margin-top:16px;font-weight:700;font-size:15px;color:var(--ink-deep);border-bottom:1.5px solid var(--teal)}
+.seal{position:absolute;top:-26px;left:-18px;width:96px;height:96px;color:var(--teal);opacity:.85;transform:rotate(-14deg);pointer-events:none}
+
+/* ── ٣. على طاولة الحوار ── */
+.table{padding:100px var(--pad);background:rgba(232,225,211,.55);border-block:1.5px dashed var(--edge)}
+.table .top{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;margin-bottom:34px}
+.tally{text-align:center;position:relative;padding:16px 26px 12px}
+.tally::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1}
+.tally b{display:block;font-family:var(--f-display);font-size:clamp(40px,4vw,62px);line-height:1.1;color:var(--ink-deep);font-weight:900}
+.tally span{font-size:14px;color:var(--ink-soft);font-weight:600}
+.ents{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:40px 30px}
+.mcard{display:block;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.mcard .scrap{padding:11px 11px 16px}
+.mcard .ph{aspect-ratio:16/10;overflow:hidden;background:var(--paper-2)}
+.mcard .ph img{width:100%;height:100%;object-fit:cover}
+.mcard .ph.none{display:grid;place-items:center;font-family:var(--f-thuluth);color:var(--teal);font-size:28px;text-align:center;padding:10px}
+.mcard .who{display:block;font-family:var(--f-thuluth);color:var(--teal-ink);font-size:20px;margin-top:12px;line-height:1.4}
+.mcard h3{font-family:var(--f-text);font-size:16px;line-height:1.5;color:var(--ink-deep);font-weight:700;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mcard time{display:block;font-size:13px;color:var(--ink-soft);margin-top:6px}
+.mcard:hover{transform:translateY(-8px) rotate(0deg) !important}
+
+/* ── ٤. الأرشيف ── */
+.arch{padding:110px var(--pad) 60px;max-width:1400px;margin-inline:auto}
+.tools{display:grid;gap:12px;margin:30px 0 14px}
+.frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.frow > span{font-family:var(--f-thuluth);color:var(--teal);font-size:19px;margin-left:8px;min-width:56px}
+.search{position:relative;max-width:420px}
+.search input{width:100%;font:inherit;font-size:16px;color:var(--ink-deep);background:rgba(251,248,242,.8);border:1.5px solid var(--edge);border-radius:99px;padding:10px 46px 9px 18px;outline:none;transition:border-color .25s}
+.search input:focus{border-color:var(--teal)}
+.search svg{position:absolute;right:16px;top:50%;margin-top:-9px;color:var(--ink-soft)}
+.status{font-size:15px;color:var(--ink-soft);min-height:1.8em;margin-bottom:22px}
+.status button{color:var(--teal-ink);font-weight:700;text-decoration:underline;text-underline-offset:4px;margin-right:8px}
+.cols{columns:3 320px;column-gap:44px;column-rule:1.5px dashed var(--edge)}
+.item{break-inside:avoid;display:block;padding:0 0 22px;margin-bottom:22px;border-bottom:1px solid rgba(8,80,120,.12)}
+.item .th{aspect-ratio:16/9;overflow:hidden;margin:10px 0 2px}
+.item .th img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(.9)}
+.item h3{font-size:20px;line-height:1.45;color:var(--ink-deep);font-weight:700;margin-top:8px;transition:color .25s}
+.item p{font-size:15px;color:var(--ink-soft);margin-top:6px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.item:hover h3{color:var(--teal-ink)}
+.item mark{background:rgba(0,142,165,.18);color:inherit;border-radius:3px;padding:0 2px}
+.empty{padding:50px 0;text-align:center;color:var(--ink-soft);font-size:19px;column-span:all}
+
+.close .soc-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px}
+
+@media (max-width:900px){
+  .front{grid-template-columns:1fr}
+  .lead{padding-left:0;border-left:0;border-bottom:1.5px dashed var(--edge);padding-bottom:28px;margin-bottom:24px}
+  .side{padding-right:0}
+  .tline::before,.tline .ink-line{left:auto;right:7px}
+  .doc{width:auto;margin-right:40px !important;margin-left:0 !important}
+  .doc:nth-child(odd of .doc) .dot,.doc:nth-child(even of .doc) .dot{right:-41px;left:auto}
+  .table .top{grid-template-columns:1fr}
+  .tally{justify-self:start}
+}
+@media (max-width:560px){
+  .frow{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--pad) * -1);padding:4px var(--pad)}
+  .frow::-webkit-scrollbar{display:none}
+  .frow > *{flex:none}
+  .ents{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--pad) * -1);padding:4px var(--pad)}
+  .ents > *{flex:none}
+  .seal{width:76px;height:76px;top:-20px;left:-8px}
+  .doc .sheet{padding:26px 20px 22px}
+}
+.rm .tline .ink-line{transform:none}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="inkIn" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="inkInMap" in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="rough" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="blots" aria-hidden="true"><div class="blot a"></div><div class="blot b"></div></div>
+<div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header data-page="news"></header>
+
+<main id="top">
+
+  <!-- ١. الصفحة الأولى -->
+  <section class="paper" aria-labelledby="h1">
+    <div class="dateline"><span id="today"></span><span id="issue"></span><span>طرابلس، ليبيا</span></div>
+    <div class="mast">
+      <h1 id="h1" class="ink-in">نشرة المنتدى</h1>
+      <p>صوت الشباب في الشأن العام</p>
+    </div>
+    <div class="front">
+      <div class="lead" id="lead"></div>
+      <div class="side" id="side"></div>
+    </div>
+  </section>
+
+  <!-- ٢. سجلّ المواقف -->
+  <section class="record" aria-labelledby="rec-t">
+    <div class="hd">
+      <p class="eyebrow">البيانات الرسمية</p>
+      <h2 id="rec-t" class="sec-h ink rv">سجلّ المواقف</h2>
+      <p class="sec-sub rv">حين تمرّ ليبيا بمنعطف، يقول الشباب كلمتهم. هذه بيانات المنتدى الرسمية، من الأحدث إلى الأقدم.</p>
+    </div>
+    <div class="tline" id="tline"><i class="ink-line"></i></div>
+  </section>
+
+  <!-- ٣. على طاولة الحوار -->
+  <section class="table" aria-labelledby="tb-t">
+    <div class="top">
+      <div>
+        <p class="eyebrow">اللقاءات</p>
+        <h2 id="tb-t" class="sec-h ink rv">على طاولة الحوار</h2>
+        <p class="sec-sub rv">نحمل صوت الشباب إلى من يصنعون القرار، في ليبيا وخارجها.</p>
+      </div>
+      <div class="tally rv" id="tally"></div>
+    </div>
+    <div class="ents" id="ents" role="group" aria-label="تصفية حسب الجهة"></div>
+    <div class="mgrid" id="mgrid"></div>
+  </section>
+
+  <!-- ٤. الأرشيف -->
+  <section class="arch" id="arch" aria-labelledby="ar-t">
+    <p class="eyebrow">الأرشيف الكامل</p>
+    <h2 id="ar-t" class="sec-h ink rv">كل الأخبار</h2>
+    <div class="tools">
+      <label class="search"><span class="sr" hidden>ابحث في الأخبار</span>
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="7.5" cy="7.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m12 12 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="search" id="q" placeholder="ابحث في العناوين والنصوص" aria-label="ابحث في الأخبار">
+      </label>
+      <div class="frow" id="fKind" role="group" aria-label="النوع"><span>النوع</span></div>
+      <div class="frow" id="fYear" role="group" aria-label="السنة"><span>السنة</span></div>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+    <div class="cols" id="cols"></div>
+  </section>
+
+  <!-- ٥. الختام -->
+  <section class="close" aria-labelledby="close-t">
+    <div>
+      <h2 id="close-t"><span class="ink-in" id="closeInk">تابع صوت <span class="thuluth">الشباب.</span></span></h2>
+      <p>أخبار المنتدى ومواقفه تصلك أولاً على منصاتنا.</p>
+      <div class="soc-row" id="socRow"></div>
+      <div class="ctas">
+        <a class="magnet" href="https://ydf.ly/?page_id=5629" data-magnet>التسجيل في العضوية <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site-config.js"></script>
+<script src="news-data.js"></script>
+<script src="sub.js"></script>
+<script>
+YDF.load("news").then(function(D){
+  "use strict";
+  var Y = YDF, N = D.news.sort(Y.byDate), K = Y.KIND_AR;
+  function link(n){ return "news-item.html?id=" + encodeURIComponent(n.id); }
+  function kick(n){ return '<span class="kick">' + (n.kind === "statement" ? '<span class="st">' + K.statement + '</span>' : K[n.kind] || "") + '<time datetime="' + n.date + '">' + Y.date(n.date) + '</time></span>'; }
+  var SEAL = '<svg class="seal" viewBox="0 0 200 200" aria-hidden="true"><path id="sealP" d="M100 100m-70 0a70 70 0 1 1 140 0a70 70 0 1 1-140 0" fill="none"/><circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="100" cy="100" r="52" fill="none" stroke="currentColor" stroke-width="2"/><text font-family="Thmanyah Serif Display, serif" font-size="17" font-weight="700" fill="currentColor"><textPath href="#sealP">منتدى حوار الشباب • بيان رسمي • منتدى حوار الشباب •</textPath></text><text x="100" y="112" text-anchor="middle" font-family="Aref Ruqaa, serif" font-size="30" font-weight="700" fill="currentColor">بيان</text></svg>';
+
+  /* ── ١. الترويسة ── */
+  document.getElementById("today").textContent = Y.date(new Date().toISOString().slice(0,10));
+  document.getElementById("issue").textContent = Y.n(N.length, "خبراً", "أخبار") + " منذ " + N[N.length-1].date.slice(0,4);
+  var L = N[0];
+  document.getElementById("lead").innerHTML = '<a href="' + link(L) + '">' +
+    (L.img.length ? '<div class="ph"><img src="' + Y.img(L.img[0],"l") + '" srcset="' + Y.srcset(L.img[0]) + '" sizes="(max-width:900px) 92vw, 62vw" alt=""></div>' : '') +
+    kick(L) + '<h2>' + Y.esc(L.t) + '</h2></a><p>' + Y.esc(Y.excerpt(L.p, 55)) + '</p><a class="more-link" href="' + link(L) + '">' + (L.kind === "statement" ? "اقرأ البيان كاملاً" : "اقرأ الخبر") + ' ←</a>';
+  document.getElementById("side").innerHTML = N.slice(1, 4).map(function(n){
+    return '<article><a href="' + link(n) + '">' + kick(n) + '<h3>' + Y.esc(n.t) + '</h3></a><p>' + Y.esc(Y.excerpt(n.p, 28)) + '</p></article>';
+  }).join("");
+
+  /* ── ٢. سجلّ المواقف ── */
+  var ST = N.filter(function(n){ return n.kind === "statement"; });
+  if (!ST.length) document.querySelector(".record").hidden = true;
+  document.getElementById("tline").insertAdjacentHTML("beforeend", ST.map(function(n, i){
+    var q = Y.excerpt(n.p.filter(function(x){ return !/^(يا |طرابلس|صدر|الموافق|منتدى حوار الشباب$)/.test(x); }), 26);
+    return '<article class="doc"><i class="dot" aria-hidden="true"></i><a class="sheet" href="' + link(n) + '" style="transform:rotate(' + (Y.tilt(n.id, 4)*1.3).toFixed(2) + 'deg)">' + (i % 3 === 0 ? SEAL.replace(/sealP/g, "sealP" + i) : '') +
+      '<time datetime="' + n.date + '">' + Y.date(n.date) + '</time><h3>' + Y.esc(n.t) + '</h3><blockquote>' + Y.esc(q) + '</blockquote><span class="go">اقرأ البيان كاملاً</span></a></article>';
+  }).join(""));
+
+  /* ── ٣. اللقاءات ── */
+  var M = N.filter(function(n){ return n.kind === "meeting"; }), ents = {};
+  M.forEach(function(n){ if (n.entity) ents[n.entity] = (ents[n.entity]||0) + 1; });
+  var entList = Object.keys(ents).sort(function(a, b){ return ents[b] - ents[a]; });
+  if (!M.length) document.querySelector(".table").hidden = true;
+  document.getElementById("tally").innerHTML = '<b>' + entList.length + '</b><span>' + (entList.length > 10 || entList.length < 3 ? "جهة" : "جهات") + ' في ' + Y.n(M.length, "لقاءً", "لقاءات") + '</span>';
+  var entBox = document.getElementById("ents"), curEnt = "";
+  entBox.innerHTML = ['<button class="chip" data-v="" aria-pressed="true">الكل</button>'].concat(entList.map(function(e){ return '<button class="chip" data-v="' + Y.esc(e) + '" aria-pressed="false">' + Y.esc(e) + ' <small>' + ents[e] + '</small></button>'; })).join("");
+  function drawMeet(anim){
+    var list = M.filter(function(n){ return !curEnt || n.entity === curEnt; });
+    var g = document.getElementById("mgrid");
+    g.innerHTML = list.map(function(n){
+      return '<a class="mcard" href="' + link(n) + '" style="transform:rotate(' + (Y.tilt(n.id, 6)*1.6).toFixed(2) + 'deg)"><figure class="scrap' + (Y.tilt(n.id, 8) > .3 ? ' tape' : '') + '">' +
+        (n.img.length ? '<div class="ph"><img src="' + Y.img(n.img[0],"s") + '" alt="" loading="lazy"></div>' : '<div class="ph none">' + Y.esc(n.entity || "لقاء") + '</div>') +
+        '<span class="who">' + Y.esc(n.entity || "") + '</span><h3>' + Y.esc(n.t) + '</h3><time datetime="' + n.date + '">' + Y.date(n.date) + '</time></figure></a>';
+    }).join("");
+    if (anim && !document.documentElement.classList.contains("rm")) gsap.from(g.children, {opacity:0, y:24, duration:.6, stagger:.05, ease:"power3.out", clearProps:"opacity,translate"});
+  }
+  entBox.addEventListener("click", function(e){
+    var b = e.target.closest(".chip"); if (!b) return;
+    curEnt = b.dataset.v; entBox.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    drawMeet(true);
+  });
+  drawMeet(false);
+
+  /* ── ٤. الأرشيف: بحث + نوع + سنة ── */
+  var state = {kind:"", year:"", q:""}, kinds = {}, years = {};
+  N.forEach(function(n){ kinds[n.kind] = (kinds[n.kind]||0) + 1; years[n.date.slice(0,4)] = 1; });
+  var fk = document.getElementById("fKind"), fy = document.getElementById("fYear");
+  fk.insertAdjacentHTML("beforeend", ['<button class="chip" data-v="" aria-pressed="true">الكل</button>'].concat(["statement","meeting","project","general"].filter(function(k){ return kinds[k]; }).map(function(k){ return '<button class="chip" data-v="' + k + '" aria-pressed="false">' + K[k] + ' <small>' + kinds[k] + '</small></button>'; })).join(""));
+  fy.insertAdjacentHTML("beforeend", ['<button class="chip" data-v="" aria-pressed="true">الكل</button>'].concat(Object.keys(years).sort().reverse().map(function(y){ return '<button class="chip" data-v="' + y + '" aria-pressed="false">' + y + '</button>'; })).join(""));
+  [[fk,"kind"],[fy,"year"]].forEach(function(r){
+    r[0].addEventListener("click", function(e){
+      var b = e.target.closest(".chip"); if (!b) return;
+      state[r[1]] = b.dataset.v; r[0].querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      draw(true);
+    });
+  });
+  /* تطبيع للبحث العربي: توحيد الألف والياء والتاء المربوطة وحذف التشكيل */
+  function norm(s){ return String(s).replace(/[ً-ْـ]/g, "").replace(/[أإآ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").toLowerCase(); }
+  var idx = N.map(function(n){ return norm(n.t + " " + n.p.join(" ")); });
+  var qIn = document.getElementById("q"), qT = null;
+  qIn.addEventListener("input", function(){ clearTimeout(qT); qT = setTimeout(function(){ state.q = qIn.value.trim(); draw(false); }, 180); });
+  function hl(t){
+    if (!state.q) return Y.esc(t);
+    var nq = norm(state.q), nt = norm(t), i = nt.indexOf(nq);
+    return i < 0 ? Y.esc(t) : Y.esc(t.slice(0, i)) + "<mark>" + Y.esc(t.slice(i, i + state.q.length)) + "</mark>" + Y.esc(t.slice(i + state.q.length));
+  }
+  var cols = document.getElementById("cols"), status = document.getElementById("status");
+  function draw(anim){
+    var nq = norm(state.q);
+    var list = N.filter(function(n, i){ return (!state.kind || n.kind === state.kind) && (!state.year || n.date.slice(0,4) === state.year) && (!nq || idx[i].indexOf(nq) >= 0); });
+    cols.innerHTML = list.length ? list.map(function(n, i){
+      return '<a class="item" href="' + link(n) + '">' + kick(n) + (i % 4 === 0 && n.img.length ? '<div class="th"><img src="' + Y.img(n.img[0],"s") + '" alt="" loading="lazy"></div>' : '') +
+        '<h3>' + hl(n.t) + '</h3><p>' + Y.esc(Y.excerpt(n.p, 30)) + '</p></a>';
+    }).join("") : '<p class="empty">لا توجد أخبار تطابق بحثك.</p>';
+    var bits = [];
+    if (state.kind) bits.push("من نوع «" + K[state.kind] + "»");
+    if (state.year) bits.push("عام " + state.year);
+    if (state.q) bits.push("تحتوي «" + Y.esc(state.q) + "»");
+    status.innerHTML = Y.n(list.length, "خبراً", "أخبار") + (bits.length ? " " + bits.join("، ") : "") + (bits.length ? '<button type="button" id="clr">إظهار الكل</button>' : "");
+    var clr = document.getElementById("clr");
+    if (clr) clr.addEventListener("click", function(){
+      state = {kind:"", year:"", q:""}; qIn.value = "";
+      [fk, fy].forEach(function(r){ r.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed", x.dataset.v === "" ? "true" : "false"); }); });
+      draw(true);
+    });
+    if (anim && !document.documentElement.classList.contains("rm")) gsap.from(cols.children, {opacity:0, y:20, duration:.5, stagger:.03, ease:"power3.out", clearProps:"opacity,translate"});
+  }
+  draw(false);
+
+  document.getElementById("socRow").innerHTML = Y.SOCIAL.map(function(s){ return '<a class="chip" href="' + s[0] + '">' + s[1] + '</a>'; }).join("");
+
+  Y.magnets();
+  if (!Y.init()) return;
+
+  /* ── الحركة ── */
+  Y.inkIn(".mast .ink-in");
+  gsap.timeline({defaults:{ease:"power3.out"}})
+    .from(".dateline", {opacity:0, y:-10, duration:.8}, 0)
+    .from(".mast h1", {opacity:0, y:30, duration:1.3}, .1)
+    .from(".mast p", {opacity:0, y:16, duration:1}, .5)
+    .from(".mast", {borderBottomColor:"rgba(6,47,71,0)", duration:1}, .6)
+    .from(".lead > *", {opacity:0, y:30, duration:1.1, stagger:.1}, .6)
+    .from(".side article", {opacity:0, x:-24, duration:1, stagger:.12}, .8);
+  gsap.to(".tline .ink-line", {scaleY:1, ease:"none", scrollTrigger:{trigger:".tline", start:"top 70%", end:"bottom 70%", scrub:.5}});
+  gsap.utils.toArray(".doc").forEach(function(d, i){
+    gsap.from(d, {opacity:0, x: (i % 2 ? -1 : 1) * 60, duration:1.1, ease:"power3.out", scrollTrigger:{trigger:d, start:"top 85%"}});
+    var s = d.querySelector(".seal");
+    if (s) gsap.from(s, {opacity:0, scale:1.8, rotate:-60, duration:.8, ease:"back.out(1.7)", scrollTrigger:{trigger:d, start:"top 75%"}});
+  });
+  gsap.from(".mcard", {opacity:0, y:40, duration:.9, stagger:.06, ease:"power3.out", scrollTrigger:{trigger:"#mgrid", start:"top 85%"}, clearProps:"opacity,translate"});
+  ScrollTrigger.create({trigger:".close", start:"top 70%", once:true, onEnter:function(){ Y.inkIn("#closeInk"); }});
+});
+</script>
+</body>
+</html>

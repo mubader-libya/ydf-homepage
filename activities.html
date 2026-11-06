@@ -90,7 +90,7 @@
 .frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .frow > span{font-family:var(--f-thuluth);color:var(--teal);font-size:19px;margin-left:8px;min-width:56px}
 .status{font-size:15px;color:var(--ink-soft);min-height:1.8em;margin-bottom:24px}
-.status button{color:var(--teal);font-weight:700;text-decoration:underline;text-underline-offset:4px;margin-right:8px}
+.status button{color:var(--teal-ink);font-weight:700;text-decoration:underline;text-underline-offset:4px;margin-right:8px}
 .grid-w{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:46px 34px}
 .card{display:block;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
 .card .scrap{padding:12px 12px 18px}
@@ -98,7 +98,7 @@
 .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .card h3{font-family:var(--f-text);font-size:17px;line-height:1.45;font-weight:700;color:var(--ink-deep);margin-top:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card .m{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:13.5px;color:var(--ink-soft);font-weight:500}
-.card .m .ty{color:var(--teal);font-weight:700}
+.card .m .ty{color:var(--teal-ink);font-weight:700}
 .card .pics{position:absolute;top:22px;left:22px;background:rgba(6,47,71,.78);color:var(--paper);font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;font-variant-numeric:tabular-nums}
 .card:hover,.card:focus-visible{transform:rotate(0deg) translateY(-8px) !important}
 .card:hover .ph img{transform:scale(1.05)}
@@ -150,22 +150,7 @@
 <div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
-<header>
-  <a class="brand" href="index.html" aria-label="منتدى حوار الشباب، الرئيسية">
-    <svg class="mark ink" viewBox="0 0 40 40" aria-hidden="true">
-      <g fill="none" stroke="#085078" stroke-width="2.4"><circle cx="13" cy="13" r="6"/><circle cx="27" cy="27" r="6"/></g>
-      <circle cx="27" cy="13" r="4.2" fill="#008EA5"/><circle cx="13" cy="27" r="4.2" fill="#062F47"/>
-      <path d="M17.5 17.5 22.5 22.5" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/>
-    </svg>
-    <span><b>منتدى حوار الشباب</b><small>ليبيا</small></span>
-  </a>
-  <nav aria-label="الرئيسية">
-    <a class="nl" href="index.html">الرئيسية</a>
-    <a class="nl" href="index.html#about">من نحن</a>
-    <a class="nl" href="activities.html" aria-current="page">الأنشطة</a>
-    <a class="pill" href="https://ydf.ly/?page_id=5629">انضم</a>
-  </nav>
-</header>
+<header data-page="activities"></header>
 
 <main id="top">
 
@@ -239,17 +224,7 @@
   </section>
 </main>
 
-<footer>
-  <span>© منتدى حوار الشباب، ليبيا 2026</span>
-  <a href="mailto:info@ydf.ly">info@ydf.ly</a>
-  <span class="soc">
-    <a href="https://www.facebook.com/YDForumLY">فيسبوك</a>
-    <a href="https://x.com/YDForum_ly">إكس</a>
-    <a href="https://www.instagram.com/ydforumly/">إنستغرام</a>
-    <a href="https://www.youtube.com/channel/UC0wHgo-4RE2iXFrUI0Ld75g">يوتيوب</a>
-    <a href="https://wa.me/218912000932">واتساب</a>
-  </span>
-</footer>
+<footer></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -258,7 +233,7 @@
 <script src="act-data.js"></script>
 <script src="sub.js"></script>
 <script>
-YDF.data().then(function(D){
+YDF.load("activities").then(function(D){
   "use strict";
   var Y = YDF, A = D.activities.sort(Y.byDate), PROJ = D.projects, CITIES = Y.cities = D.cities;
   function link(p){ return "activity.html?id=" + p.id; }
