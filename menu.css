@@ -1,0 +1,19 @@
+/* قائمة الهاتف: تظهر تحت 861px بدل روابط الرأس المخفية */
+.menu-btn{display:none;align-items:center;gap:8px;border:1.5px solid var(--ink);border-radius:99px;padding:7px 14px;font-weight:600;font-size:14px;background:rgba(243,238,228,.85);color:var(--ink-deep)}
+.menu-btn i{display:grid;gap:4px;width:16px}
+.menu-btn i::before,.menu-btn i::after{content:"";height:1.8px;background:currentColor;border-radius:2px}
+@media (max-width:860px){.menu-btn{display:inline-flex}}
+.menu-sheet{position:fixed;inset:0;z-index:95;background:var(--paper);display:flex;flex-direction:column;padding:22px var(--pad) 34px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s .45s}
+.menu-sheet.open{opacity:1;visibility:visible;transform:none;transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1)}
+.menu-sheet .ms-top{display:flex;justify-content:space-between;align-items:center}
+.menu-sheet .ms-top b{font-family:var(--f-thuluth);font-size:22px;color:var(--ink-deep)}
+.menu-sheet .ms-x{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;color:var(--ink-deep)}
+.menu-sheet ul{list-style:none;margin:auto 0;padding:30px 0}
+.menu-sheet li{border-bottom:1.5px dashed var(--edge)}
+.menu-sheet li a{display:flex;justify-content:space-between;align-items:center;padding:16px 4px;font-family:var(--f-display);font-weight:900;font-size:clamp(30px,9vw,44px);line-height:1.3;color:var(--ink-deep)}
+.menu-sheet li a[aria-current="page"]{color:var(--teal-ink,#00697A)}
+.menu-sheet li a span{font-family:var(--f-thuluth);font-weight:700;font-size:18px;color:var(--teal-ink,#00697A)}
+.menu-sheet .ms-join{display:flex;justify-content:center;padding:16px;border-radius:99px;background:var(--ink-deep);color:var(--paper);font-weight:700;font-size:17px}
+html.menu-open,html.menu-open body{overflow:hidden}
+.brand b{white-space:nowrap}
+@media (max-width:560px){header nav .pill{display:none}}

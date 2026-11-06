@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>نشاط | منتدى حوار الشباب</title>
 <meta name="description" content="نشاط من أنشطة منتدى حوار الشباب في ليبيا.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="menu.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="منتدى حوار الشباب">
+<meta property="og:title" content="نشاط | منتدى حوار الشباب">
+<meta property="og:description" content="نشاط من أنشطة منتدى حوار الشباب في ليبيا.">
+<meta property="og:image" content="https://mubader-libya.github.io/ydf-homepage/img/og/activities.jpg">
+<meta property="og:locale" content="ar_LY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3EEE4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
@@ -14,7 +24,7 @@
 .s-hero > *,.story > *{min-width:0}
 .back{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink-soft);margin-bottom:26px}
 .back:hover{color:var(--teal)}
-.s-hero .ty{font-family:var(--f-thuluth);color:var(--teal);font-size:26px;line-height:1.4}
+.s-hero .ty{font-family:var(--f-thuluth);color:var(--teal-text);font-size:26px;line-height:1.4}
 .s-hero h1{font-size:clamp(34px,4.2vw,66px);line-height:1.25;color:var(--ink-deep);font-weight:900;margin-top:6px}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:34px;max-width:620px}
 .fact{position:relative;padding:12px 18px 10px}
@@ -34,7 +44,7 @@
 .note::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 18px 40px -24px rgba(6,47,71,.5)}
 .note .tape-s{position:absolute;top:-12px;right:26px;width:80px;height:24px;background:rgba(214,203,178,.85);transform:rotate(4deg)}
 .note span{font-family:var(--f-thuluth);color:var(--teal);font-size:20px}
-.note h3{font-size:26px;color:var(--ink-deep);font-weight:900;line-height:1.3;margin:2px 0 10px}
+.note h2{font-size:26px;color:var(--ink-deep);font-weight:900;line-height:1.3;margin:2px 0 10px}
 .note p{font-size:15.5px;line-height:1.8}
 .note a{display:inline-block;margin-top:12px;font-weight:700;color:var(--teal);text-decoration:underline;text-underline-offset:5px}
 
@@ -152,7 +162,7 @@ YDF.load("activities").then(function(D){
       '<figure class="cover scrap tape"><div class="ph" data-i="0"><img src="' + Y.img(P.img[0],"l") + '" srcset="' + Y.srcset(P.img[0]) + '" sizes="(max-width:900px) 92vw, 50vw" alt="' + Y.esc(P.t) + '"></div><figcaption>' + Y.esc(P.city ? Y.place(P.city) : "منتدى حوار الشباب") + ' · ' + P.date.slice(0,4) + '</figcaption></figure>' +
     '</section>' +
     '<section class="story"><div class="txt">' + paras.map(function(t){ return '<p class="rv">' + Y.esc(t) + '</p>'; }).join("") + '</div>' +
-      (pr ? '<aside class="note"><i class="tape-s"></i><span>ضمن مشروع</span><h3>' + pr.n + '</h3><p>' + pr.d + '</p><a href="activities.html">كل أنشطة المنتدى</a></aside>' : '<div></div>') +
+      (pr ? '<aside class="note"><i class="tape-s"></i><span>ضمن مشروع</span><h2>' + pr.n + '</h2><p>' + pr.d + '</p><a href="activities.html">كل أنشطة المنتدى</a></aside>' : '<div></div>') +
     '</section>' +
     (P.img.length > 1 ? '<section class="gal" id="gal"><div class="gal-h"><h2 class="ink rv">من عدسة النشاط</h2><span>' + Y.n(P.img.length, 'صورة', 'صور') + ' · اضغط لتكبيرها</span></div><div class="mas">' +
       P.img.map(function(n, k){ return '<figure class="scrap" data-i="' + k + '" tabindex="0" style="transform:rotate(' + (Y.tilt(P.id, k)*1.6).toFixed(2) + 'deg)"><img src="' + Y.img(n,"s") + '" alt="صورة ' + (k+1) + ' من النشاط" loading="lazy"></figure>'; }).join("") +
@@ -181,5 +191,6 @@ YDF.load("activities").then(function(D){
   gsap.from(".note", {opacity:0, y:40, rotate:-6, duration:1.2, ease:"power3.out", scrollTrigger:{trigger:".story", start:"top 75%"}});
 });
 </script>
+<script src="menu.js"></script>
 </body>
 </html>

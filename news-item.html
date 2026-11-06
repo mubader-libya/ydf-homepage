@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>خبر | منتدى حوار الشباب</title>
 <meta name="description" content="خبر من نشرة منتدى حوار الشباب.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="menu.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="منتدى حوار الشباب">
+<meta property="og:title" content="خبر | منتدى حوار الشباب">
+<meta property="og:description" content="خبر من نشرة منتدى حوار الشباب.">
+<meta property="og:image" content="https://mubader-libya.github.io/ydf-homepage/img/og/news.jpg">
+<meta property="og:locale" content="ar_LY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3EEE4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
@@ -21,7 +31,7 @@
 .byline i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-left:8px;vertical-align:middle}
 .print{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1.5px solid var(--ink);border-radius:99px;font-size:14px;font-weight:700;color:var(--ink-deep)}
 .print:hover{background:rgba(8,80,120,.06)}
-.seal{position:absolute;top:-40px;left:-10px;width:130px;height:130px;color:var(--teal);opacity:.85;transform:rotate(-14deg);pointer-events:none}
+.seal{position:absolute;top:-40px;left:-10px;width:130px;height:130px;color:var(--teal-ink);opacity:.9;transform:rotate(-14deg);pointer-events:none}
 .hero-ph{margin:38px auto 0;max-width:1100px;padding:0 var(--pad)}
 .hero-ph .scrap{padding:14px 14px 18px;transform:rotate(-.6deg);cursor:zoom-in}
 .hero-ph .ph{aspect-ratio:16/9;overflow:hidden}
@@ -163,5 +173,6 @@ YDF.load("news").then(function(D){
   gsap.utils.toArray(".mas figure").forEach(function(f){ gsap.from(f, {opacity:0, y:40, duration:.9, ease:"power3.out", scrollTrigger:{trigger:f, start:"top 92%"}, clearProps:"opacity,translate"}); });
 });
 </script>
+<script src="menu.js"></script>
 </body>
 </html>

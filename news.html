@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>الأخبار | منتدى حوار الشباب</title>
 <meta name="description" content="نشرة منتدى حوار الشباب: البيانات الرسمية، واللقاءات، وأخبار المشاريع.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="menu.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="منتدى حوار الشباب">
+<meta property="og:title" content="نشرة المنتدى | منتدى حوار الشباب">
+<meta property="og:description" content="البيانات الرسمية واللقاءات وأخبار مشاريع منتدى حوار الشباب.">
+<meta property="og:image" content="https://mubader-libya.github.io/ydf-homepage/img/og/news.jpg">
+<meta property="og:locale" content="ar_LY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3EEE4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
@@ -15,7 +25,7 @@
 .dateline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;font-size:14px;font-weight:600;color:var(--ink-soft);padding-bottom:12px;border-bottom:1.5px solid var(--ink-deep)}
 .mast{text-align:center;padding:26px 0 18px;border-bottom:5px double var(--ink-deep)}
 .mast h1{font-size:clamp(58px,11vw,170px);line-height:1.05;color:var(--ink-deep);font-weight:900;letter-spacing:-.01em}
-.mast p{font-family:var(--f-thuluth);color:var(--teal);font-size:clamp(20px,2vw,30px);margin-top:6px}
+.mast p{font-family:var(--f-thuluth);color:var(--teal-text);font-size:clamp(20px,2vw,30px);margin-top:6px}
 .front{display:grid;grid-template-columns:1.9fr 1fr;gap:0;margin-top:34px}
 .lead{padding-left:clamp(20px,3vw,44px);border-left:1.5px dashed var(--edge)}
 .lead .ph{aspect-ratio:16/9;overflow:hidden;margin-bottom:22px}
@@ -57,7 +67,7 @@
 .doc h3{font-size:clamp(21px,1.7vw,27px);line-height:1.45;color:var(--ink-deep);font-weight:900;margin:8px 0 12px}
 .doc blockquote{font-family:var(--f-thuluth);color:var(--teal-ink);font-size:clamp(19px,1.5vw,23px);line-height:1.7;border-right:3px solid var(--teal);padding-right:14px}
 .doc .go{display:inline-block;margin-top:16px;font-weight:700;font-size:15px;color:var(--ink-deep);border-bottom:1.5px solid var(--teal)}
-.seal{position:absolute;top:-26px;left:-18px;width:96px;height:96px;color:var(--teal);opacity:.85;transform:rotate(-14deg);pointer-events:none}
+.seal{position:absolute;top:-26px;left:-18px;width:96px;height:96px;color:var(--teal-ink);opacity:.9;transform:rotate(-14deg);pointer-events:none}
 
 /* ── ٣. على طاولة الحوار ── */
 .table{padding:100px var(--pad);background:rgba(232,225,211,.55);border-block:1.5px dashed var(--edge)}
@@ -86,6 +96,7 @@
 .search{position:relative;max-width:420px}
 .search input{width:100%;font:inherit;font-size:16px;color:var(--ink-deep);background:rgba(251,248,242,.8);border:1.5px solid var(--edge);border-radius:99px;padding:10px 46px 9px 18px;outline:none;transition:border-color .25s}
 .search input:focus{border-color:var(--teal)}
+.search input::placeholder{color:var(--ink-soft);opacity:1}
 .search svg{position:absolute;right:16px;top:50%;margin-top:-9px;color:var(--ink-soft)}
 .status{font-size:15px;color:var(--ink-soft);min-height:1.8em;margin-bottom:22px}
 .status button{color:var(--teal-ink);font-weight:700;text-decoration:underline;text-underline-offset:4px;margin-right:8px}
@@ -346,5 +357,6 @@ YDF.load("news").then(function(D){
   ScrollTrigger.create({trigger:".close", start:"top 70%", once:true, onEnter:function(){ Y.inkIn("#closeInk"); }});
 });
 </script>
+<script src="menu.js"></script>
 </body>
 </html>

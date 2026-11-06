@@ -150,6 +150,10 @@
     addEventListener("keydown", function(e){
       if (!el.classList.contains("open")) return;
       if (e.key === "Escape") st.close();
+      if (e.key === "Tab") {
+        var fo = [].slice.call(el.querySelectorAll("button:not([hidden])")), a = fo.indexOf(document.activeElement);
+        e.preventDefault(); fo[(a + (e.shiftKey ? -1 : 1) + fo.length) % fo.length].focus();
+      }
       if (e.key === "ArrowLeft") st.show(st.cur + 1);
       if (e.key === "ArrowRight") st.show(st.cur - 1);
     });
