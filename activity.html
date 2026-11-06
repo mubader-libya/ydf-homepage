@@ -189,7 +189,7 @@ YDF.load("activities").then(function(D){
   gsap.timeline({defaults:{ease:"power3.out"}})
     .from(".s-hero .back, .s-hero .ty, .s-hero h1", {opacity:0, y:24, duration:1.1, stagger:.1}, 0)
     .from(".fact", {opacity:0, y:20, duration:.9, stagger:.08}, .4)
-    .from(".cover", {opacity:0, y:70, rotate:9, duration:1.4}, .2);
+    .from(".cover", {y:40, rotate:6, duration:1.2}, 0);
   gsap.to(".cover", {yPercent:-8, ease:"none", scrollTrigger:{trigger:".s-hero", start:"top top", end:"bottom top", scrub:true}});
   gsap.utils.toArray(".mas figure").forEach(function(f){
     gsap.from(f, {opacity:0, y:50, duration:1, ease:"power3.out", scrollTrigger:{trigger:f, start:"top 92%"}, clearProps:"opacity,translate"});
