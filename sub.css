@@ -1,14 +1,9 @@
 /* أنماط مشتركة لصفحات الموقع الفرعية — منقولة من الرئيسية */
-@font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Light.woff2") format("woff2");font-weight:300;font-display:swap}
-@font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+/* الأوزان الأربعة المعتمدة فقط (للأداء): العرض 700 و900، والنص 400 و700. أي وزن آخر يُطابَق تلقائياً مع أقرب وزن متاح */
 @font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
 @font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Black.woff2") format("woff2");font-weight:900;font-display:swap}
-@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Light.woff2") format("woff2");font-weight:300;font-display:swap}
 @font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
 @font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
-@font-face{font-family:"Thmanyah Serif Text";src:url("fonts/thmanyahseriftext-Black.woff2") format("woff2");font-weight:900;font-display:swap}
 
 :root{
   --paper:#F3EEE4; --paper-2:#E8E1D3; --edge:#D9CFBD; --sheet:#FBF8F2;
