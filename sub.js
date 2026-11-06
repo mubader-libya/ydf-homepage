@@ -71,11 +71,14 @@
   function images(e, pic){ return [pic(e.cover)].concat((e.gallery || []).map(pic)).filter(Boolean); }
   function idOf(e){ return e.slug || e.legacyId || e.documentId; }
 
+  var MEDIA = ["url","formats"];
   var ENDPOINTS = {
     /* الأنشطة: {id, date, t, city, proj, type, img, p} + projects + cities */
     activities: {
       route: "/api/activities",
-      populate: ["cover","gallery","city","project"],
+      /* الحقول المطلوبة فقط: لا شيء تحتاجه الصفحات محذوف، ولا شيء زائد يُنقل */
+      fields: ["title","slug","legacyId","date","type","body"],
+      populate: {cover:MEDIA, gallery:MEDIA, city:["name","lat","lng","abroad","country","labelAlways"], project:["name","key","description","order","showAsThread"]},
       local: function(){
         var projects = {};
         Object.keys(window.PROJ || {}).forEach(function(k){ var p = PROJ[k], o = THREADS.indexOf(k); projects[k] = {n:p.n, d:p.d, order:o < 0 ? 99 : o, thread:o >= 0}; });
@@ -97,7 +100,8 @@
     /* الأخبار: {id, date, t, kind, entity, sum, proj, img, p} */
     news: {
       route: "/api/news-items",
-      populate: ["cover","gallery","project"],
+      fields: ["title","slug","legacyId","date","kind","entity","summary","body"],
+      populate: {cover:MEDIA, gallery:MEDIA, project:["key"]},
       local: function(){ return {news:(window.NEWS || []).slice()}; },
       map: function(json, base){
         var pic = picker(base);
@@ -110,16 +114,45 @@
   };
   Y.ENDPOINTS = ENDPOINTS;
 
+  /* بناء الاستعلام: حقول محددة، وترتيب ثابت (التاريخ ثم المعرّف لكسر التعادل)، وصفحات من 100
+     (الحد الأقصى الافتراضي في Strapi لـ pageSize هو 100؛ طلب 500 كان سيُقصّ بصمت) */
+  var PAGE_SIZE = 100;
+  function query(ep, page){
+    var q = [];
+    ep.fields.forEach(function(f, i){ q.push("fields[" + i + "]=" + f); });
+    Object.keys(ep.populate).forEach(function(rel){
+      ep.populate[rel].forEach(function(f, i){ q.push("populate[" + rel + "][fields][" + i + "]=" + f); });
+    });
+    q.push("sort[0]=date:desc", "sort[1]=id:desc", "pagination[page]=" + page, "pagination[pageSize]=" + PAGE_SIZE);
+    return ep.route + "?" + q.join("&");
+  }
+  function getJSON(url){
+    return fetch(url, {headers:{Accept:"application/json"}}).then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+  }
+  /* هيكل تحميل مؤجَّل: لا يظهر إلا إذا تجاوز الطلب 400ms، فلا وميض للردود السريعة */
+  function skeleton(){
+    var timer = setTimeout(function(){ document.documentElement.classList.add("is-loading"); }, 400);
+    return function(){ clearTimeout(timer); document.documentElement.classList.remove("is-loading"); };
+  }
+
   Y.load = function(name){
     var ep = ENDPOINTS[name];
     var local = function(){ var d = ep.local(); d.source = "local"; return d; };
     var cms = (window.YDF_CONFIG && YDF_CONFIG.cms || "").replace(/\/+$/, "");
     if (!cms || !window.fetch) return Promise.resolve(local());
-    var q = ep.route + "?" + ep.populate.map(function(f){ return "populate[" + f + "]=true"; }).join("&") + "&sort[0]=date:desc&pagination[pageSize]=500";
-    return fetch(cms + q, {headers:{Accept:"application/json"}})
-      .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    var done = skeleton();
+    /* الصفحة الأولى تخبرنا بعدد الصفحات، ثم تُجلب البقية بالتوازي */
+    return getJSON(cms + query(ep, 1))
+      .then(function(first){
+        var count = (first.meta && first.meta.pagination && first.meta.pagination.pageCount) || 1, rest = [];
+        for (var p = 2; p <= count; p++) rest.push(getJSON(cms + query(ep, p)));
+        return Promise.all(rest).then(function(pages){
+          return {data: pages.reduce(function(all, pg){ return all.concat(pg.data || []); }, first.data || [])};
+        });
+      })
       .then(function(j){ var d = ep.map(j, cms); if (!ep.count(d)) throw new Error("empty"); d.source = "strapi"; return d; })
-      .catch(function(e){ if (window.console) console.warn("Strapi (" + name + ") غير متاح، أعرض البيانات المحلية:", e.message); return local(); });
+      .catch(function(e){ if (window.console) console.warn("Strapi (" + name + ") غير متاح، أعرض البيانات المحلية:", e.message); return local(); })
+      .then(function(d){ done(); return d; });
   };
   Y.byDate = function(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : String(b.id).localeCompare(String(a.id), "en", {numeric:true}); };
 

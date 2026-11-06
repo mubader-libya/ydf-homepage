@@ -6,7 +6,7 @@
 <title>المشاركات والأنشطة | منتدى حوار الشباب</title>
 <meta name="description" content="أنشطة منتدى حوار الشباب ومشاركاته في المدن الليبية منذ 2021: جلسات حوارية، تدريبات، وعمل ميداني.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="menu.css">
+<link rel="stylesheet" href="menu.css?v=1.2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="منتدى حوار الشباب">
 <meta property="og:title" content="المشاركات والأنشطة | منتدى حوار الشباب">
@@ -17,8 +17,13 @@
 <meta name="theme-color" content="#F3EEE4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="sub.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"></noscript>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="fonts/thmanyahserifdisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/thmanyahseriftext-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="sub.css?v=1.2">
 <style>
 /* ── ١. الافتتاح ── */
 .a-hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4vw;padding:130px var(--pad) 70px}
@@ -168,11 +173,11 @@
         <div class="cnt"><b data-to="0" id="nYear">0</b><span>سنوات من العمل</span></div>
       </div>
     </div>
-    <div class="pile" id="pile" aria-hidden="true"></div>
+    <div class="pile sk" id="pile" aria-hidden="true"></div>
   </section>
 
   <!-- ٢. الأحدث -->
-  <section class="latest" id="latest" aria-labelledby="latest-t"></section>
+  <section class="latest sk" id="latest" aria-labelledby="latest-t"></section>
 
   <!-- ٣. أحدث المشاركات -->
   <section class="recent" aria-labelledby="rc-t">
@@ -214,7 +219,7 @@
       <div class="frow" id="fType"><span>النوع</span></div>
     </div>
     <p class="status" id="status" aria-live="polite"></p>
-    <div class="grid-w" id="grid"></div>
+    <div class="grid-w sk" id="grid"></div>
   </section>
 
   <!-- ٦. الختام -->
@@ -232,13 +237,14 @@
 
 <footer></footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="site-config.js"></script>
-<script src="act-data.js"></script>
-<script src="sub.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="site-config.js"></script>
+<script defer src="act-data.js?v=1.2"></script>
+<script defer src="sub.js?v=1.2"></script>
 <script>
+document.addEventListener("DOMContentLoaded", function(){
 YDF.load("activities").then(function(D){
   "use strict";
   var Y = YDF, A = D.activities.sort(Y.byDate), PROJ = D.projects, CITIES = Y.cities = D.cities;
@@ -266,7 +272,7 @@ YDF.load("activities").then(function(D){
   /* ── ٢. الأحدث ── */
   var L = A[0];
   document.getElementById("latest").innerHTML =
-    '<img src="' + Y.img(L.img[0],"l") + '" srcset="' + Y.srcset(L.img[0]) + '" sizes="100vw" alt="">' +
+    '<img src="' + Y.img(L.img[0],"l") + '" srcset="' + Y.srcset(L.img[0]) + '" sizes="100vw" alt="" loading="lazy">' +
     '<div class="shade"></div><div class="copy"><span class="tag">آخر نشاط</span><div class="label"><h2 id="latest-t">' + Y.esc(L.t) + '</h2></div>' +
     '<div class="meta"><span><i></i>' + Y.date(L.date) + '</span>' + (L.city ? '<span><i></i>' + Y.esc(Y.place(L.city)) + '</span>' : '') + (L.proj ? '<span><i></i>' + PROJ[L.proj].n + '</span>' : '') + '<span><i></i>' + Y.n(L.img.length, 'صورة', 'صور') + '</span></div>' +
     '<a class="magnet" href="' + link(L) + '" data-magnet>اقرأ النشاط كاملاً <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>';
@@ -393,7 +399,8 @@ YDF.load("activities").then(function(D){
   gsap.from("#grid .card", {opacity:0, y:40, duration:.9, stagger:.05, ease:"power3.out", scrollTrigger:{trigger:"#grid", start:"top 85%"}, clearProps:"opacity,translate"});
   ScrollTrigger.create({trigger:".close", start:"top 70%", once:true, onEnter:function(){ Y.inkIn("#closeInk"); }});
 });
+});
 </script>
-<script src="menu.js"></script>
+<script defer src="menu.js?v=1.2"></script>
 </body>
 </html>

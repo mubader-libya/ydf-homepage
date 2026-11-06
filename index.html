@@ -6,7 +6,7 @@
 <title>منتدى حوار الشباب</title>
 <meta name="description" content="منتدى حوار الشباب: شبكة وطنية شبابية تضع الشباب في قلب القرار.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="menu.css">
+<link rel="stylesheet" href="menu.css?v=1.2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="منتدى حوار الشباب">
 <meta property="og:title" content="منتدى حوار الشباب">
@@ -18,7 +18,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- الخط الأساسي: ثمانية (ملفات محلية في fonts/). الخط الثانوي: عريفي رقعة -->
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"></noscript>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="fonts/thmanyahserifdisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/thmanyahseriftext-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Light.woff2") format("woff2");font-weight:300;font-display:swap}
 @font-face{font-family:"Thmanyah Serif Display";src:url("fonts/thmanyahserifdisplay-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
@@ -481,7 +486,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
       <div class="meta rv-h"><span><i></i>13 دائرة انتخابية</span><span><i></i>من الساحل إلى الواحات</span></div>
     </div>
     <div class="stage" aria-hidden="true">
-      <figure class="photo scrap tape p1" data-tilt="1"><img src="img/whatsapp-image-2026-05-06-at-14-33-05-b619-l.webp" srcset="img/whatsapp-image-2026-05-06-at-14-33-05-b619-s.webp 700w, img/whatsapp-image-2026-05-06-at-14-33-05-b619-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt=""><figcaption>من حواراتنا</figcaption></figure>
+      <figure class="photo scrap tape p1" data-tilt="1"><img fetchpriority="high" src="img/whatsapp-image-2026-05-06-at-14-33-05-b619-l.webp" srcset="img/whatsapp-image-2026-05-06-at-14-33-05-b619-s.webp 700w, img/whatsapp-image-2026-05-06-at-14-33-05-b619-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt=""><figcaption>من حواراتنا</figcaption></figure>
       <figure class="photo scrap tape p2" data-tilt="-1.4"><img src="img/481039514-947431090907922-44428899640688-75af-l.webp" srcset="img/481039514-947431090907922-44428899640688-75af-s.webp 700w, img/481039514-947431090907922-44428899640688-75af-l.webp 1600w" sizes="(max-width:900px) 90vw, 42vw" alt=""><figcaption>من الميدان</figcaption></figure>
       <svg class="stamp ink" viewBox="0 0 160 160" data-spin>
         <defs><path id="ring" d="M80 80m-58 0a58 58 0 1 1 116 0a58 58 0 1 1-116 0"/></defs>
@@ -744,11 +749,11 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
   <figure class="scrap tape"><img alt=""><figcaption></figcaption></figure>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
-(function(){
+document.addEventListener("DOMContentLoaded", function(){
   "use strict";
   var IM = {"2021/11/202882718_120345016918318_896924741164058306_n.jpg": "202882718-120345016918318-89692474116405-1be1", "2021/11/202988723_121234696829350_1564209249090785662_n.jpg": "202988723-121234696829350-15642092490907-07ba", "2021/11/206667558_123366996616120_6222880697956064453_n.jpg": "206667558-123366996616120-62228806979560-5acf", "2021/11/213675016_126312796321540_6009158286969901250_n.jpg": "213675016-126312796321540-60091582869699-c1a0", "2021/11/214494964_126581852961301_6315142860448373681_n.jpg": "214494964-126581852961301-63151428604483-0eae", "2021/11/216101139_127733326179487_2643374512653654630_n.jpg": "216101139-127733326179487-26433745126536-84fe", "2021/11/216311733_127409606211859_459351539061653872_n.jpg": "216311733-127409606211859-45935153906165-8527", "2021/11/221966908_131882439097909_8416417797755125159_n.jpg": "221966908-131882439097909-84164177977551-ff90", "2021/11/224114957_132136739072479_3313338143241318491_n.jpg": "224114957-132136739072479-33133381432413-6774", "2021/11/237135123_146523377633815_1777014231825098027_n.jpg": "237135123-146523377633815-17770142318250-be77", "2021/11/237531878_143818124571007_726962605402246639_n.jpg": "237531878-143818124571007-72696260540224-4334", "2021/11/240606817_158339996452153_5447952746597996487_n.jpg": "240606817-158339996452153-54479527465979-d5d5", "2021/11/241022530_152705227015630_6995111662493618868_n.jpg": "241022530-152705227015630-69951116624936-048b", "2021/11/241359693_156876293265190_8131996466181040411_n.jpg": "241359693-156876293265190-81319964661810-aad4", "2021/11/241959539_162493962703423_4304015931709262180_n.jpg": "241959539-162493962703423-43040159317092-5e03", "2021/11/242301852_165772745708878_1073554614210643519_n.jpg": "242301852-165772745708878-10735546142106-e29e", "2021/11/243405981_172024395083713_4654758045290643567_n.jpg": "243405981-172024395083713-46547580452906-64bd", "2021/11/244474924_176925664593586_6595117815727313914_n.jpg": "244474924-176925664593586-65951178157273-333b", "2021/11/244995841_180473984238754_816994980522062774_n.jpg": "244995841-180473984238754-81699498052206-ced2", "2021/11/245192639_182432450709574_5153696391522207360_n.jpg": "245192639-182432450709574-51536963915222-f406", "2021/11/246660509_186827183603434_1074880925779357472_n.jpg": "246660509-186827183603434-10748809257793-527a", "2021/11/247081734_188116666807819_5572166628102927295_n.jpg": "247081734-188116666807819-55721666281029-69d3", "2021/11/248693863_190714423214710_5976678023509192876_n.jpg": "248693863-190714423214710-59766780235091-3d74", "2021/11/248711186_191313709821448_1543832366961862768_n.jpg": "248711186-191313709821448-15438323669618-9683", "2021/11/249217281_192002946419191_340219890553801570_n.jpg": "249217281-192002946419191-34021989055380-84e3", "2021/11/250470368_193344239618395_263860721331839824_n-1.jpg": "250470368-193344239618395-26386072133183-4cba", "2021/11/251551627_196013366018149_7371423362934037377_n.jpg": "251551627-196013366018149-73714233629340-be3d", "2021/11/251723168_194772922808860_5577714528596965630_n.jpg": "251723168-194772922808860-55777145285969-c02a", "2021/11/253168876_197642722521880_9184793155804047265_n.jpg": "253168876-197642722521880-91847931558040-f9ce", "2021/11/A.jpg": "a-50ace7-50ac", "2022/06/192994455_112264824393004_5513289700612502780_n.jpg": "192994455-112264824393004-55132897006125-c768", "2022/06/247854071_201764755443010_4433241815726277344_n.jpg": "247854071-201764755443010-44332418157262-a617", "2022/06/8.jpg": "8-6578ea-6578", "2022/06/IMG_%D9%A2%D9%A0%D9%A2%D9%A2%D9%A0%D9%A3%D9%A1%D9%A0_%D9%A1%D9%A9%D9%A0%D9%A9%D9%A4%D9%A2.jpg": "img-2a0c", "2022/06/IMG_3025.jpg": "img-3025-5513", "2022/06/MVI_1666-1.jpg": "mvi-1666-1-de6f", "2022/06/photo_2022-02-21_15-11-09.jpg": "photo-2022-02-21-15-11-09-84b7", "2023/10/YDF-Aljmail2021.jpg": "ydf-aljmail2021-2026", "2023/10/YDF-Tripoli2021-Panel_EmadShanab.jpg": "ydf-tripoli2021-panel-emadshanab-4571", "2026/02/630717056_1218183963832632_2377634606846015499_n.jpg": "630717056-1218183963832632-2377634606846-05b8", "2026/04/jmmkm.jpeg": "jmmkm-f539", "2026/05/480726190_947422767575421_6286941039154100367_n.jpg": "480726190-947422767575421-62869410391541-01b5", "2026/05/481039514_947431090907922_4442889964068800498_n.jpg": "481039514-947431090907922-44428899640688-75af", "2026/05/WhatsApp-Image-2026-05-06-at-14.31.29.jpeg": "whatsapp-image-2026-05-06-at-14-31-29-6eaa", "2026/05/WhatsApp-Image-2026-05-06-at-14.31.49.jpeg": "whatsapp-image-2026-05-06-at-14-31-49-e34e", "2026/05/WhatsApp-Image-2026-05-06-at-14.32.19.jpeg": "whatsapp-image-2026-05-06-at-14-32-19-9313", "2026/05/WhatsApp-Image-2026-05-06-at-14.33.05.jpeg": "whatsapp-image-2026-05-06-at-14-33-05-b619", "2026/05/WhatsApp-Image-2026-05-24-at-12.48.58.jpeg": "whatsapp-image-2026-05-24-at-12-48-58-9952", "2026/05/WhatsApp-Image-2026-05-24-at-20.28.59.jpeg": "whatsapp-image-2026-05-24-at-20-28-59-88f9", "2026/05/WhatsApp-Image-2026-05-24-at-21.02.13.jpeg": "whatsapp-image-2026-05-24-at-21-02-13-2752", "2026/05/WhatsApp-Image-2026-05-24-kkkat-13.46.07.jpeg": "whatsapp-image-2026-05-24-kkkat-13-46-07-6824", "2026/06/new-new.jpeg": "new-new-4dcf"};
   function im(p, sz){ return "img/" + IM[p] + "-" + sz + ".webp"; }
@@ -1183,8 +1188,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
   }});
 
   addEventListener("load", function(){ ScrollTrigger.refresh(); });
-})();
+});
 </script>
-<script src="menu.js"></script>
+<script defer src="menu.js?v=1.2"></script>
 </body>
 </html>

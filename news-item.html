@@ -6,7 +6,7 @@
 <title>خبر | منتدى حوار الشباب</title>
 <meta name="description" content="خبر من نشرة منتدى حوار الشباب.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="menu.css">
+<link rel="stylesheet" href="menu.css?v=1.2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="منتدى حوار الشباب">
 <meta property="og:title" content="خبر | منتدى حوار الشباب">
@@ -17,8 +17,13 @@
 <meta name="theme-color" content="#F3EEE4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="sub.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"></noscript>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="fonts/thmanyahserifdisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/thmanyahseriftext-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="sub.css?v=1.2">
 <style>
 .art{max-width:980px;margin-inline:auto;padding:130px var(--pad) 40px}
 .back{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink-soft);margin-bottom:28px}
@@ -104,16 +109,17 @@
 <div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
 <header data-page="news"></header>
-<main id="main"></main>
+<main id="main" class="sk"></main>
 <footer></footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="site-config.js"></script>
-<script src="news-data.js"></script>
-<script src="sub.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="site-config.js"></script>
+<script defer src="news-data.js?v=1.2"></script>
+<script defer src="sub.js?v=1.2"></script>
 <script>
+document.addEventListener("DOMContentLoaded", function(){
 YDF.load("news").then(function(D){
   "use strict";
   var Y = YDF, N = D.news.sort(Y.byDate), K = Y.KIND_AR;
@@ -144,7 +150,7 @@ YDF.load("news").then(function(D){
         '<div class="byline"><span><i></i><time datetime="' + P.date + '">' + Y.date(P.date) + '</time></span><span><i></i>منتدى حوار الشباب</span>' +
           (isSt ? '<button class="print" type="button" id="print">طباعة البيان أو حفظه PDF</button>' : '') + '</div>' +
       '</div></div>' +
-      (P.img.length ? '<div class="hero-ph"><figure class="scrap tape" data-i="0" tabindex="0"><div class="ph"><img src="' + Y.img(P.img[0],"l") + '" srcset="' + Y.srcset(P.img[0]) + '" sizes="(max-width:1100px) 92vw, 1100px" alt="' + Y.esc(P.t) + '"></div></figure></div>' : '') +
+      (P.img.length ? '<div class="hero-ph"><figure class="scrap tape" data-i="0" tabindex="0"><div class="ph"><img fetchpriority="high" src="' + Y.img(P.img[0],"l") + '" srcset="' + Y.srcset(P.img[0]) + '" sizes="(max-width:1100px) 92vw, 1100px" alt="' + Y.esc(P.t) + '"></div></figure></div>' : '') +
       '<div class="body' + (isSt ? ' stmt' : '') + '">' + P.p.map(function(t){ return '<p>' + Y.esc(t) + '</p>'; }).join("") +
         (isSt ? '' : '<div class="sign">' + MARK + '<div><b>منتدى حوار الشباب</b><span>' + Y.date(P.date) + '</span></div></div>') +
       '</div>' +
@@ -174,7 +180,8 @@ YDF.load("news").then(function(D){
   gsap.utils.toArray(".body p").forEach(function(p){ gsap.from(p, {opacity:0, y:18, duration:.9, ease:"power3.out", scrollTrigger:{trigger:p, start:"top 92%"}}); });
   gsap.utils.toArray(".mas figure").forEach(function(f){ gsap.from(f, {opacity:0, y:40, duration:.9, ease:"power3.out", scrollTrigger:{trigger:f, start:"top 92%"}, clearProps:"opacity,translate"}); });
 });
+});
 </script>
-<script src="menu.js"></script>
+<script defer src="menu.js?v=1.2"></script>
 </body>
 </html>

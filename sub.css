@@ -161,3 +161,8 @@ nav a[aria-current="page"]::after{width:100%}
 .chip{min-height:44px}
 footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
 nav a.nl{padding:10px 0}
+
+/* ── هيكل التحميل: يظهر فقط إن تأخر Strapi أكثر من 400ms (انظر skeleton في sub.js) ── */
+.is-loading .sk{min-height:240px;border-radius:6px;background:linear-gradient(90deg,rgba(232,225,211,.55) 25%,rgba(251,248,242,.95) 50%,rgba(232,225,211,.55) 75%);background-size:200% 100%;animation:sk 1.4s linear infinite}
+@keyframes sk{from{background-position:100% 0}to{background-position:-100% 0}}
+@media (prefers-reduced-motion:reduce){.is-loading .sk{animation:none}}

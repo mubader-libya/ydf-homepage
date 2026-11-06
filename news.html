@@ -6,7 +6,7 @@
 <title>الأخبار والمواقف | منتدى حوار الشباب</title>
 <meta name="description" content="بيانات منتدى حوار الشباب الرسمية، ولقاءاته مع المؤسسات والبعثات، وأخبار مشاريعه.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="menu.css">
+<link rel="stylesheet" href="menu.css?v=1.2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="منتدى حوار الشباب">
 <meta property="og:title" content="الأخبار والمواقف | منتدى حوار الشباب">
@@ -17,8 +17,13 @@
 <meta name="theme-color" content="#F3EEE4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="sub.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"></noscript>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="fonts/thmanyahserifdisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/thmanyahseriftext-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="sub.css?v=1.2">
 <style>
 /* ── ١. الافتتاح: جسر من الأنشطة ── */
 .n-hero{min-height:88svh;display:grid;grid-template-columns:1.2fr .8fr;gap:5vw;align-items:center;padding:130px var(--pad) 50px}
@@ -220,7 +225,7 @@
   </section>
 
   <!-- ٢. آخر موقف -->
-  <section class="latest-pos" id="latest" aria-label="آخر موقف للمنتدى"></section>
+  <section class="latest-pos" id="latest" aria-label="آخر موقف للمنتدى"><div class="sk"></div></section>
 
   <!-- ٣. سجلّ المواقف -->
   <section class="sec record" id="positions" aria-labelledby="rec-t">
@@ -244,7 +249,7 @@
       </div>
       <div class="tally rv" id="tally"></div>
     </div>
-    <div id="groups"></div>
+    <div id="groups" class="sk"></div>
   </section>
 
   <!-- ٥. من الميدان -->
@@ -297,14 +302,15 @@
 
 <footer></footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="site-config.js"></script>
-<script src="act-data.js"></script>
-<script src="news-data.js"></script>
-<script src="sub.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="site-config.js"></script>
+<script defer src="act-data.js?v=1.2"></script>
+<script defer src="news-data.js?v=1.2"></script>
+<script defer src="sub.js?v=1.2"></script>
 <script>
+document.addEventListener("DOMContentLoaded", function(){
 Promise.all([YDF.load("news"), YDF.load("activities")]).then(function(R){
   "use strict";
   var Y = YDF, N = R[0].news.sort(Y.byDate), A = R[1].activities.sort(Y.byDate), PROJ = R[1].projects, K = Y.KIND_AR;
@@ -454,7 +460,8 @@ Promise.all([YDF.load("news"), YDF.load("activities")]).then(function(R){
   gsap.from(".fitem", {opacity:0, y:24, duration:.8, stagger:.06, ease:"power3.out", scrollTrigger:{trigger:"#fieldList", start:"top 85%"}});
   ScrollTrigger.create({trigger:".close", start:"top 70%", once:true, onEnter:function(){ Y.inkIn("#closeInk"); }});
 });
+});
 </script>
-<script src="menu.js"></script>
+<script defer src="menu.js?v=1.2"></script>
 </body>
 </html>

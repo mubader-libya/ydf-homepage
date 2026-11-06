@@ -6,7 +6,7 @@
 <title>نشاط | منتدى حوار الشباب</title>
 <meta name="description" content="نشاط من أنشطة منتدى حوار الشباب في ليبيا.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="menu.css">
+<link rel="stylesheet" href="menu.css?v=1.2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="منتدى حوار الشباب">
 <meta property="og:title" content="نشاط | منتدى حوار الشباب">
@@ -17,8 +17,13 @@
 <meta name="theme-color" content="#F3EEE4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="sub.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"></noscript>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="fonts/thmanyahserifdisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/thmanyahseriftext-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="sub.css?v=1.2">
 <style>
 .s-hero{display:grid;grid-template-columns:1fr 1.05fr;gap:5vw;align-items:center;padding:130px var(--pad) 60px;min-height:92svh}
 .s-hero > *,.story > *{min-width:0}
@@ -117,17 +122,18 @@
 
 <header data-page="activities"></header>
 
-<main id="main"></main>
+<main id="main" class="sk"></main>
 
 <footer></footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="site-config.js"></script>
-<script src="act-data.js"></script>
-<script src="sub.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="site-config.js"></script>
+<script defer src="act-data.js?v=1.2"></script>
+<script defer src="sub.js?v=1.2"></script>
 <script>
+document.addEventListener("DOMContentLoaded", function(){
 YDF.load("activities").then(function(D){
   "use strict";
   var Y = YDF, A = D.activities.sort(Y.byDate), PROJ = D.projects;
@@ -159,7 +165,7 @@ YDF.load("activities").then(function(D){
         (pr ? '<div class="fact"><small>المشروع</small><b>' + pr.n + '</b></div>' : '') +
         (P.img.length > 1 ? '<div class="fact"><small>الصور</small><b><a href="#gal">' + Y.n(P.img.length, 'صورة', 'صور') + '</a></b></div>' : '') +
       '</div></div>' +
-      '<figure class="cover scrap tape"><div class="ph" data-i="0"><img src="' + Y.img(P.img[0],"l") + '" srcset="' + Y.srcset(P.img[0]) + '" sizes="(max-width:900px) 92vw, 50vw" alt="' + Y.esc(P.t) + '"></div><figcaption>' + Y.esc(P.city ? Y.place(P.city) : "منتدى حوار الشباب") + ' · ' + P.date.slice(0,4) + '</figcaption></figure>' +
+      '<figure class="cover scrap tape"><div class="ph" data-i="0"><img fetchpriority="high" src="' + Y.img(P.img[0],"l") + '" srcset="' + Y.srcset(P.img[0]) + '" sizes="(max-width:900px) 92vw, 50vw" alt="' + Y.esc(P.t) + '"></div><figcaption>' + Y.esc(P.city ? Y.place(P.city) : "منتدى حوار الشباب") + ' · ' + P.date.slice(0,4) + '</figcaption></figure>' +
     '</section>' +
     '<section class="story"><div class="txt">' + paras.map(function(t){ return '<p class="rv">' + Y.esc(t) + '</p>'; }).join("") + '</div>' +
       (pr ? '<aside class="note"><i class="tape-s"></i><span>ضمن مشروع</span><h2>' + pr.n + '</h2><p>' + pr.d + '</p><a href="activities.html">كل أنشطة المنتدى</a></aside>' : '<div></div>') +
@@ -190,7 +196,8 @@ YDF.load("activities").then(function(D){
   });
   gsap.from(".note", {opacity:0, y:40, rotate:-6, duration:1.2, ease:"power3.out", scrollTrigger:{trigger:".story", start:"top 75%"}});
 });
+});
 </script>
-<script src="menu.js"></script>
+<script defer src="menu.js?v=1.2"></script>
 </body>
 </html>
