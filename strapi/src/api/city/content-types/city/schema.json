@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cities",
+  "info": {
+    "singularName": "city",
+    "pluralName": "cities",
+    "displayName": "مدينة",
+    "description": "مدن الأنشطة ونقاطها على الخريطة"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "lat": {
+      "type": "decimal"
+    },
+    "lng": {
+      "type": "decimal"
+    },
+    "abroad": {
+      "type": "boolean",
+      "default": false
+    },
+    "country": {
+      "type": "string"
+    },
+    "labelAlways": {
+      "type": "boolean",
+      "default": false
+    },
+    "activities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::activity.activity",
+      "mappedBy": "city"
+    }
+  }
+}

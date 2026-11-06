@@ -254,17 +254,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site-config.js"></script>
 <script src="act-data.js"></script>
 <script src="sub.js"></script>
 <script>
-(function(){
+YDF.data().then(function(D){
   "use strict";
-  var Y = YDF, A = ACT.slice().sort(function(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : b.id - a.id; });
+  var Y = YDF, A = D.activities.sort(Y.byDate), PROJ = D.projects, CITIES = Y.cities = D.cities;
   function link(p){ return "activity.html?id=" + p.id; }
 
   /* إحداثيات المدن على خريطة الرئيسية: x=(خط الطول-9)×24 ، y=(33.5-خط العرض)×25 */
-  var GEO = {"طرابلس":[13.19,32.89],"بنغازي":[20.07,32.12],"مصراتة":[15.09,32.38],"مرزق":[13.91,25.92],"العجيلات":[12.38,32.76],"درنة":[22.64,32.77],"غنيمة":[13.95,32.66],"نالوت":[10.98,31.87],"زلطن":[11.87,32.95],"تاورغاء":[15.12,31.98],"العوينات":[10.57,25.78],"مسلاتة":[14.0,32.62]};
-  var MAJOR = {"طرابلس":1,"بنغازي":1,"مرزق":1,"درنة":1,"مصراتة":1,"العوينات":1};
+  var GEO = {}, MAJOR = {};
+  Object.keys(CITIES).forEach(function(c){ var g = CITIES[c]; if (!g.abroad && g.lng != null && g.lat != null) GEO[c] = [g.lng, g.lat]; if (g.label) MAJOR[c] = 1; });
 
   /* ── الأرقام ── */
   var cities = {}, years = {}, types = {};
@@ -274,7 +275,9 @@
   Object.keys(counts).forEach(function(k){ document.getElementById(k).dataset.to = counts[k]; document.getElementById(k).textContent = counts[k]; });
 
   /* ── ١. كومة القصاصات ── */
-  var pilePicks = [A[0], A.filter(function(p){ return p.id === 5975; })[0], A.filter(function(p){ return p.id === 4810; })[0], A.filter(function(p){ return p.id === 6431; })[0], A.filter(function(p){ return p.id === 5877; })[0]].filter(Boolean);
+  var seen = {}, pilePicks = [A[0]];
+  seen[A[0].city] = 1;
+  A.forEach(function(p){ if (pilePicks.length < 5 && p.city && !seen[p.city]) { seen[p.city] = 1; pilePicks.push(p); } });
   document.getElementById("pile").innerHTML = pilePicks.map(function(p, i){
     return '<figure class="scrap tape" style="transform:rotate(' + (Y.tilt(p.id, 1)*7).toFixed(1) + 'deg)" data-tilt="' + (0.6 + i*.2) + '"><img src="' + Y.img(p.img[0],"s") + '" alt=""><figcaption>' + Y.esc(p.city ? Y.place(p.city) : p.date.slice(0,4)) + '</figcaption></figure>';
   }).join("");
@@ -288,11 +291,12 @@
     '<a class="magnet" href="' + link(L) + '" data-magnet>اقرأ النشاط كاملاً <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>';
 
   /* ── ٣. خيوط المشاريع ── */
-  var order = ["jisr","tour","hilal","derna"];
+  var order = Object.keys(PROJ).filter(function(k){ return PROJ[k].thread && A.some(function(p){ return p.proj === k; }); }).sort(function(a, b){ return PROJ[a].order - PROJ[b].order; });
+  if (!order.length) document.querySelector(".threads").hidden = true;
   document.getElementById("track").innerHTML = order.map(function(k, i){
     var items = A.filter(function(p){ return p.proj === k; }).sort(function(a, b){ return a.date < b.date ? -1 : 1; });
     var y0 = items[0].date.slice(0,4), y1 = items[items.length-1].date.slice(0,4);
-    return '<div class="chap"><div class="chap-card"><span class="no">الخيط ' + ["الأول","الثاني","الثالث","الرابع"][i] + '</span><h3>' + PROJ[k].n + '</h3><p>' + PROJ[k].d + '</p><span class="yrs">' + (y0 === y1 ? y0 : y0 + ' – ' + y1) + ' · ' + Y.n(items.length, "نشاطاً", "أنشطة") + '</span></div>' +
+    return '<div class="chap"><div class="chap-card"><span class="no">الخيط ' + (["الأول","الثاني","الثالث","الرابع","الخامس","السادس","السابع","الثامن"][i] || (i + 1)) + '</span><h3>' + PROJ[k].n + '</h3><p>' + PROJ[k].d + '</p><span class="yrs">' + (y0 === y1 ? y0 : y0 + ' – ' + y1) + ' · ' + Y.n(items.length, "نشاطاً", "أنشطة") + '</span></div>' +
       items.map(function(p){
         return '<a href="' + link(p) + '" class="t-scrap scrap tape" style="transform:rotate(' + (Y.tilt(p.id, 2)*3.5).toFixed(1) + 'deg)"><div class="ph"><img src="' + Y.img(p.img[0],"s") + '" alt="" loading="lazy"></div><figcaption>' + Y.esc(p.t) + '<span class="when">' + Y.date(p.date) + (p.city ? ' · ' + Y.esc(p.city) : '') + '</span></figcaption></a>';
       }).join("") + '</div>';
@@ -305,15 +309,16 @@
     var g = GEO[c]; if (!g) return;
     var x = (g[0]-9)*24, y = (33.5-g[1])*25, r = 3.4 + Math.sqrt(cities[c])*1.6;
     var el = document.createElementNS("http://www.w3.org/2000/svg","g");
-    el.setAttribute("class", "pt" + (MAJOR[c] ? " major" : "")); el.dataset.city = c;
+    el.setAttribute("class", "pt" + (MAJOR[c] ? " major" : "")); var below = y > 160 || c === "مسلاتة"; el.dataset.city = c;
     el.setAttribute("tabindex", "0"); el.setAttribute("role", "button"); el.setAttribute("aria-label", c + "، " + cities[c] + " نشاط");
-    el.innerHTML = '<circle class="halo" cx="'+x+'" cy="'+y+'" r="'+(r*2.6)+'"/><circle class="pin" cx="'+x+'" cy="'+y+'" r="'+r+'"/><text x="'+x+'" y="'+(y + (c === "مسلاتة" || c === "مرزق" || c === "العوينات" ? 22 : -12))+'" text-anchor="middle">'+c+'</text>';
+    el.innerHTML = '<circle class="halo" cx="'+x+'" cy="'+y+'" r="'+(r*2.6)+'"/><circle class="pin" cx="'+x+'" cy="'+y+'" r="'+r+'"/><text x="'+x+'" y="'+(y + (below ? 22 : -12))+'" text-anchor="middle">'+Y.esc(c)+'</text>';
     pts.appendChild(el);
   });
-  document.getElementById("cityChips").innerHTML = cityNames.filter(function(c){ return GEO[c] || c === "أوال"; }).map(function(c){
-    return '<button class="chip" data-city="' + c + '" aria-pressed="false">' + c + ' <small>' + cities[c] + '</small></button>';
+  document.getElementById("cityChips").innerHTML = cityNames.filter(function(c){ return !(CITIES[c] && CITIES[c].abroad); }).map(function(c){
+    return '<button class="chip" data-city="' + Y.esc(c) + '" aria-pressed="false">' + Y.esc(c) + ' <small>' + cities[c] + '</small></button>';
   }).join("");
-  document.getElementById("abroad").innerHTML = 'وخارج ليبيا: <button class="chip" data-city="يكاترينبورغ" aria-pressed="false">يكاترينبورغ، روسيا <small>' + (cities["يكاترينبورغ"]||0) + '</small></button>';
+  var abroad = cityNames.filter(function(c){ return CITIES[c] && CITIES[c].abroad; });
+  document.getElementById("abroad").innerHTML = abroad.length ? 'وخارج ليبيا: ' + abroad.map(function(c){ return '<button class="chip" data-city="' + Y.esc(c) + '" aria-pressed="false">' + Y.esc(Y.place(c)) + ' <small>' + cities[c] + '</small></button>'; }).join(" ") : "";
   function hot(c, on){ document.querySelectorAll('.pt[data-city="' + c + '"]').forEach(function(e){ e.classList.toggle("hot", on); }); }
   document.querySelectorAll(".where [data-city]").forEach(function(el){
     var c = el.dataset.city;
@@ -348,7 +353,7 @@
   function render(anim){
     var list = A.filter(function(p){ return (!state.year || p.date.slice(0,4) === state.year) && (!state.type || p.type === state.type) && (!state.city || p.city === state.city); });
     grid.innerHTML = list.length ? list.map(function(p){
-      return '<a class="card" href="' + link(p) + '" style="transform:rotate(' + (Y.tilt(p.id, 3)*1.8).toFixed(2) + 'deg)"><figure class="scrap' + (p.id % 3 === 0 ? ' tape' : '') + '"><div class="ph"><img src="' + Y.img(p.img[0],"s") + '" alt="" loading="lazy"></div>' +
+      return '<a class="card" href="' + link(p) + '" style="transform:rotate(' + (Y.tilt(p.id, 3)*1.8).toFixed(2) + 'deg)"><figure class="scrap' + (Y.tilt(p.id, 7) > .35 ? ' tape' : '') + '"><div class="ph"><img src="' + Y.img(p.img[0],"s") + '" alt="" loading="lazy"></div>' +
         (p.img.length > 1 ? '<span class="pics">' + Y.n(p.img.length, "صورة", "صور") + '</span>' : '') +
         '<h3>' + Y.esc(p.t) + '</h3><div class="m"><span class="ty">' + p.type + '</span><span>' + Y.date(p.date) + '</span>' + (p.city ? '<span class="ci">' + Y.esc(p.city) + '</span>' : '') + '</div></figure></a>';
     }).join("") : '<p class="empty">لا توجد أنشطة بهذه الشروط. جرّب سنة أو نوعاً آخر.</p>';
@@ -406,7 +411,7 @@
   gsap.from(".pt", {opacity:0, scale:0, transformOrigin:"center", svgOrigin:"200 180", duration:.6, stagger:.06, ease:"back.out(2)", scrollTrigger:{trigger:".where", start:"top 60%"}});
   gsap.from("#grid .card", {opacity:0, y:40, duration:.9, stagger:.05, ease:"power3.out", scrollTrigger:{trigger:"#grid", start:"top 85%"}, clearProps:"opacity,translate"});
   ScrollTrigger.create({trigger:".close", start:"top 70%", once:true, onEnter:function(){ Y.inkIn("#closeInk"); }});
-})();
+});
 </script>
 </body>
 </html>

@@ -147,14 +147,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site-config.js"></script>
 <script src="act-data.js"></script>
 <script src="sub.js"></script>
 <script>
-(function(){
+YDF.data().then(function(D){
   "use strict";
-  var Y = YDF, A = ACT.slice().sort(function(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : b.id - a.id; });
-  var id = +(new URLSearchParams(location.search).get("id")), i = -1;
-  A.forEach(function(p, k){ if (p.id === id) i = k; });
+  var Y = YDF, A = D.activities.sort(Y.byDate), PROJ = D.projects;
+  Y.cities = D.cities;
+  var id = new URLSearchParams(location.search).get("id") || "", i = -1;
+  A.forEach(function(p, k){ if (String(p.id) === id) i = k; });
   var main = document.getElementById("main");
   if (i < 0) {
     main.innerHTML = '<section class="missing"><div><p class="eyebrow">لم نجد هذا النشاط</p><h1 class="sec-h">ربما نُقل أو تغيّر رابطه.</h1><p class="sec-sub" style="margin-inline:auto">تجد كل أنشطة المنتدى في الأرشيف الكامل.</p><div class="ctas" style="justify-content:center;margin-top:30px"><a class="ghost" href="activities.html">كل الأنشطة</a></div></div></section>';
@@ -234,7 +236,7 @@
     gsap.from(f, {opacity:0, y:50, duration:1, ease:"power3.out", scrollTrigger:{trigger:f, start:"top 92%"}, clearProps:"opacity,translate"});
   });
   gsap.from(".note", {opacity:0, y:40, rotate:-6, duration:1.2, ease:"power3.out", scrollTrigger:{trigger:".story", start:"top 75%"}});
-})();
+});
 </script>
 </body>
 </html>
