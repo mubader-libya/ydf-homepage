@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>المشاركات والأنشطة | منتدى حوار الشباب</title>
+<meta name="description" content="أنشطة منتدى حوار الشباب ومشاركاته في المدن الليبية منذ 2021: جلسات حوارية، تدريبات، وعمل ميداني.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sub.css">
+<style>
+/* ── ١. الافتتاح ── */
+.a-hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4vw;padding:130px var(--pad) 70px}
+.a-hero h1{font-weight:900;color:var(--ink-deep);font-size:clamp(46px,6.6vw,104px);line-height:1.15}
+.a-hero h1 .thuluth{display:block;font-size:.82em;line-height:1.35}
+.lede{max-width:32em;margin-top:24px;font-size:clamp(17px,1.2vw + 8px,21px)}
+.counts{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.cnt{position:relative;padding:14px 22px 12px;min-width:120px}
+.cnt::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1}
+.cnt b{display:block;font-family:var(--f-display);font-size:clamp(34px,3.4vw,52px);line-height:1.15;color:var(--ink-deep);font-weight:900;font-variant-numeric:tabular-nums}
+.cnt span{font-size:15px;color:var(--ink-soft);font-weight:500}
+.pile{position:relative;height:min(76vh,620px)}
+.pile .scrap{position:absolute;width:46%;aspect-ratio:4/3.4;will-change:transform}
+.pile .scrap img{height:100%}
+.pile .scrap:nth-child(1){top:2%;right:4%}
+.pile .scrap:nth-child(2){top:8%;left:2%}
+.pile .scrap:nth-child(3){top:36%;right:24%;z-index:2}
+.pile .scrap:nth-child(4){bottom:2%;right:0}
+.pile .scrap:nth-child(5){bottom:4%;left:6%}
+
+/* ── ٢. الأحدث ── */
+.latest{position:relative;height:100svh;overflow:hidden;background:var(--ink-deep)}
+.latest img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
+.latest .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,47,71,.9) 0%,rgba(6,47,71,.35) 45%,transparent 70%)}
+.latest .copy{position:absolute;right:var(--pad);left:var(--pad);bottom:clamp(40px,9vh,96px);color:var(--paper);max-width:900px}
+.tag{display:table;font-family:var(--f-thuluth);font-size:22px;line-height:1.5;color:#7fd6e2;background:rgba(6,47,71,.72);padding:2px 16px 4px;border-radius:99px;margin-bottom:24px}
+.label{display:inline-block;position:relative;background:var(--sheet);color:var(--ink-deep);padding:12px 24px 10px;transform:rotate(-1.4deg);box-shadow:0 10px 24px -14px rgba(0,0,0,.6);margin-bottom:18px}
+.label::before{content:"";position:absolute;top:-10px;right:18px;width:70px;height:22px;background:rgba(214,203,178,.85);transform:rotate(5deg)}
+.label h2{font-size:clamp(26px,3.6vw,54px);line-height:1.25;font-weight:900}
+.latest .meta{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;font-size:17px;margin-bottom:26px}
+.latest .meta i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7fd6e2;margin-left:8px}
+.latest .magnet{background:var(--paper);color:var(--ink-deep)}
+
+/* ── ٣. خيوط المشاريع ── */
+.threads{position:relative;overflow:hidden}
+.th-pin{height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px 0 50px}
+.th-head{padding:0 var(--pad);margin-bottom:28px}
+.th-track{position:relative;display:flex;align-items:center;gap:44px;padding:30px var(--pad);width:max-content;will-change:transform}
+.th-track::before{content:"";position:absolute;top:50%;right:0;left:0;border-top:2px dashed rgba(8,80,120,.35)}
+.chap{position:relative;display:flex;align-items:center;gap:30px}
+.chap-card{position:relative;z-index:1;isolation:isolate;width:min(380px,78vw);padding:34px 30px 30px;flex:none}
+.chap-card::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 18px 40px -22px rgba(6,47,71,.5)}
+.chap-card .no{font-family:var(--f-thuluth);color:var(--teal);font-size:22px}
+.chap-card h3{font-size:clamp(30px,2.6vw,42px);line-height:1.2;color:var(--ink-deep);font-weight:900;margin:4px 0 12px}
+.chap-card p{font-size:16px;line-height:1.75}
+.chap-card .yrs{display:block;margin-top:14px;font-family:var(--f-display);font-weight:700;color:var(--ink-soft);font-size:15px}
+.t-scrap{flex:none;width:clamp(230px,22vw,320px);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.t-scrap .ph{aspect-ratio:4/3;overflow:hidden}
+.t-scrap .ph img{width:100%;height:100%;object-fit:cover}
+.t-scrap figcaption{white-space:normal;line-height:1.35;font-family:var(--f-text);font-weight:700;font-size:15px;color:var(--ink-deep);position:static;margin-top:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.t-scrap .when{display:block;margin-top:4px;font-size:13px;color:var(--ink-soft)}
+.t-scrap.scrap{padding:12px 12px 16px}
+.t-scrap:hover{transform:rotate(0deg) translateY(-8px) !important}
+@media (max-width:900px){
+  .th-pin{height:auto;padding:90px 0 40px}
+  .threads .viewport{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .threads .viewport::-webkit-scrollbar{display:none}
+  .chap-card,.t-scrap{scroll-snap-align:center}
+}
+
+/* ── ٤. الخريطة ── */
+.where{display:grid;grid-template-columns:.95fr 1.05fr;gap:5vw;align-items:center;padding:120px var(--pad)}
+.where .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.amap{width:100%;max-width:640px;margin-inline:auto;overflow:visible}
+.amap .land{fill:#E6DECD;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round}
+.amap .grid{stroke:var(--ink);stroke-width:.4;opacity:.18;stroke-dasharray:2 4}
+.amap .pt{cursor:pointer}
+.amap .pt .pin{fill:var(--teal);transition:fill .25s}
+.amap .pt .halo{fill:var(--teal);opacity:.16;transition:opacity .25s}
+.amap .pt text{font-family:var(--f-text);font-size:11px;font-weight:700;fill:var(--ink-deep);opacity:0;transition:opacity .25s;paint-order:stroke;stroke:#F3EEE4;stroke-width:3px}
+.amap .pt.major text,.amap .pt.hot text{opacity:1}
+.amap .pt.hot .pin{fill:var(--ink-deep)}
+.amap .pt.hot .halo{opacity:.32}
+.abroad{margin-top:16px;font-size:15px;color:var(--ink-soft)}
+
+/* ── ٥. جدار الأرشيف ── */
+.wall{padding:110px var(--pad) 60px}
+.filters{display:grid;gap:12px;margin:34px 0 14px}
+.frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.frow > span{font-family:var(--f-thuluth);color:var(--teal);font-size:19px;margin-left:8px;min-width:56px}
+.status{font-size:15px;color:var(--ink-soft);min-height:1.8em;margin-bottom:24px}
+.status button{color:var(--teal);font-weight:700;text-decoration:underline;text-underline-offset:4px;margin-right:8px}
+.grid-w{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:46px 34px}
+.card{display:block;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.card .scrap{padding:12px 12px 18px}
+.card .ph{aspect-ratio:4/3;overflow:hidden;background:var(--paper-2)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.card h3{font-family:var(--f-text);font-size:17px;line-height:1.45;font-weight:700;color:var(--ink-deep);margin-top:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .m{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:13.5px;color:var(--ink-soft);font-weight:500}
+.card .m .ty{color:var(--teal);font-weight:700}
+.card .pics{position:absolute;top:22px;left:22px;background:rgba(6,47,71,.78);color:var(--paper);font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;font-variant-numeric:tabular-nums}
+.card:hover,.card:focus-visible{transform:rotate(0deg) translateY(-8px) !important}
+.card:hover .ph img{transform:scale(1.05)}
+.empty{padding:60px 0;text-align:center;color:var(--ink-soft);font-size:19px}
+
+@media (max-width:900px){
+  .a-hero,.where{grid-template-columns:1fr}
+  .a-hero{padding-top:118px;gap:34px}
+  .pile{height:400px}
+  .where .amap{order:-1;max-width:420px}
+}
+@media (max-width:560px){
+  .grid-w{grid-template-columns:1fr 1fr;gap:26px 14px}
+  .card .scrap{padding:7px 7px 12px}
+  .card h3{font-size:14.5px;margin-top:9px}
+  .card .m{font-size:12px}
+  .card .m .ci{display:none}
+  .card .pics{top:12px;left:12px}
+  .frow{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--pad) * -1);padding:4px var(--pad)}
+  .frow::-webkit-scrollbar{display:none}
+  .frow > *{flex:none}
+  .counts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .cnt{min-width:0;padding:12px 12px 10px}
+  .cnt span{font-size:13px;line-height:1.5;display:block}
+}
+.rm .th-pin{height:auto}
+.rm .threads .viewport{overflow-x:auto}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="inkIn" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="inkInMap" in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="rough" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="blots" aria-hidden="true"><div class="blot a"></div><div class="blot b"></div></div>
+<div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header>
+  <a class="brand" href="index.html" aria-label="منتدى حوار الشباب، الرئيسية">
+    <svg class="mark ink" viewBox="0 0 40 40" aria-hidden="true">
+      <g fill="none" stroke="#085078" stroke-width="2.4"><circle cx="13" cy="13" r="6"/><circle cx="27" cy="27" r="6"/></g>
+      <circle cx="27" cy="13" r="4.2" fill="#008EA5"/><circle cx="13" cy="27" r="4.2" fill="#062F47"/>
+      <path d="M17.5 17.5 22.5 22.5" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/>
+    </svg>
+    <span><b>منتدى حوار الشباب</b><small>ليبيا</small></span>
+  </a>
+  <nav aria-label="الرئيسية">
+    <a class="nl" href="index.html">الرئيسية</a>
+    <a class="nl" href="index.html#about">من نحن</a>
+    <a class="nl" href="activities.html" aria-current="page">الأنشطة</a>
+    <a class="pill" href="https://ydf.ly/?page_id=5629">انضم</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ١. الافتتاح -->
+  <section class="a-hero" aria-labelledby="h1">
+    <div>
+      <p class="kicker rv-h">من الميدان</p>
+      <h1 id="h1"><span class="ink-in">المشاركات والأنشطة</span><span class="thuluth ink-in">حيث يصير الحوار فعلاً</span></h1>
+      <p class="lede rv-h">جلسات حوارية في المدن والقرى والواحات، تدريبات تبني المهارات، ووقفات إلى جانب الناس حين يحتاجونها. هذا سجلّ ما فعلناه، صورةً صورة.</p>
+      <div class="counts rv-h">
+        <div class="cnt"><b data-to="0" id="nAct">0</b><span>نشاطاً ومشاركة</span></div>
+        <div class="cnt"><b data-to="0" id="nCity">0</b><span>مدينة</span></div>
+        <div class="cnt"><b data-to="0" id="nYear">0</b><span>سنوات من العمل</span></div>
+      </div>
+    </div>
+    <div class="pile" id="pile" aria-hidden="true"></div>
+  </section>
+
+  <!-- ٢. الأحدث -->
+  <section class="latest" id="latest" aria-labelledby="latest-t"></section>
+
+  <!-- ٣. خيوط المشاريع -->
+  <section class="threads" aria-labelledby="th-t">
+    <div class="th-pin">
+      <div class="th-head">
+        <p class="eyebrow">خيوط المشاريع</p>
+        <h2 id="th-t" class="sec-h ink">مشاريع لا تنتهي بنشاط واحد</h2>
+      </div>
+      <div class="viewport"><div class="th-track" id="track"></div></div>
+    </div>
+  </section>
+
+  <!-- ٤. الخريطة -->
+  <section class="where" aria-labelledby="wh-t">
+    <div>
+      <p class="eyebrow">أين كنّا</p>
+      <h2 id="wh-t" class="sec-h ink rv">مدينةً مدينة</h2>
+      <p class="sec-sub rv">اختر مدينة لترى ما فعلناه فيها.</p>
+      <div class="chips rv" id="cityChips"></div>
+      <p class="abroad rv" id="abroad"></p>
+    </div>
+    <svg class="amap" viewBox="-10 -10 420 380" role="img" aria-label="خريطة ليبيا ومدن الأنشطة">
+      <g class="grid"><path d="M0 90H400M0 180H400M0 270H400M100 0V360M200 0V360M300 0V360"/></g>
+      <path class="land" d="M60 8 100.8 15 146.4 27.5 153.6 42.5 182.4 57.5 228 75 254.4 77.5 266.4 65 265.7 35 288 20 326.4 17.5 340.8 30 359.3 35.5 387.6 47.5 379.2 87.5 384 112.5 384 287.5 384 337.5 360 337.5 360 350 167.5 251 124.8 272.5 71.3 250 33.6 225 28.8 202.5 9.6 182.5 19.2 150 19.2 112.5 12 82.5 31.2 62.5 48 30Z"/>
+      <g id="pts"></g>
+    </svg>
+  </section>
+
+  <!-- ٥. جدار الأرشيف -->
+  <section class="wall" id="wall" aria-labelledby="wall-t">
+    <p class="eyebrow">الأرشيف الكامل</p>
+    <h2 id="wall-t" class="sec-h ink rv">كل الأنشطة</h2>
+    <div class="filters" role="group" aria-label="تصفية الأنشطة">
+      <div class="frow" id="fYear"><span>السنة</span></div>
+      <div class="frow" id="fType"><span>النوع</span></div>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+    <div class="grid-w" id="grid"></div>
+  </section>
+
+  <!-- ٦. الختام -->
+  <section class="close" aria-labelledby="close-t">
+    <div>
+      <h2 id="close-t"><span class="ink-in" id="closeInk">النشاط القادم <span class="thuluth">معك.</span></span></h2>
+      <p>انضم إلى شبكة شبابية تعمل في كل مدن ليبيا، وكن جزءاً من الحوار القادم.</p>
+      <div class="ctas">
+        <a class="magnet" href="https://ydf.ly/?page_id=5629" data-magnet>التسجيل في العضوية <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="ghost" href="index.html">العودة إلى الرئيسية</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© منتدى حوار الشباب، ليبيا 2026</span>
+  <a href="mailto:info@ydf.ly">info@ydf.ly</a>
+  <span class="soc">
+    <a href="https://www.facebook.com/YDForumLY">فيسبوك</a>
+    <a href="https://x.com/YDForum_ly">إكس</a>
+    <a href="https://www.instagram.com/ydforumly/">إنستغرام</a>
+    <a href="https://www.youtube.com/channel/UC0wHgo-4RE2iXFrUI0Ld75g">يوتيوب</a>
+    <a href="https://wa.me/218912000932">واتساب</a>
+  </span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="act-data.js"></script>
+<script src="sub.js"></script>
+<script>
+(function(){
+  "use strict";
+  var Y = YDF, A = ACT.slice().sort(function(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : b.id - a.id; });
+  function link(p){ return "activity.html?id=" + p.id; }
+
+  /* إحداثيات المدن على خريطة الرئيسية: x=(خط الطول-9)×24 ، y=(33.5-خط العرض)×25 */
+  var GEO = {"طرابلس":[13.19,32.89],"بنغازي":[20.07,32.12],"مصراتة":[15.09,32.38],"مرزق":[13.91,25.92],"العجيلات":[12.38,32.76],"درنة":[22.64,32.77],"غنيمة":[13.95,32.66],"نالوت":[10.98,31.87],"زلطن":[11.87,32.95],"تاورغاء":[15.12,31.98],"العوينات":[10.57,25.78],"مسلاتة":[14.0,32.62]};
+  var MAJOR = {"طرابلس":1,"بنغازي":1,"مرزق":1,"درنة":1,"مصراتة":1,"العوينات":1};
+
+  /* ── الأرقام ── */
+  var cities = {}, years = {}, types = {};
+  A.forEach(function(p){ if (p.city) cities[p.city] = (cities[p.city]||0) + 1; years[p.date.slice(0,4)] = 1; types[p.type] = (types[p.type]||0) + 1; });
+  var yrList = Object.keys(years).sort().reverse();
+  var counts = {nAct: A.length, nCity: Object.keys(cities).length, nYear: +yrList[0] - +yrList[yrList.length-1] + 1};
+  Object.keys(counts).forEach(function(k){ document.getElementById(k).dataset.to = counts[k]; document.getElementById(k).textContent = counts[k]; });
+
+  /* ── ١. كومة القصاصات ── */
+  var pilePicks = [A[0], A.filter(function(p){ return p.id === 5975; })[0], A.filter(function(p){ return p.id === 4810; })[0], A.filter(function(p){ return p.id === 6431; })[0], A.filter(function(p){ return p.id === 5877; })[0]].filter(Boolean);
+  document.getElementById("pile").innerHTML = pilePicks.map(function(p, i){
+    return '<figure class="scrap tape" style="transform:rotate(' + (Y.tilt(p.id, 1)*7).toFixed(1) + 'deg)" data-tilt="' + (0.6 + i*.2) + '"><img src="' + Y.img(p.img[0],"s") + '" alt=""><figcaption>' + Y.esc(p.city ? Y.place(p.city) : p.date.slice(0,4)) + '</figcaption></figure>';
+  }).join("");
+
+  /* ── ٢. الأحدث ── */
+  var L = A[0];
+  document.getElementById("latest").innerHTML =
+    '<img src="' + Y.img(L.img[0],"l") + '" srcset="' + Y.srcset(L.img[0]) + '" sizes="100vw" alt="">' +
+    '<div class="shade"></div><div class="copy"><span class="tag">آخر نشاط</span><div class="label"><h2 id="latest-t">' + Y.esc(L.t) + '</h2></div>' +
+    '<div class="meta"><span><i></i>' + Y.date(L.date) + '</span>' + (L.city ? '<span><i></i>' + Y.esc(Y.place(L.city)) + '</span>' : '') + (L.proj ? '<span><i></i>' + PROJ[L.proj].n + '</span>' : '') + '<span><i></i>' + Y.n(L.img.length, 'صورة', 'صور') + '</span></div>' +
+    '<a class="magnet" href="' + link(L) + '" data-magnet>اقرأ النشاط كاملاً <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>';
+
+  /* ── ٣. خيوط المشاريع ── */
+  var order = ["jisr","tour","hilal","derna"];
+  document.getElementById("track").innerHTML = order.map(function(k, i){
+    var items = A.filter(function(p){ return p.proj === k; }).sort(function(a, b){ return a.date < b.date ? -1 : 1; });
+    var y0 = items[0].date.slice(0,4), y1 = items[items.length-1].date.slice(0,4);
+    return '<div class="chap"><div class="chap-card"><span class="no">الخيط ' + ["الأول","الثاني","الثالث","الرابع"][i] + '</span><h3>' + PROJ[k].n + '</h3><p>' + PROJ[k].d + '</p><span class="yrs">' + (y0 === y1 ? y0 : y0 + ' – ' + y1) + ' · ' + Y.n(items.length, "نشاطاً", "أنشطة") + '</span></div>' +
+      items.map(function(p){
+        return '<a href="' + link(p) + '" class="t-scrap scrap tape" style="transform:rotate(' + (Y.tilt(p.id, 2)*3.5).toFixed(1) + 'deg)"><div class="ph"><img src="' + Y.img(p.img[0],"s") + '" alt="" loading="lazy"></div><figcaption>' + Y.esc(p.t) + '<span class="when">' + Y.date(p.date) + (p.city ? ' · ' + Y.esc(p.city) : '') + '</span></figcaption></a>';
+      }).join("") + '</div>';
+  }).join("");
+
+  /* ── ٤. الخريطة والمدن ── */
+  var cityNames = Object.keys(cities).sort(function(a, b){ return cities[b] - cities[a]; });
+  var pts = document.getElementById("pts");
+  cityNames.forEach(function(c){
+    var g = GEO[c]; if (!g) return;
+    var x = (g[0]-9)*24, y = (33.5-g[1])*25, r = 3.4 + Math.sqrt(cities[c])*1.6;
+    var el = document.createElementNS("http://www.w3.org/2000/svg","g");
+    el.setAttribute("class", "pt" + (MAJOR[c] ? " major" : "")); el.dataset.city = c;
+    el.setAttribute("tabindex", "0"); el.setAttribute("role", "button"); el.setAttribute("aria-label", c + "، " + cities[c] + " نشاط");
+    el.innerHTML = '<circle class="halo" cx="'+x+'" cy="'+y+'" r="'+(r*2.6)+'"/><circle class="pin" cx="'+x+'" cy="'+y+'" r="'+r+'"/><text x="'+x+'" y="'+(y + (c === "مسلاتة" || c === "مرزق" || c === "العوينات" ? 22 : -12))+'" text-anchor="middle">'+c+'</text>';
+    pts.appendChild(el);
+  });
+  document.getElementById("cityChips").innerHTML = cityNames.filter(function(c){ return GEO[c] || c === "أوال"; }).map(function(c){
+    return '<button class="chip" data-city="' + c + '" aria-pressed="false">' + c + ' <small>' + cities[c] + '</small></button>';
+  }).join("");
+  document.getElementById("abroad").innerHTML = 'وخارج ليبيا: <button class="chip" data-city="يكاترينبورغ" aria-pressed="false">يكاترينبورغ، روسيا <small>' + (cities["يكاترينبورغ"]||0) + '</small></button>';
+  function hot(c, on){ document.querySelectorAll('.pt[data-city="' + c + '"]').forEach(function(e){ e.classList.toggle("hot", on); }); }
+  document.querySelectorAll(".where [data-city]").forEach(function(el){
+    var c = el.dataset.city;
+    el.addEventListener("mouseenter", function(){ hot(c, true); });
+    el.addEventListener("mouseleave", function(){ if (state.city !== c) hot(c, false); });
+    el.addEventListener("click", function(){ setCity(c); Y.scrollTo(document.getElementById("wall")); });
+    el.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") { e.preventDefault(); el.click(); } });
+  });
+
+  /* ── ٥. الجدار والتصفية ── */
+  var state = {year: "", type: "", city: ""};
+  var fy = document.getElementById("fYear"), ft = document.getElementById("fType");
+  fy.insertAdjacentHTML("beforeend", ['<button class="chip" data-v="" aria-pressed="true">الكل</button>'].concat(yrList.map(function(y){ return '<button class="chip" data-v="' + y + '" aria-pressed="false">' + y + '</button>'; })).join(""));
+  var tList = Object.keys(types).sort(function(a, b){ return types[b] - types[a]; });
+  ft.insertAdjacentHTML("beforeend", ['<button class="chip" data-v="" aria-pressed="true">الكل</button>'].concat(tList.map(function(t){ return '<button class="chip" data-v="' + t + '" aria-pressed="false">' + t + ' <small>' + types[t] + '</small></button>'; })).join(""));
+  function bindRow(row, key){
+    row.addEventListener("click", function(e){
+      var b = e.target.closest(".chip"); if (!b) return;
+      state[key] = b.dataset.v;
+      row.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      render(true);
+    });
+  }
+  bindRow(fy, "year"); bindRow(ft, "type");
+  function setCity(c){
+    state.city = state.city === c ? "" : c;
+    document.querySelectorAll(".where [data-city]").forEach(function(x){ x.setAttribute("aria-pressed", x.dataset.city === state.city ? "true" : "false"); });
+    document.querySelectorAll(".pt").forEach(function(x){ x.classList.toggle("hot", x.dataset.city === state.city); });
+    render(true);
+  }
+  var grid = document.getElementById("grid"), status = document.getElementById("status");
+  function render(anim){
+    var list = A.filter(function(p){ return (!state.year || p.date.slice(0,4) === state.year) && (!state.type || p.type === state.type) && (!state.city || p.city === state.city); });
+    grid.innerHTML = list.length ? list.map(function(p){
+      return '<a class="card" href="' + link(p) + '" style="transform:rotate(' + (Y.tilt(p.id, 3)*1.8).toFixed(2) + 'deg)"><figure class="scrap' + (p.id % 3 === 0 ? ' tape' : '') + '"><div class="ph"><img src="' + Y.img(p.img[0],"s") + '" alt="" loading="lazy"></div>' +
+        (p.img.length > 1 ? '<span class="pics">' + Y.n(p.img.length, "صورة", "صور") + '</span>' : '') +
+        '<h3>' + Y.esc(p.t) + '</h3><div class="m"><span class="ty">' + p.type + '</span><span>' + Y.date(p.date) + '</span>' + (p.city ? '<span class="ci">' + Y.esc(p.city) + '</span>' : '') + '</div></figure></a>';
+    }).join("") : '<p class="empty">لا توجد أنشطة بهذه الشروط. جرّب سنة أو نوعاً آخر.</p>';
+    var bits = [];
+    if (state.city) bits.push("في " + Y.place(state.city));
+    if (state.year) bits.push("عام " + state.year);
+    if (state.type) bits.push("من نوع «" + state.type + "»");
+    status.innerHTML = Y.n(list.length, "نشاطاً", "أنشطة") + (bits.length ? " " + bits.join("، ") : "") +
+      (state.city || state.year || state.type ? '<button type="button" id="clr">إظهار الكل</button>' : "");
+    var clr = document.getElementById("clr");
+    if (clr) clr.addEventListener("click", function(){
+      state.year = state.type = ""; if (state.city) setCity(state.city);
+      [fy, ft].forEach(function(r){ r.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed", x.dataset.v === "" ? "true" : "false"); }); });
+      render(true);
+    });
+    if (anim && window.gsap && !document.documentElement.classList.contains("rm")) gsap.from(grid.children, {opacity:0, y:24, duration:.6, stagger:.04, ease:"power3.out", clearProps:"opacity,translate"});
+  }
+  render(false);
+
+  Y.magnets();
+  if (!Y.init()) return;
+
+  /* ── الحركة ── */
+  Y.inkIn(".a-hero .ink-in");
+  gsap.timeline({defaults:{ease:"power3.out"}})
+    .from(".a-hero h1 > span", {opacity:0, y:30, duration:1.3, stagger:.18}, 0)
+    .from(".rv-h", {opacity:0, y:20, duration:1, stagger:.1}, .5)
+    .from(".pile .scrap", {opacity:0, y:80, rotate:"+=14", duration:1.3, stagger:.12}, .25);
+  document.querySelectorAll(".cnt b").forEach(function(b){
+    var o = {v:0}; b.textContent = "0";
+    gsap.to(o, {v:+b.dataset.to, duration:1.8, delay:.9, ease:"power2.out", onUpdate:function(){ b.textContent = Math.round(o.v); }});
+  });
+  if (Y.fine) {
+    var tilts = [].slice.call(document.querySelectorAll("[data-tilt]")), base = tilts.map(function(el){ return el.style.transform; });
+    addEventListener("pointermove", function(e){
+      if (scrollY > innerHeight) return;
+      var nx = e.clientX/innerWidth - .5, ny = e.clientY/innerHeight - .5;
+      tilts.forEach(function(el, i){ var k = +el.dataset.tilt; el.style.translate = (nx*-18*k).toFixed(1) + "px " + (ny*-14*k).toFixed(1) + "px"; });
+    });
+  }
+  gsap.to(".pile", {yPercent:-10, ease:"none", scrollTrigger:{trigger:".a-hero", start:"top top", end:"bottom top", scrub:true}});
+
+  gsap.fromTo(".latest img", {scale:1.2}, {scale:1, ease:"none", scrollTrigger:{trigger:".latest", start:"top bottom", end:"top top", scrub:true}});
+  gsap.from(".latest .copy > *", {opacity:0, y:40, duration:1.1, stagger:.12, ease:"power3.out", scrollTrigger:{trigger:".latest", start:"top 40%"}});
+  ScrollTrigger.create({trigger:".latest", start:"top 60px", end:"bottom 60px", toggleClass:{targets:document.body, className:"on-photo"}});
+
+  var mm = gsap.matchMedia();
+  mm.add("(min-width: 901px)", function(){
+    var track = document.getElementById("track");
+    var dist = function(){ return Math.max(0, track.scrollWidth - innerWidth); };
+    gsap.to(track, {x:function(){ return dist(); }, ease:"none", scrollTrigger:{trigger:".threads", start:"top top", end:function(){ return "+=" + dist(); }, pin:".th-pin", scrub:.6, invalidateOnRefresh:true}});
+  });
+
+  gsap.from(".land", {opacity:0, scale:.94, transformOrigin:"center", duration:1, ease:"power2.out", scrollTrigger:{trigger:".where", start:"top 70%"}});
+  gsap.from(".pt", {opacity:0, scale:0, transformOrigin:"center", svgOrigin:"200 180", duration:.6, stagger:.06, ease:"back.out(2)", scrollTrigger:{trigger:".where", start:"top 60%"}});
+  gsap.from("#grid .card", {opacity:0, y:40, duration:.9, stagger:.05, ease:"power3.out", scrollTrigger:{trigger:"#grid", start:"top 85%"}, clearProps:"opacity,translate"});
+  ScrollTrigger.create({trigger:".close", start:"top 70%", once:true, onEnter:function(){ Y.inkIn("#closeInk"); }});
+})();
+</script>
+</body>
+</html>

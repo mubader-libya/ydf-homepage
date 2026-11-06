@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>نشاط | منتدى حوار الشباب</title>
+<meta name="description" content="نشاط من أنشطة منتدى حوار الشباب في ليبيا.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sub.css">
+<style>
+.s-hero{display:grid;grid-template-columns:1fr 1.05fr;gap:5vw;align-items:center;padding:130px var(--pad) 60px;min-height:92svh}
+.s-hero > *,.story > *{min-width:0}
+.back{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink-soft);margin-bottom:26px}
+.back:hover{color:var(--teal)}
+.s-hero .ty{font-family:var(--f-thuluth);color:var(--teal);font-size:26px;line-height:1.4}
+.s-hero h1{font-size:clamp(34px,4.2vw,66px);line-height:1.25;color:var(--ink-deep);font-weight:900;margin-top:6px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:34px;max-width:620px}
+.fact{position:relative;padding:12px 18px 10px}
+.fact::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1}
+.fact small{display:block;font-size:13px;color:var(--ink-soft);font-weight:500}
+.fact b{display:block;font-family:var(--f-display);font-size:19px;color:var(--ink-deep);font-weight:700;line-height:1.5}
+.fact a{color:var(--teal)}
+.cover{transform:rotate(2deg);will-change:transform}
+.cover .ph{aspect-ratio:4/3;overflow:hidden;cursor:zoom-in}
+.cover .ph img{width:100%;height:100%;object-fit:cover}
+.cover.scrap{padding:14px 14px 50px}
+
+.story{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:6vw;padding:40px var(--pad) 70px;max-width:1240px;margin-inline:auto}
+.story .txt p{font-size:clamp(18px,1.1vw + 9px,22px);line-height:2;margin-bottom:1.1em;max-width:36em}
+.story .txt p:first-child{font-family:var(--f-display);font-weight:500;color:var(--ink-deep);font-size:clamp(21px,1.4vw + 10px,28px);line-height:1.75}
+.note{position:relative;padding:26px 24px 22px;align-self:start;position:sticky;top:120px;transform:rotate(-1.2deg)}
+.note::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 18px 40px -24px rgba(6,47,71,.5)}
+.note .tape-s{position:absolute;top:-12px;right:26px;width:80px;height:24px;background:rgba(214,203,178,.85);transform:rotate(4deg)}
+.note span{font-family:var(--f-thuluth);color:var(--teal);font-size:20px}
+.note h3{font-size:26px;color:var(--ink-deep);font-weight:900;line-height:1.3;margin:2px 0 10px}
+.note p{font-size:15.5px;line-height:1.8}
+.note a{display:inline-block;margin-top:12px;font-weight:700;color:var(--teal);text-decoration:underline;text-underline-offset:5px}
+
+.gal{padding:50px var(--pad) 80px}
+.gal-h{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:38px}
+.gal-h h2{font-size:clamp(34px,4vw,60px);color:var(--ink-deep);font-weight:900;line-height:1.2}
+.gal-h span{color:var(--ink-soft)}
+.mas{columns:3 300px;column-gap:30px}
+.mas figure{break-inside:avoid;margin-bottom:30px;cursor:zoom-in;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.mas figure.scrap{padding:10px 10px 12px}
+.mas figure img{height:auto}
+.mas figure:hover{transform:rotate(0deg) scale(1.02) !important}
+
+.more{padding:70px var(--pad);border-top:1.5px dashed var(--edge)}
+.more h2{font-size:clamp(30px,3.4vw,50px);color:var(--ink-deep);font-weight:900;margin-bottom:34px}
+.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:34px}
+.mini{display:block;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.mini .scrap{padding:10px 10px 14px}
+.mini .ph{aspect-ratio:4/3;overflow:hidden}
+.mini .ph img{width:100%;height:100%;object-fit:cover}
+.mini h3{font-family:var(--f-text);font-size:16px;line-height:1.45;font-weight:700;color:var(--ink-deep);margin-top:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mini small{display:block;margin-top:4px;color:var(--ink-soft);font-size:13px}
+.mini:hover{transform:rotate(0deg) translateY(-6px) !important}
+
+.pn{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px dashed var(--edge)}
+.pn a{display:block;padding:44px var(--pad);transition:background .3s}
+.pn a:hover{background:rgba(8,80,120,.05)}
+.pn a + a{border-right:1.5px dashed var(--edge);text-align:left}
+.pn small{font-family:var(--f-thuluth);color:var(--teal);font-size:20px}
+.pn b{display:block;font-family:var(--f-display);font-size:clamp(20px,1.8vw,28px);color:var(--ink-deep);line-height:1.4;margin-top:4px}
+.missing{min-height:80svh;display:grid;place-items:center;text-align:center;padding:140px var(--pad)}
+
+@media (max-width:900px){
+  .s-hero,.story{grid-template-columns:1fr}
+  .s-hero{padding-top:110px;min-height:0;gap:40px}
+  .note{position:relative;top:0}
+  .pn{grid-template-columns:1fr}
+  .pn a + a{border-right:0;border-top:1.5px dashed var(--edge);text-align:right}
+}
+@media (max-width:560px){
+  .mas{columns:2;column-gap:14px}
+  .mas figure{margin-bottom:14px}
+  .mas figure.scrap{padding:6px 6px 8px}
+  .row{grid-template-columns:1fr 1fr;gap:18px}
+  .mini h3{font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="inkIn" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="inkInMap" in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="rough" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="blots" aria-hidden="true"><div class="blot a"></div><div class="blot b"></div></div>
+<div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header>
+  <a class="brand" href="index.html" aria-label="منتدى حوار الشباب، الرئيسية">
+    <svg class="mark ink" viewBox="0 0 40 40" aria-hidden="true">
+      <g fill="none" stroke="#085078" stroke-width="2.4"><circle cx="13" cy="13" r="6"/><circle cx="27" cy="27" r="6"/></g>
+      <circle cx="27" cy="13" r="4.2" fill="#008EA5"/><circle cx="13" cy="27" r="4.2" fill="#062F47"/>
+      <path d="M17.5 17.5 22.5 22.5" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/>
+    </svg>
+    <span><b>منتدى حوار الشباب</b><small>ليبيا</small></span>
+  </a>
+  <nav aria-label="الرئيسية">
+    <a class="nl" href="index.html">الرئيسية</a>
+    <a class="nl" href="index.html#about">من نحن</a>
+    <a class="nl" href="activities.html" aria-current="page">الأنشطة</a>
+    <a class="pill" href="https://ydf.ly/?page_id=5629">انضم</a>
+  </nav>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <span>© منتدى حوار الشباب، ليبيا 2026</span>
+  <a href="mailto:info@ydf.ly">info@ydf.ly</a>
+  <span class="soc">
+    <a href="https://www.facebook.com/YDForumLY">فيسبوك</a>
+    <a href="https://x.com/YDForum_ly">إكس</a>
+    <a href="https://www.instagram.com/ydforumly/">إنستغرام</a>
+    <a href="https://www.youtube.com/channel/UC0wHgo-4RE2iXFrUI0Ld75g">يوتيوب</a>
+    <a href="https://wa.me/218912000932">واتساب</a>
+  </span>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="معرض الصور">
+  <span class="lb-n" id="lbN"></span>
+  <button class="lb-x" id="lbX" aria-label="إغلاق"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbP" aria-label="الصورة السابقة"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <figure class="scrap tape"><figcaption></figcaption></figure>
+  <button class="lb-btn lb-next" id="lbF" aria-label="الصورة التالية"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="act-data.js"></script>
+<script src="sub.js"></script>
+<script>
+(function(){
+  "use strict";
+  var Y = YDF, A = ACT.slice().sort(function(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : b.id - a.id; });
+  var id = +(new URLSearchParams(location.search).get("id")), i = -1;
+  A.forEach(function(p, k){ if (p.id === id) i = k; });
+  var main = document.getElementById("main");
+  if (i < 0) {
+    main.innerHTML = '<section class="missing"><div><p class="eyebrow">لم نجد هذا النشاط</p><h1 class="sec-h">ربما نُقل أو تغيّر رابطه.</h1><p class="sec-sub" style="margin-inline:auto">تجد كل أنشطة المنتدى في الأرشيف الكامل.</p><div class="ctas" style="justify-content:center;margin-top:30px"><a class="ghost" href="activities.html">كل الأنشطة</a></div></div></section>';
+    Y.init(); return;
+  }
+  var P = A[i], pr = P.proj ? PROJ[P.proj] : null;
+  document.title = P.t + " | منتدى حوار الشباب";
+  function link(p){ return "activity.html?id=" + p.id; }
+  var arrow = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var paras = P.p.length ? P.p : ["من أرشيف المنتدى المصوّر: صورة تحفظ لحظة من مسيرة منتدى حوار الشباب في " + (P.city ? Y.place(P.city) : "ليبيا") + "."];
+  var same = pr ? A.filter(function(p){ return p.proj === P.proj && p.id !== P.id; }) : [];
+  if (same.length < 3) same = same.concat(A.filter(function(p){ return p.id !== P.id && p.proj !== P.proj && p.type === P.type; }).slice(0, 4 - same.length));
+  var newer = A[i-1], older = A[i+1];
+
+  main.innerHTML =
+    '<section class="s-hero"><div>' +
+      '<a class="back" href="activities.html">' + arrow + ' كل الأنشطة</a>' +
+      '<p class="ty">' + P.type + '</p><h1 class="ink-in">' + Y.esc(P.t) + '</h1>' +
+      '<div class="facts">' +
+        '<div class="fact"><small>التاريخ</small><b>' + Y.date(P.date) + '</b></div>' +
+        (P.city ? '<div class="fact"><small>المكان</small><b>' + Y.esc(Y.place(P.city)) + '</b></div>' : '') +
+        (pr ? '<div class="fact"><small>المشروع</small><b>' + pr.n + '</b></div>' : '') +
+        (P.img.length > 1 ? '<div class="fact"><small>الصور</small><b><a href="#gal">' + Y.n(P.img.length, 'صورة', 'صور') + '</a></b></div>' : '') +
+      '</div></div>' +
+      '<figure class="cover scrap tape"><div class="ph" data-i="0"><img src="' + Y.img(P.img[0],"l") + '" srcset="' + Y.srcset(P.img[0]) + '" sizes="(max-width:900px) 92vw, 50vw" alt="' + Y.esc(P.t) + '"></div><figcaption>' + Y.esc(P.city ? Y.place(P.city) : "منتدى حوار الشباب") + ' · ' + P.date.slice(0,4) + '</figcaption></figure>' +
+    '</section>' +
+    '<section class="story"><div class="txt">' + paras.map(function(t){ return '<p class="rv">' + Y.esc(t) + '</p>'; }).join("") + '</div>' +
+      (pr ? '<aside class="note"><i class="tape-s"></i><span>ضمن مشروع</span><h3>' + pr.n + '</h3><p>' + pr.d + '</p><a href="activities.html">كل أنشطة المنتدى</a></aside>' : '<div></div>') +
+    '</section>' +
+    (P.img.length > 1 ? '<section class="gal" id="gal"><div class="gal-h"><h2 class="ink rv">من عدسة النشاط</h2><span>' + Y.n(P.img.length, 'صورة', 'صور') + ' · اضغط لتكبيرها</span></div><div class="mas">' +
+      P.img.map(function(n, k){ return '<figure class="scrap" data-i="' + k + '" tabindex="0" style="transform:rotate(' + (Y.tilt(P.id, k)*1.6).toFixed(2) + 'deg)"><img src="' + Y.img(n,"s") + '" alt="صورة ' + (k+1) + ' من النشاط" loading="lazy"></figure>'; }).join("") +
+    '</div></section>' : '') +
+    (same.length ? '<section class="more"><h2>' + (pr && same.some(function(p){ return p.proj === P.proj; }) ? 'من نفس المشروع' : 'أنشطة مشابهة') + '</h2><div class="row">' +
+      same.slice(0, 4).map(function(p){ return '<a class="mini" href="' + link(p) + '" style="transform:rotate(' + (Y.tilt(p.id, 5)*1.6).toFixed(2) + 'deg)"><figure class="scrap"><div class="ph"><img src="' + Y.img(p.img[0],"s") + '" alt="" loading="lazy"></div><h3>' + Y.esc(p.t) + '</h3><small>' + Y.date(p.date) + (p.city ? ' · ' + Y.esc(p.city) : '') + '</small></figure></a>'; }).join("") +
+    '</div></section>' : '') +
+    '<nav class="pn" aria-label="التنقل بين الأنشطة">' +
+      (newer ? '<a href="' + link(newer) + '"><small>النشاط الأحدث</small><b>' + Y.esc(newer.t) + '</b></a>' : '<a href="activities.html"><small>هذا أحدث نشاط</small><b>العودة إلى كل الأنشطة</b></a>') +
+      (older ? '<a href="' + link(older) + '"><small>النشاط الأقدم</small><b>' + Y.esc(older.t) + '</b></a>' : '<a href="activities.html"><small>هذا أقدم نشاط</small><b>العودة إلى كل الأنشطة</b></a>') +
+    '</nav>';
+
+  /* ── المعرض المكبّر ── */
+  var lb = document.getElementById("lightbox"), lbImg = lb.querySelector("figure").insertBefore(new Image(), lb.querySelector("figcaption")), lbCap = lb.querySelector("figcaption"), lbN = document.getElementById("lbN"), cur = 0, lastFocus = null;
+  function show(k){
+    cur = (k + P.img.length) % P.img.length;
+    lbImg.src = Y.img(P.img[cur], "l"); lbImg.alt = "صورة " + (cur+1) + " من " + P.img.length;
+    lbCap.textContent = P.t; lbN.textContent = (cur+1) + " من " + P.img.length;
+    var one = P.img.length < 2; document.getElementById("lbP").hidden = one; document.getElementById("lbF").hidden = one;
+    new Image().src = Y.img(P.img[(cur+1) % P.img.length], "l");
+  }
+  function open(k){ lastFocus = document.activeElement; show(k); lb.classList.add("open"); if (Y.lenis) Y.lenis.stop(); document.getElementById("lbX").focus(); }
+  function close(){ lb.classList.remove("open"); if (Y.lenis) Y.lenis.start(); if (lastFocus) lastFocus.focus(); }
+  main.addEventListener("click", function(e){ var f = e.target.closest("[data-i]"); if (f) open(+f.dataset.i); });
+  main.addEventListener("keydown", function(e){ var f = e.target.closest("[data-i]"); if (f && e.key === "Enter") open(+f.dataset.i); });
+  document.getElementById("lbX").addEventListener("click", close);
+  document.getElementById("lbP").addEventListener("click", function(e){ e.stopPropagation(); show(cur - 1); });
+  document.getElementById("lbF").addEventListener("click", function(e){ e.stopPropagation(); show(cur + 1); });
+  lb.addEventListener("click", function(e){ if (e.target === lb) close(); });
+  addEventListener("keydown", function(e){
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") show(cur + 1);
+    if (e.key === "ArrowRight") show(cur - 1);
+  });
+  var sx = null;
+  lb.addEventListener("touchstart", function(e){ sx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener("touchend", function(e){ if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(cur + (dx > 0 ? 1 : -1)); sx = null; });
+
+  if (!Y.init()) return;
+  Y.inkIn(".s-hero .ink-in");
+  gsap.timeline({defaults:{ease:"power3.out"}})
+    .from(".s-hero .back, .s-hero .ty, .s-hero h1", {opacity:0, y:24, duration:1.1, stagger:.1}, 0)
+    .from(".fact", {opacity:0, y:20, duration:.9, stagger:.08}, .4)
+    .from(".cover", {opacity:0, y:70, rotate:9, duration:1.4}, .2);
+  gsap.to(".cover", {yPercent:-8, ease:"none", scrollTrigger:{trigger:".s-hero", start:"top top", end:"bottom top", scrub:true}});
+  gsap.utils.toArray(".mas figure").forEach(function(f){
+    gsap.from(f, {opacity:0, y:50, duration:1, ease:"power3.out", scrollTrigger:{trigger:f, start:"top 92%"}, clearProps:"opacity,translate"});
+  });
+  gsap.from(".note", {opacity:0, y:40, rotate:-6, duration:1.2, ease:"power3.out", scrollTrigger:{trigger:".story", start:"top 75%"}});
+})();
+</script>
+</body>
+</html>
