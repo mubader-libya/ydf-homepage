@@ -7,6 +7,7 @@ const READ_ONLY = [
   'api::project.project',
   'api::city.city',
   'api::news-item.news-item',
+  'api::article.article',
 ];
 
 module.exports = {

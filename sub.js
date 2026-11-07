@@ -110,6 +110,22 @@
         })};
       },
       count: function(d){ return d.news.length; }
+    },
+    /* المقالات: {id, date, t, author, role, cat, min, quote, img, p} */
+    articles: {
+      route: "/api/articles",
+      fields: ["title","slug","legacyId","date","category","authorName","authorRole","quote","body"],
+      populate: {cover:MEDIA},
+      local: function(){ return {articles:(window.BLOG || []).slice(), cats:window.BLOG_CATS || {}}; },
+      map: function(json, base){
+        var pic = picker(base);
+        return {cats:window.BLOG_CATS || {}, articles:(json.data || []).map(function(a){
+          var ps = blocksToParas(a.body), words = ps.join(" ").split(/\s+/).length;
+          return {id: idOf(a), date: a.date, t: a.title, author: a.authorName || null, role: a.authorRole || null, cat: a.category || "society",
+            min: Math.max(1, Math.ceil(words / 200)), quote: a.quote || null, img: images(a, pic), p: ps};
+        })};
+      },
+      count: function(d){ return d.articles.length; }
     }
   };
   Y.ENDPOINTS = ENDPOINTS;
@@ -207,7 +223,7 @@
   };
 
   /* ── مسار القصة: الرئيسية ← الأنشطة ← الأخبار ── */
-  Y.CHAPTERS = [["index.html","الرئيسية","home"],["activities.html","المشاركات والأنشطة","activities"],["news.html","الأخبار والمواقف","news"]];
+  Y.CHAPTERS = [["index.html","الرئيسية","home"],["activities.html","المشاركات والأنشطة","activities"],["news.html","الأخبار والمواقف","news"],["blog.html","مدونة الشباب","blog"]];
   Y.trail = function(el, page){
     if (!el) return;
     el.innerHTML = Y.CHAPTERS.map(function(c, i){
@@ -223,7 +239,7 @@
   };
 
   /* ── الرأس والتذييل المشتركان: <header data-page="activities"></header> و <footer></footer> ── */
-  Y.NAV = [["index.html","الرئيسية",""],["index.html#about","من نحن",""],["activities.html","الأنشطة","activities"],["news.html","الأخبار","news"]];
+  Y.NAV = [["index.html","الرئيسية",""],["index.html#about","من نحن",""],["activities.html","الأنشطة","activities"],["news.html","الأخبار","news"],["blog.html","المدونة","blog"]];
   Y.chrome = function(){
     var h = document.querySelector("header[data-page]"), f = document.querySelector("footer");
     if (h) h.innerHTML = '<a class="brand" href="index.html" aria-label="منتدى حوار الشباب، الرئيسية"><svg class="mark ink" viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#085078" stroke-width="2.4"><circle cx="13" cy="13" r="6"/><circle cx="27" cy="27" r="6"/></g><circle cx="27" cy="13" r="4.2" fill="#008EA5"/><circle cx="13" cy="27" r="4.2" fill="#062F47"/><path d="M17.5 17.5 22.5 22.5" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/></svg><span><b>منتدى حوار الشباب</b><small>ليبيا</small></span></a>' +

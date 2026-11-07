@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مدونة الشباب | منتدى حوار الشباب</title>
+<meta name="description" content="مقالات رأي يكتبها شباب ليبيا في السياسة والاقتصاد والمجتمع، على مدونة منتدى حوار الشباب.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="menu.css?v=1.3">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="منتدى حوار الشباب">
+<meta property="og:title" content="مدونة الشباب | منتدى حوار الشباب">
+<meta property="og:description" content="مقالات رأي يكتبها شباب ليبيا في السياسة والاقتصاد والمجتمع، على مدونة منتدى حوار الشباب.">
+<meta property="og:image" content="https://mubader-libya.github.io/ydf-homepage/img/og/news.jpg">
+<meta property="og:locale" content="ar_LY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3EEE4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"></noscript>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="fonts/thmanyahserifdisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/thmanyahseriftext-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="sub.css?v=1.3">
+<style>
+
+/* ── ١. الافتتاح وآخر المقالات ── */
+.b-hero{padding:130px var(--pad) 60px}
+.b-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px;margin-bottom:40px}
+.b-head h1{font-size:clamp(46px,6.4vw,100px);line-height:1.12;color:var(--ink-deep);font-weight:900}
+.b-head h1 .thuluth{display:block;font-size:.42em;line-height:1.6;margin-top:6px}
+.b-counts{display:flex;gap:12px;flex-wrap:wrap}
+.b-cnt{position:relative;padding:12px 20px 10px;min-width:104px;text-align:center}
+.b-cnt::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1}
+.b-cnt b{display:block;font-family:var(--f-display);font-size:clamp(28px,2.6vw,40px);line-height:1.15;color:var(--ink-deep);font-weight:900}
+.b-cnt span{font-size:13.5px;color:var(--ink-soft);font-weight:700}
+.latest3{display:grid;grid-template-columns:1.45fr 1fr;gap:34px;align-items:start}
+.latest3 .side{display:grid;gap:30px}
+
+/* القصاصة المستطيلة: بانر المقال + سطر البيانات */
+.post{display:block;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.post .scrap{padding:12px 12px 18px}
+.post .ph{aspect-ratio:1600/655;overflow:hidden;background:var(--paper-2)}
+.post .ph img{width:100%;height:100%;object-fit:cover;filter:none}
+.post .meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;margin-top:14px;font-size:13.5px;color:var(--ink-soft)}
+.post .meta .cat{font-weight:700;color:var(--teal-ink)}
+.post h3{font-family:var(--f-text);font-size:19px;line-height:1.5;color:var(--ink-deep);font-weight:700;margin-top:6px}
+.post .by{display:block;margin-top:6px;font-size:14.5px;color:var(--ink)}
+.post .by b{font-family:var(--f-thuluth);font-weight:700;font-size:18px;color:var(--ink-deep);margin-left:6px}
+.post:hover,.post:focus-visible{transform:rotate(0deg) translateY(-6px) !important}
+.post.big h3{font-size:clamp(22px,2vw,28px)}
+.post.big .scrap{padding:14px 14px 22px}
+.post mark{background:rgba(0,142,165,.18);color:inherit;border-radius:3px;padding:0 2px}
+
+/* ── ٢. شريط المقولات ── */
+.quotes{overflow-x:clip;padding:40px 0 70px}
+.q-strip{position:relative;transform:rotate(-1.6deg);background:var(--sheet);border-block:1.5px solid var(--edge);box-shadow:0 14px 30px -20px rgba(6,47,71,.5);overflow:hidden;padding:22px 0}
+.q-track{display:flex;gap:64px;width:max-content;animation:marq 70s linear infinite}
+.q-strip:hover .q-track,.q-strip:focus-within .q-track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(50%)}}
+.q-item{display:inline-flex;align-items:center;gap:16px;white-space:nowrap;color:var(--ink-deep)}
+.q-item q{font-family:var(--f-display);font-weight:700;font-size:clamp(19px,1.9vw,27px);quotes:"«" "»"}
+.q-item small{font-family:var(--f-thuluth);font-size:clamp(16px,1.3vw,20px);color:var(--teal-ink)}
+.q-item i{width:8px;height:8px;border-radius:50%;background:var(--edge);display:inline-block}
+.q-item:hover q{color:var(--ink)}
+.q-note{text-align:center;color:var(--ink-soft);font-size:15px;margin:30px auto 0;padding:0 var(--pad)}
+
+/* ── ٣. كل المقالات ── */
+.all{padding:50px var(--pad) 70px}
+.tools{display:grid;gap:14px;margin:26px 0 12px}
+.frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.search{position:relative;max-width:460px}
+.search input{width:100%;font:inherit;font-size:16px;color:var(--ink-deep);background:rgba(251,248,242,.85);border:1.5px solid var(--edge);border-radius:99px;min-height:50px;padding:10px 48px 9px 18px;outline:none;transition:border-color .25s}
+.search input:focus{border-color:var(--teal)}
+.search input::placeholder{color:var(--ink-soft);opacity:1}
+.search svg{position:absolute;right:17px;top:50%;margin-top:-9px;color:var(--ink-soft)}
+.status{font-size:15px;color:var(--ink-soft);min-height:1.8em;margin-bottom:26px}
+.status button{min-height:44px;color:var(--teal-ink);font-weight:700;text-decoration:underline;text-underline-offset:4px;margin-right:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:48px 38px}
+.empty{grid-column:1/-1;padding:50px 0;text-align:center;color:var(--ink-soft);font-size:19px}
+
+/* ── ٤. اكتب معنا ── */
+.write{padding:40px var(--pad) 100px}
+.write .sheet{position:relative;max-width:900px;margin:0 auto;text-align:center;padding:clamp(34px,5vw,60px) clamp(22px,5vw,64px)}
+.write .sheet::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 26px 54px -34px rgba(6,47,71,.55)}
+.write .tape-s{position:absolute;top:-14px;right:50%;margin-right:-50px;width:100px;height:28px;background:rgba(214,203,178,.85);transform:rotate(-3deg)}
+.write h2{font-size:clamp(34px,4.4vw,64px);color:var(--ink-deep);font-weight:900;line-height:1.2}
+.write p{margin:16px auto 30px;max-width:32em;color:var(--ink-soft);font-size:clamp(17px,1.15vw + 8px,20px)}
+.write .ctas{justify-content:center}
+
+@media (max-width:900px){
+  .b-hero{padding-top:110px}
+  .latest3{grid-template-columns:1fr}
+  .grid2{grid-template-columns:1fr;gap:34px}
+}
+@media (max-width:560px){
+  .frow{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--pad) * -1);padding:4px var(--pad)}
+  .frow::-webkit-scrollbar{display:none}
+  .frow > *{flex:none}
+  .post .scrap{padding:8px 8px 14px}
+  .b-cnt{min-width:0;flex:1}
+}
+@media (prefers-reduced-motion:reduce){.q-track{animation:none}.q-strip{overflow-x:auto}}
+
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="inkIn" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="inkInMap" in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="rough" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="blots" aria-hidden="true"><div class="blot a"></div><div class="blot b"></div></div>
+<div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header data-page="blog"></header>
+
+<main id="top">
+
+  <!-- ١. الافتتاح وآخر المقالات -->
+  <section class="b-hero" aria-labelledby="h1">
+    <nav class="trail" id="pageTrail" aria-label="مسار الصفحات"></nav>
+    <div class="b-head">
+      <div>
+        <p class="kicker">الفصل الرابع: ما يكتبه شبابنا</p>
+        <h1 id="h1"><span class="ink-in">مدونة الشباب</span><span class="thuluth">أقلام حرّة، وآراء لا تمثّل إلا أصحابها</span></h1>
+      </div>
+      <div class="b-counts" id="counts"></div>
+    </div>
+    <div class="latest3 sk" id="latest3" aria-label="آخر المقالات"></div>
+  </section>
+
+  <!-- ٢. شريط المقولات -->
+  <section class="quotes" aria-label="مقولات من المقالات">
+    <div class="q-strip"><div class="q-track" id="qTrack"></div></div>
+    <p class="q-note">جمل من مقالات كتّابنا، كما كتبوها. اضغط أي جملة لتقرأ مقالها.</p>
+  </section>
+
+  <!-- ٣. كل المقالات -->
+  <section class="all" id="all" aria-labelledby="all-t">
+    <p class="eyebrow">كل المقالات</p>
+    <h2 id="all-t" class="sec-h ink">ما كتبه شبابنا</h2>
+    <div class="tools">
+      <label class="search">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="7.5" cy="7.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m12 12 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="search" id="q" placeholder="ابحث باسم الكاتب أو عنوان المقالة" aria-label="ابحث باسم الكاتب أو عنوان المقالة">
+      </label>
+      <div class="frow" id="fCat" role="group" aria-label="فئات المقالات"></div>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+    <div class="grid2" id="grid"></div>
+  </section>
+
+  <!-- ٤. اكتب معنا -->
+  <section class="write" aria-labelledby="wr-t">
+    <div class="sheet"><i class="tape-s"></i>
+      <p class="eyebrow">اكتب معنا</p>
+      <h2 id="wr-t">لديك فكرة تستحق أن تُقرأ؟</h2>
+      <p>المدونة مفتوحة لأقلام الشباب الليبي. أرسل مقالك إلى المنتدى، وقد يكون المقال القادم هنا مقالك.</p>
+      <div class="ctas">
+        <a class="magnet" href="mailto:info@ydf.ly?subject=%D9%85%D9%82%D8%A7%D9%84%20%D9%84%D9%84%D9%85%D8%AF%D9%88%D9%86%D8%A9" data-magnet>أرسل مقالك <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="ghost" href="https://ydf.ly/?page_id=5629">انضم إلى المنتدى</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer></footer>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="site-config.js"></script>
+<script defer src="blog-data.js?v=1.3"></script>
+<script defer src="sub.js?v=1.3"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+YDF.load("articles").then(function(D){
+  "use strict";
+  var Y = YDF, B = D.articles.sort(Y.byDate), C = D.cats;
+  function link(a){ return "article.html?id=" + encodeURIComponent(a.id); }
+  function card(a, big, hlFn, eager){
+    var h = hlFn || Y.esc;
+    return '<a class="post' + (big ? ' big' : '') + '" href="' + link(a) + '" style="transform:rotate(' + (Y.tilt(a.id, 3) * (big ? .8 : 1.2)).toFixed(2) + 'deg)"><figure class="scrap' + (Y.tilt(a.id, 7) > .2 ? ' tape' : '') + '">' +
+      '<div class="ph">' + (a.img.length ? '<img src="' + Y.img(a.img[0], big ? "l" : "s") + '"' + (big ? ' fetchpriority="high"' : (eager ? '' : ' loading="lazy"')) + ' alt="">' : '') + '</div>' +
+      '<div class="meta"><span class="cat">' + (C[a.cat] || '') + '</span><time datetime="' + a.date + '">' + Y.date(a.date) + '</time><span>' + Y.n(a.min, "دقيقة", "دقائق") + ' قراءة</span></div>' +
+      '<h3>' + h(a.t) + '</h3>' + (a.author ? '<span class="by"><b>' + h(a.author) + '</b>' + (a.role ? Y.esc(a.role) : '') + '</span>' : '') + '</figure></a>';
+  }
+
+  /* ── ١. الافتتاح ── */
+  Y.trail(document.getElementById("pageTrail"), "blog");
+  var authors = {}; B.forEach(function(a){ if (a.author) authors[a.author] = 1; });
+  var cats = {}; B.forEach(function(a){ cats[a.cat] = (cats[a.cat] || 0) + 1; });
+  document.getElementById("counts").innerHTML = [[B.length, Y.n(B.length, "مقالاً", "مقالات").replace(/^\d+\s/, "")], [Object.keys(authors).length, Y.n(Object.keys(authors).length, "كاتباً", "كتّاب").replace(/^\d+\s/, "")], [Object.keys(cats).length, Y.n(Object.keys(cats).length, "فئة", "فئات").replace(/^\d+\s/, "")]]
+    .map(function(c){ return '<div class="b-cnt"><b>' + c[0] + '</b><span>' + c[1] + '</span></div>'; }).join("");
+  var L3 = B.slice(0, 3);
+  document.getElementById("latest3").innerHTML = (L3[0] ? card(L3[0], true) : '') + '<div class="side">' + L3.slice(1).map(function(a){ return card(a, false, null, true); }).join("") + '</div>';
+
+  /* ── ٢. شريط المقولات: نسخة مقروءة + نسخة مكررة للحلقة ── */
+  var Q = B.filter(function(a){ return a.quote; });
+  if (!Q.length) document.querySelector(".quotes").hidden = true;
+  var qHTML = function(hidden){ return Q.map(function(a){
+    return '<a class="q-item" href="' + link(a) + '"' + (hidden ? ' tabindex="-1" aria-hidden="true"' : '') + '><q>' + Y.esc(a.quote) + '</q><small>' + Y.esc(a.author || '') + '</small><i aria-hidden="true"></i></a>';
+  }).join(""); };
+  document.getElementById("qTrack").innerHTML = qHTML(false) + qHTML(true);
+
+  /* ── ٣. كل المقالات: فئة + بحث بالكاتب أو العنوان ── */
+  var state = {cat: "", q: ""};
+  var fc = document.getElementById("fCat");
+  fc.innerHTML = ['<button class="chip" data-v="" aria-pressed="true">الكل <small>' + B.length + '</small></button>'].concat(Object.keys(C).filter(function(k){ return cats[k]; }).map(function(k){
+    return '<button class="chip" data-v="' + k + '" aria-pressed="false">' + C[k] + ' <small>' + cats[k] + '</small></button>';
+  })).join("");
+  fc.addEventListener("click", function(e){
+    var b = e.target.closest(".chip"); if (!b) return;
+    state.cat = b.dataset.v; fc.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    draw();
+  });
+  function norm(s){ return String(s || "").replace(/[ً-ْـ]/g, "").replace(/[أإآ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").toLowerCase(); }
+  function hl(t){
+    if (!state.q) return Y.esc(t);
+    var i = norm(t).indexOf(norm(state.q));
+    return i < 0 ? Y.esc(t) : Y.esc(t.slice(0, i)) + "<mark>" + Y.esc(t.slice(i, i + state.q.length)) + "</mark>" + Y.esc(t.slice(i + state.q.length));
+  }
+  var qIn = document.getElementById("q"), qT = null;
+  qIn.addEventListener("input", function(){ clearTimeout(qT); qT = setTimeout(function(){ state.q = qIn.value.trim(); draw(); }, 160); });
+  var grid = document.getElementById("grid"), status = document.getElementById("status");
+  function draw(){
+    var nq = norm(state.q);
+    var list = B.filter(function(a){ return (!state.cat || a.cat === state.cat) && (!nq || norm(a.t).indexOf(nq) >= 0 || norm(a.author).indexOf(nq) >= 0); });
+    grid.innerHTML = list.length ? list.map(function(a){ return card(a, false, hl); }).join("") : '<p class="empty">لا توجد مقالات بهذا الاسم أو العنوان.</p>';
+    var bits = [];
+    if (state.cat) bits.push("في «" + C[state.cat] + "»");
+    if (state.q) bits.push("للبحث «" + Y.esc(state.q) + "»");
+    status.innerHTML = Y.n(list.length, "مقالاً", "مقالات") + (bits.length ? " " + bits.join("، ") + '<button type="button" id="clr">إظهار الكل</button>' : "");
+    var clr = document.getElementById("clr");
+    if (clr) clr.addEventListener("click", function(){
+      state = {cat: "", q: ""}; qIn.value = "";
+      fc.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed", x.dataset.v === "" ? "true" : "false"); });
+      draw();
+    });
+  }
+  draw();
+
+  Y.nextChapter("index.html#goal", "والخطوة التالية", "إلى أين نمضي؟", "من الحوارات المجتمعية إلى ميثاق، فمشروع سياسي جامع، فحركة سياسية شبابية.");
+  Y.magnets();
+  if (!Y.init()) return;
+  /* حركة هادئة فقط: ظهور العنوان والقصاصات الثلاث */
+  Y.inkIn(".b-hero .ink-in");
+  gsap.from(".latest3 .post", {y:30, duration:1, stagger:.1, ease:"power3.out"});
+});
+
+});
+</script>
+<script defer src="menu.js?v=1.3"></script>
+</body>
+</html>

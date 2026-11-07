@@ -434,7 +434,7 @@ Promise.all([YDF.load("news"), YDF.load("activities")]).then(function(R){
 
   /* ── ٧. الختام: العودة إلى «إلى أين؟» ── */
   document.getElementById("socRow").innerHTML = Y.SOCIAL.map(function(s){ return '<a class="chip" href="' + s[0] + '">' + s[1] + '</a>'; }).join("");
-  Y.nextChapter("index.html#goal", "والخطوة التالية", "إلى أين نمضي؟", "من الحوارات المجتمعية إلى ميثاق، فمشروع سياسي جامع، فحركة سياسية شبابية.");
+  Y.nextChapter("blog.html", "الفصل التالي", "ما يكتبه شبابنا", "مدونة الشباب: مقالات رأي بأقلام شباب ليبيا في السياسة والاقتصاد والمجتمع.");
 
   Y.magnets();
   if (!Y.init()) return;
