@@ -74,6 +74,7 @@ for (const [key, p] of Object.entries(PROJ)) {
   const o = THREAD_ORDER.indexOf(key);
   const r = await api('POST', '/api/projects?status=published', { data: {
     name: p.n, key, description: p.d, order: o < 0 ? 99 : o, showAsThread: o >= 0,
+    kind: p.k === 'championship' ? 'championship' : 'project', listed: p.list !== 0, accent: p.c || null,
   } });
   projDoc[key] = r.data.documentId;
   console.log('مشروع +', p.n);

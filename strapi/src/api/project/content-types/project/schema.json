@@ -5,7 +5,7 @@
     "singularName": "project",
     "pluralName": "projects",
     "displayName": "مشروع",
-    "description": "خيوط المشاريع التي تجمع عدة أنشطة"
+    "description": "المشاريع والبطولات: صفحة المشاريع، وخيوط الأنشطة"
   },
   "options": {
     "draftAndPublish": true
@@ -24,6 +24,37 @@
     },
     "description": {
       "type": "text"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "project",
+        "championship"
+      ],
+      "default": "project",
+      "required": true
+    },
+    "listed": {
+      "type": "boolean",
+      "default": true
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "accent": {
+      "type": "string",
+      "regex": "^#[0-9A-Fa-f]{6}$"
     },
     "order": {
       "type": "integer",

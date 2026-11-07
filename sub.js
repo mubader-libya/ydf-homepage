@@ -111,6 +111,27 @@
       },
       count: function(d){ return d.news.length; }
     },
+    /* المشاريع: {key, n, d, kind, listed, accent, cover, logo}
+       kind: project (مشروع) أو championship (بطولة). listed=false: لا يظهر في صفحة المشاريع (يبقى خيطاً في الأنشطة)
+       accent ولون logo: هوية المشروع الخاصة إن وُجدت؛ وإلا تُستعمل ألوان المنتدى */
+    projects: {
+      route: "/api/projects",
+      fields: ["name","key","description","kind","listed","accent","order"],
+      populate: {cover:MEDIA, logo:MEDIA},
+      sort: ["order:asc", "id:asc"],
+      local: function(){
+        return {projects: Object.keys(window.PROJ || {}).map(function(k){
+          var p = PROJ[k]; return {key:k, n:p.n, d:p.d || "", kind:p.k || "project", listed:p.list !== 0, accent:p.c || null, cover:null, logo:null};
+        })};
+      },
+      map: function(json, base){
+        var pic = picker(base);
+        return {projects:(json.data || []).map(function(p){
+          return {key:p.key, n:p.name, d:p.description || "", kind:p.kind || "project", listed:p.listed !== false, accent:p.accent || null, cover:pic(p.cover), logo:pic(p.logo)};
+        })};
+      },
+      count: function(d){ return d.projects.length; }
+    },
     /* المقالات: {id, date, t, author, role, cat, min, quote, img, p} */
     articles: {
       route: "/api/articles",
@@ -139,7 +160,8 @@
     Object.keys(ep.populate).forEach(function(rel){
       ep.populate[rel].forEach(function(f, i){ q.push("populate[" + rel + "][fields][" + i + "]=" + f); });
     });
-    q.push("sort[0]=date:desc", "sort[1]=id:desc", "pagination[page]=" + page, "pagination[pageSize]=" + PAGE_SIZE);
+    (ep.sort || ["date:desc", "id:desc"]).forEach(function(o, i){ q.push("sort[" + i + "]=" + o); });
+    q.push("pagination[page]=" + page, "pagination[pageSize]=" + PAGE_SIZE);
     return ep.route + "?" + q.join("&");
   }
   function getJSON(url){
@@ -252,7 +274,7 @@
   };
 
   /* ── مسار القصة: الرئيسية ← الأنشطة ← الأخبار ── */
-  Y.CHAPTERS = [["index.html","الرئيسية","home"],["activities.html","المشاركات والأنشطة","activities"],["news.html","الأخبار والمواقف","news"],["blog.html","مدونة الشباب","blog"]];
+  Y.CHAPTERS = [["index.html","الرئيسية","home"],["projects.html","المشاريع","projects"],["activities.html","المشاركات والأنشطة","activities"],["news.html","الأخبار والمواقف","news"],["blog.html","مدونة الشباب","blog"]];
   Y.trail = function(el, page){
     if (!el) return;
     el.innerHTML = Y.CHAPTERS.map(function(c, i){
@@ -268,7 +290,7 @@
   };
 
   /* ── الرأس والتذييل المشتركان: <header data-page="activities"></header> و <footer></footer> ── */
-  Y.NAV = [["index.html","الرئيسية",""],["index.html#about","من نحن",""],["activities.html","الأنشطة","activities"],["news.html","الأخبار","news"],["blog.html","المدونة","blog"]];
+  Y.NAV = [["index.html","الرئيسية",""],["index.html#about","من نحن",""],["projects.html","المشاريع","projects"],["activities.html","الأنشطة","activities"],["news.html","الأخبار","news"],["blog.html","المدونة","blog"]];
   Y.chrome = function(){
     var h = document.querySelector("header[data-page]"), f = document.querySelector("footer");
     if (h) h.innerHTML = '<a class="brand" href="index.html" aria-label="منتدى حوار الشباب، الرئيسية"><svg class="mark ink" viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#085078" stroke-width="2.4"><circle cx="13" cy="13" r="6"/><circle cx="27" cy="27" r="6"/></g><circle cx="27" cy="13" r="4.2" fill="#008EA5"/><circle cx="13" cy="27" r="4.2" fill="#062F47"/><path d="M17.5 17.5 22.5 22.5" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/></svg><span><b>منتدى حوار الشباب</b><small>ليبيا</small></span></a>' +
