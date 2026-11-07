@@ -29,12 +29,10 @@
       "type": "enumeration",
       "enum": [
         "politics",
-        "economy",
-        "youth",
         "society",
-        "digital",
-        "climate",
-        "sport"
+        "science",
+        "sport",
+        "other"
       ],
       "required": true
     },

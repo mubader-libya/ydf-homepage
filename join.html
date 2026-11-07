@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>انضم إلى المنتدى | منتدى حوار الشباب</title>
+<meta name="description" content="استمارة الانتساب إلى منتدى حوار الشباب: شبكة وطنية شبابية في كل مدن ليبيا.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="menu.css?v=1.4">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="منتدى حوار الشباب">
+<meta property="og:title" content="انضم إلى المنتدى | منتدى حوار الشباب">
+<meta property="og:description" content="استمارة الانتساب إلى منتدى حوار الشباب: شبكة وطنية شبابية في كل مدن ليبيا.">
+<meta property="og:image" content="https://mubader-libya.github.io/ydf-homepage/img/og/home.jpg">
+<meta property="og:locale" content="ar_LY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3EEE4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"></noscript>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="fonts/thmanyahserifdisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/thmanyahseriftext-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="sub.css?v=1.4">
+<style>
+
+/* ── ١. الافتتاح ── */
+.j-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:5vw;align-items:center;padding:130px var(--pad) 60px;min-height:80svh}
+.j-hero h1{font-size:clamp(42px,5.8vw,92px);line-height:1.15;color:var(--ink-deep);font-weight:900}
+.j-hero h1 .thuluth{display:block;font-size:.62em;line-height:1.5}
+.lede{max-width:32em;margin-top:22px;font-size:clamp(17px,1.2vw + 8px,21px)}
+.j-hero .ctas{margin-top:30px}
+/* بطاقة الانتساب مرسومة بالحبر */
+.j-hero > *{min-width:0}
+.card-ill{display:block;width:100%;max-width:470px;margin-inline:auto;overflow:visible;transform:rotate(-3deg);filter:drop-shadow(0 26px 34px rgba(6,47,71,.22))}
+.card-ill .bg{fill:var(--sheet);stroke:var(--edge);stroke-width:2}
+.card-ill .ln{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+.card-ill .fn{fill:none;stroke:var(--ink-soft);stroke-width:1.4;stroke-dasharray:3 5;stroke-linecap:round}
+.card-ill .tx{font-family:var(--f-thuluth);fill:var(--ink-deep)}
+.card-ill .sm{font-family:var(--f-text);font-size:13px;font-weight:700;fill:var(--ink-soft)}
+.card-ill .seal circle{fill:none;stroke:#00697A}
+.card-ill .seal .dt{fill:#00697A;stroke:none}
+.card-ill .tape{fill:rgba(214,203,178,.85)}
+
+/* ── ٢. ماذا يعني أن تكون عضواً ── */
+.why{padding:80px var(--pad)}
+.why .hd{max-width:760px;margin-bottom:40px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.why-item{position:relative;padding:30px 26px 28px}
+.why-item::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 14px 30px -22px rgba(6,47,71,.45)}
+.why-item svg{display:block;width:100%;max-width:220px;height:auto;margin-bottom:16px}
+.why-item svg path{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.why-item svg .t{stroke:var(--teal)}
+.why-item svg .dot{fill:var(--teal);stroke:none}
+.why-item h3{font-size:clamp(22px,2vw,28px);line-height:1.3;color:var(--ink-deep);font-weight:900;margin-bottom:8px}
+.why-item p{font-size:16px;color:var(--ink-soft);line-height:1.85}
+
+/* ── ٣. كيف تنضم: خط واحد بثلاث محطات ── */
+.how{padding:30px var(--pad) 70px}
+.how-line{display:block;width:100%;height:auto;max-width:1100px;margin:0 auto}
+.how-line path{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round}
+.how-line .st{fill:var(--paper);stroke:var(--ink);stroke-width:2.4}
+.how-line .st.end{fill:var(--ink-deep)}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:1100px;margin:10px auto 0;text-align:center}
+.how-steps b{display:block;font-family:var(--f-thuluth);color:var(--teal-ink);font-size:20px}
+.how-steps h3{font-size:clamp(20px,1.8vw,26px);color:var(--ink-deep);font-weight:900;margin:2px 0 6px}
+.how-steps p{font-size:15.5px;color:var(--ink-soft);max-width:20em;margin:0 auto}
+
+/* ── ٤. الاستمارة ── */
+.apply{padding:60px var(--pad) 90px}
+.form-sheet{position:relative;max-width:900px;margin:0 auto;padding:clamp(28px,5vw,60px) clamp(20px,5vw,64px)}
+.form-sheet::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 30px 60px -36px rgba(6,47,71,.55)}
+.form-sheet .tape-s{position:absolute;top:-14px;right:50%;margin-right:-50px;width:100px;height:28px;background:rgba(214,203,178,.85);transform:rotate(-3deg)}
+.form-sheet > h2{font-size:clamp(32px,4vw,56px);color:var(--ink-deep);font-weight:900;line-height:1.2}
+.form-sheet > .sub{color:var(--ink-soft);margin:8px 0 10px}
+.req-note{font-size:14px;color:var(--ink-soft);margin-bottom:10px}
+.req-note i,.fld label i{font-style:normal;color:#A33A2B}
+fieldset{border:0;border-top:5px double var(--ink-deep);padding:22px 0 6px;margin-top:26px}
+legend{font-family:var(--f-thuluth);font-weight:700;font-size:24px;color:var(--ink-deep);padding-left:12px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+.fld{display:grid;gap:6px;align-content:start}
+.fld.full{grid-column:1/-1}
+.fld label,.fld .lbl{font-weight:700;font-size:15.5px;color:var(--ink-deep)}
+.fld input[type=text],.fld input[type=tel],.fld input[type=email],.fld input[type=date],.fld select{width:100%;font:inherit;font-size:16px;color:var(--ink-deep);background:rgba(251,248,242,.95);border:1.5px solid var(--edge);border-bottom:2px solid var(--ink-soft);border-radius:4px;min-height:50px;padding:10px 14px;outline:none;transition:border-color .2s,background .2s}
+.fld input:focus,.fld select:focus{border-color:var(--teal);background:#fff}
+.fld input[type=tel]{direction:ltr;text-align:right}
+.fld .hint{font-size:13.5px;color:var(--ink-soft)}
+.fld .err{font-size:13.5px;font-weight:700;color:#A33A2B;min-height:0}
+.fld.bad input,.fld.bad select{border-color:#A33A2B;border-bottom-color:#A33A2B;background:#fff6f4}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:99px;border:1.5px solid var(--edge);background:rgba(251,248,242,.9);font-weight:600;font-size:15px;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.opt input:checked + span{background:var(--ink-deep);border-color:var(--ink-deep);color:var(--paper)}
+.opt input:focus-visible + span{outline:2.5px solid var(--teal);outline-offset:3px}
+.fld.bad .opt span{border-color:#A33A2B}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.8}
+.consent input{width:22px;height:22px;margin-top:5px;accent-color:var(--ink-deep);flex:none}
+.privacy{font-size:13.5px;color:var(--ink-soft);margin-top:8px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:28px}
+.submit-row .magnet{border:0;cursor:pointer}
+.form-msg{margin-top:18px;padding:16px 20px;border-right:4px solid var(--teal);background:rgba(232,225,211,.6);font-size:16px;line-height:1.8}
+.form-msg.bad{border-right-color:#A33A2B}
+.form-msg a{font-weight:700;color:var(--ink-deep);text-decoration:underline;text-underline-offset:4px}
+.done{text-align:center;padding:30px 0}
+.done h3{font-size:clamp(28px,3.4vw,46px);color:var(--ink-deep);font-weight:900;margin:12px 0 8px}
+.done p{color:var(--ink-soft);max-width:30em;margin:0 auto}
+
+@media (max-width:900px){
+  .j-hero{grid-template-columns:1fr;padding-top:110px;min-height:0;gap:30px}
+  .card-ill{max-width:min(340px,100%);transform:rotate(-1.5deg)}
+  .why-grid,.how-steps{grid-template-columns:1fr}
+  .how-line{display:none}
+  .how-steps{text-align:right;gap:18px}
+  .how-steps p{margin:0}
+}
+@media (max-width:560px){ .fgrid{grid-template-columns:1fr} }
+
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="inkIn" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="inkInMap" in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="rough" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="blots" aria-hidden="true"><div class="blot a"></div><div class="blot b"></div></div>
+<div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header data-page="join"></header>
+
+<main id="top">
+
+  <!-- ١. الافتتاح -->
+  <section class="j-hero" aria-labelledby="h1">
+    <div>
+      <p class="kicker">الخطوة التالية: أنت</p>
+      <h1 id="h1"><span class="ink-in">انضم إلى منتدى حوار الشباب</span><span class="thuluth">هذا وقتنا.</span></h1>
+      <p class="lede">شبكة وطنية شبابية في كل مدن ليبيا، تضع مصلحة الوطن فوق كل اعتبار. سجّل بياناتك، وكن جزءاً من الحوار القادم في دائرتك.</p>
+      <div class="ctas"><a class="magnet" href="#apply" data-magnet>املأ استمارة الانتساب <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+    </div>
+    <svg class="card-ill" viewBox="0 0 480 300" role="img" aria-label="رسم لبطاقة الانتساب إلى المنتدى">
+      <rect class="bg" x="10" y="16" width="460" height="272" rx="14"/>
+      <rect class="tape" x="200" y="4" width="84" height="24" transform="rotate(-4 242 16)"/>
+      <text class="tx" x="440" y="74" font-size="30" text-anchor="start">بطاقة الانتساب</text>
+      <text class="sm" x="440" y="100" text-anchor="start">منتدى حوار الشباب · ليبيا</text>
+      <path class="ln" d="M440 116 H250"/>
+      <text class="sm" x="440" y="160" text-anchor="start">الاسم</text>
+      <path class="fn" d="M392 158 H180"/>
+      <text class="sm" x="440" y="200" text-anchor="start">المدينة</text>
+      <path class="fn" d="M392 198 H250"/>
+      <text class="sm" x="440" y="240" text-anchor="start">الدائرة</text>
+      <path class="fn" d="M392 238 H250"/>
+      <g class="seal" transform="rotate(-12 110 200)">
+        <circle cx="110" cy="200" r="58" stroke-width="3"/><circle cx="110" cy="200" r="44" stroke-width="1.3" stroke-dasharray="2 4"/>
+        <circle cx="99" cy="189" r="9" stroke-width="3"/><circle cx="121" cy="211" r="9" stroke-width="3"/>
+        <circle class="dt" cx="121" cy="189" r="6.5"/><circle class="dt" cx="99" cy="211" r="6.5"/>
+      </g>
+    </svg>
+  </section>
+
+  <!-- ٢. ماذا يعني أن تكون عضواً -->
+  <section class="why" aria-labelledby="why-t">
+    <div class="hd">
+      <p class="eyebrow">العضوية</p>
+      <h2 id="why-t" class="sec-h ink">ماذا يعني أن تكون عضواً؟</h2>
+    </div>
+    <div class="why-grid">
+      <article class="why-item">
+        <svg viewBox="0 0 240 90" aria-hidden="true"><path d="M220 30 q6 4 2 11"/><path d="M196 22 q8 -2 10 6"/><path d="M208 56 q-7 3 -12 -2"/><path d="M176 44 q2 7 -4 11"/><path d="M160 46 C 128 44, 112 62, 70 60 S 30 52, 20 50"/><path class="t" d="M160 54 C 130 56, 112 40, 70 42 S 30 50, 20 52"/></svg>
+        <h3>صوتك في دائرتك</h3>
+        <p>تشارك في جلسات الحوار التي يعقدها المنتدى في مدينتك ودائرتك، وتنقل همّ شبابها إلى طاولة النقاش.</p>
+      </article>
+      <article class="why-item">
+        <svg viewBox="0 0 240 90" aria-hidden="true"><path d="M222 74 C 180 74, 156 64, 128 46 S 70 18, 30 16"/><path class="t" d="M222 82 C 176 82, 150 72, 122 54 S 66 28, 34 26"/><circle class="dot" cx="26" cy="16" r="6"/></svg>
+        <h3>مهارات تبنيك</h3>
+        <p>فرص التدريب في مشاريع المنتدى، مثل «جسر الكفاءات» و«شبكة المدربين المؤثرين».</p>
+      </article>
+      <article class="why-item">
+        <svg viewBox="0 0 240 90" aria-hidden="true"><path d="M224 46 c -10 -24 -34 -20 -28 -2 c 4 14 24 12 20 -4 c -3 -14 -28 -16 -36 2 c -6 14 8 22 18 12 C 180 50, 150 46, 110 46"/><path d="M110 46 C 80 46, 60 20, 18 14"/><path d="M110 46 C 80 46, 60 46, 18 46"/><path class="t" d="M110 46 C 80 46, 60 72, 18 78"/></svg>
+        <h3>شريك في الميثاق</h3>
+        <p>تساهم في صياغة الميثاق والمشروع السياسي الشبابي الذي ينبثق من جلسات الحوار في أنحاء ليبيا.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ٣. كيف تنضم -->
+  <section class="how" aria-labelledby="how-t">
+    <div class="hd" style="max-width:760px;margin-bottom:20px">
+      <p class="eyebrow">كيف تنضم</p>
+      <h2 id="how-t" class="sec-h ink">ثلاث خطوات</h2>
+    </div>
+    <svg class="how-line" viewBox="0 0 1000 60" aria-hidden="true">
+      <path d="M835 30 C 700 30, 640 20, 500 30 S 300 40, 165 30"/>
+      <circle class="st" cx="835" cy="30" r="12"/><circle class="st" cx="500" cy="30" r="12"/><circle class="st end" cx="165" cy="30" r="14"/>
+    </svg>
+    <div class="how-steps">
+      <div><b>١</b><h3>تسجّل بياناتك</h3><p>تملأ استمارة الانتساب في هذه الصفحة.</p></div>
+      <div><b>٢</b><h3>يتواصل معك المنتدى</h3><p>يتواصل معك منسق مدينتك أو دائرتك.</p></div>
+      <div><b>٣</b><h3>تستلم بطاقة الانتساب</h3><p>وتبدأ المشاركة في أنشطة المنتدى.</p></div>
+    </div>
+  </section>
+
+  <!-- ٤. الاستمارة -->
+  <section class="apply" id="apply" aria-labelledby="ap-t">
+    <div class="form-sheet"><i class="tape-s"></i>
+      <h2 id="ap-t">استمارة الانتساب</h2>
+      <p class="sub">املأ الحقول بعناية؛ سيتواصل معك المنتدى على الرقم الذي تكتبه.</p>
+      <p class="req-note">الحقول المعلَّمة بـ <i>*</i> مطلوبة.</p>
+      <form id="joinForm" novalidate>
+        <fieldset>
+          <legend>البيانات الشخصية</legend>
+          <div class="fgrid">
+            <div class="fld full"><label for="fullName">الاسم الثلاثي باللغة العربية <i>*</i></label><input type="text" id="fullName" name="fullName" autocomplete="name" required maxlength="120"><span class="err" id="fullName-err"></span></div>
+            <div class="fld"><label for="birthDate">تاريخ الميلاد <i>*</i></label><input type="date" id="birthDate" name="birthDate" required min="1950-01-01"><span class="err" id="birthDate-err"></span></div>
+            <div class="fld" role="group" aria-labelledby="g-lbl"><span class="lbl" id="g-lbl">الجنس <i>*</i></span>
+              <div class="opts"><label class="opt"><input type="radio" name="gender" value="male" required><span>ذكر</span></label><label class="opt"><input type="radio" name="gender" value="female"><span>أنثى</span></label></div><span class="err" id="gender-err"></span></div>
+            <div class="fld"><label for="city">المدينة أو البلدية <i>*</i></label><input type="text" id="city" name="city" list="cities" autocomplete="address-level2" required maxlength="80"><datalist id="cities"></datalist><span class="err" id="city-err"></span></div>
+            <div class="fld"><label for="phone">رقم الهاتف / واتساب <i>*</i></label><input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+218 91 234 5678" required maxlength="20"><span class="hint">مع الرمز الدولي، مثل +218</span><span class="err" id="phone-err"></span></div>
+            <div class="fld full"><label for="email">البريد الإلكتروني</label><input type="email" id="email" name="email" autocomplete="email" placeholder="name@example.com" maxlength="120"><span class="err" id="email-err"></span></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>الخلفية</legend>
+          <div class="fgrid">
+            <div class="fld"><label for="education">المستوى الدراسي <i>*</i></label><select id="education" name="education" required><option value="">اختر</option><option value="secondary">ثانوي</option><option value="diploma">دبلوم</option><option value="bachelor">جامعي</option><option value="postgraduate">دراسات عليا</option><option value="other">أخرى</option></select><span class="err" id="education-err"></span></div>
+            <div class="fld"><label for="specialty">التخصص</label><input type="text" id="specialty" name="specialty" maxlength="120" placeholder="مثل: علوم سياسية، هندسة، قانون"></div>
+            <div class="fld full" role="group" aria-labelledby="o-lbl"><span class="lbl" id="o-lbl">الوضع الحالي</span>
+              <div class="opts"><label class="opt"><input type="radio" name="occupation" value="student"><span>طالب</span></label><label class="opt"><input type="radio" name="occupation" value="employee"><span>موظف</span></label><label class="opt"><input type="radio" name="occupation" value="freelance"><span>عمل حر</span></label><label class="opt"><input type="radio" name="occupation" value="jobseeker"><span>باحث عن عمل</span></label><label class="opt"><input type="radio" name="occupation" value="other"><span>أخرى</span></label></div></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>المشاركة</legend>
+          <div class="fgrid">
+            <div class="fld full" role="group" aria-labelledby="i-lbl"><span class="lbl" id="i-lbl">المجالات التي تريد المشاركة فيها</span><span class="hint">يمكنك اختيار أكثر من مجال.</span>
+              <div class="opts">
+                <label class="opt"><input type="checkbox" name="interests" value="dialogue"><span>الحوار والجلسات المجتمعية</span></label>
+                <label class="opt"><input type="checkbox" name="interests" value="training"><span>التدريب وبناء القدرات</span></label>
+                <label class="opt"><input type="checkbox" name="interests" value="reconciliation"><span>المصالحة الوطنية</span></label>
+                <label class="opt"><input type="checkbox" name="interests" value="volunteering"><span>العمل الإنساني والتطوعي</span></label>
+                <label class="opt"><input type="checkbox" name="interests" value="media"><span>الإعلام والمحتوى</span></label>
+                <label class="opt"><input type="checkbox" name="interests" value="research"><span>البحث والكتابة</span></label>
+              </div></div>
+            <div class="fld"><label for="heardFrom">كيف عرفت المنتدى؟</label><select id="heardFrom" name="heardFrom"><option value="">اختر</option><option value="social">وسائل التواصل الاجتماعي</option><option value="friend">صديق أو عضو في المنتدى</option><option value="event">نشاط أو جلسة حضرتها</option><option value="other">أخرى</option></select></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>الإقرار</legend>
+          <div class="fld"><label class="consent"><input type="checkbox" id="consent" name="consent" required><span>أقرّ بصحة البيانات التي كتبتها، وألتزم بمبادئ المنتدى: الاستقلالية، ومدنية الدولة، والحرية، والعمل المدني. <i>*</i></span></label><span class="err" id="consent-err"></span>
+          <p class="privacy">تُستعمل بياناتك لأغراض العضوية والتواصل معك فقط، ولا تُشارَك مع أي جهة.</p></div>
+        </fieldset>
+        <div class="hp" aria-hidden="true"><label>اترك هذا الحقل فارغاً <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="submit-row">
+          <button type="submit" class="magnet" data-magnet>أرسل طلب الانتساب <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        </div>
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer></footer>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="site-config.js"></script>
+<script defer src="act-data.js?v=1.4"></script>
+<script defer src="sub.js?v=1.4"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+YDF.load("activities").then(function(D){
+  "use strict";
+  var Y = YDF;
+  /* اقتراحات المدن: من مدن الأنشطة الليبية */
+  document.getElementById("cities").innerHTML = Object.keys(D.cities || {}).filter(function(c){ return !(D.cities[c] || {}).abroad; }).map(function(c){ return '<option value="' + Y.esc(c) + '">'; }).join("");
+  var today = new Date(); document.getElementById("birthDate").max = new Date(today.getFullYear() - 14, today.getMonth(), today.getDate()).toISOString().slice(0, 10);
+
+  var form = document.getElementById("joinForm"), msg = document.getElementById("formMsg");
+  var RULES = {
+    fullName: function(v){ return !v.trim() ? "اكتب اسمك الثلاثي." : (v.trim().split(/\s+/).length < 3 ? "اكتب الاسم الثلاثي كاملاً." : (/[a-zA-Z]/.test(v) ? "اكتب الاسم بالحروف العربية." : "")); },
+    birthDate: function(v){ return !v ? "اختر تاريخ ميلادك." : (v > form.birthDate.max || v < form.birthDate.min ? "تحقق من تاريخ الميلاد." : ""); },
+    gender: function(){ return form.querySelector("[name=gender]:checked") ? "" : "اختر الجنس."; },
+    city: function(v){ return v.trim() ? "" : "اكتب مدينتك أو بلديتك."; },
+    phone: function(v){ var d = v.replace(/[\s\-()]/g, ""); return !d ? "اكتب رقم هاتفك." : (/^\+?\d{9,15}$/.test(d) ? "" : "اكتب الرقم بالأرقام فقط مع الرمز الدولي، مثل +218912345678."); },
+    email: function(v){ return !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "تحقق من البريد الإلكتروني."; },
+    education: function(v){ return v ? "" : "اختر المستوى الدراسي."; },
+    consent: function(){ return form.consent.checked ? "" : "الإقرار مطلوب لإرسال الطلب."; }
+  };
+  function check(name){
+    var el = form.elements[name], fld = (el.length ? el[0] : el).closest(".fld"), err = RULES[name](el.value || ""), box = document.getElementById(name + "-err");
+    fld.classList.toggle("bad", !!err); if (box) box.textContent = err;
+    (el.length ? [].slice.call(el) : [el]).forEach(function(x){ x.setAttribute("aria-invalid", err ? "true" : "false"); if (box) x.setAttribute("aria-describedby", name + "-err"); });
+    return !err;
+  }
+  Object.keys(RULES).forEach(function(n){
+    var el = form.elements[n]; (el.length ? [].slice.call(el) : [el]).forEach(function(x){ x.addEventListener(x.type === "radio" || x.type === "checkbox" || x.tagName === "SELECT" ? "change" : "blur", function(){ check(n); }); });
+  });
+  function show(html, bad){ msg.innerHTML = html; msg.hidden = false; msg.classList.toggle("bad", !!bad); }
+  var WA = "https://wa.me/218912000932";
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var ok = Object.keys(RULES).map(check).every(Boolean);
+    if (!ok) { var first = form.querySelector(".fld.bad input, .fld.bad select"); if (first) first.focus(); show("بعض الحقول تحتاج تصحيحاً. راجع الحقول المعلَّمة بالأحمر.", true); return; }
+    if (form.website.value) return; /* حقل فخ للروبوتات */
+    var data = {fullName: form.fullName.value.trim(), birthDate: form.birthDate.value, gender: form.querySelector("[name=gender]:checked").value, city: form.city.value.trim(),
+      phone: form.phone.value.replace(/[\s\-()]/g, ""), email: form.email.value.trim() || null, education: form.education.value, specialty: form.specialty.value.trim() || null,
+      occupation: (form.querySelector("[name=occupation]:checked") || {}).value || null, interests: [].slice.call(form.querySelectorAll("[name=interests]:checked")).map(function(x){ return x.value; }),
+      heardFrom: form.heardFrom.value || null, consent: true};
+    var btn = form.querySelector("button[type=submit]"); btn.disabled = true; btn.setAttribute("aria-busy", "true");
+    Y.submit("membership", data).then(function(){
+      form.innerHTML = '<div class="done"><p class="eyebrow">وصل طلبك</p><h3>شكراً لك، ' + Y.esc(data.fullName.split(/\s+/)[0]) + '.</h3><p>سيتواصل معك المنتدى على الرقم ' + Y.esc(data.phone) + ' قريباً. مرحباً بك في الحوار.</p></div>';
+      form.scrollIntoView({block: "center"});
+    }).catch(function(err){
+      btn.disabled = false; btn.removeAttribute("aria-busy");
+      if (err.message === "closed") show('التسجيل عبر الموقع يُفتح قريباً، ولم يُرسَل طلبك بعد. إلى ذلك الحين، راسل المنتدى على <a href="' + WA + '">واتساب</a> أو <a href="mailto:info@ydf.ly">info@ydf.ly</a>، وبياناتك ما زالت في الاستمارة.');
+      else show('تعذّر إرسال الطلب الآن، ولم يُحفظ. حاول مرة أخرى بعد قليل، أو راسل المنتدى على <a href="' + WA + '">واتساب</a>.', true);
+    });
+  });
+
+  Y.magnets();
+  if (Y.init()) Y.inkIn(".j-hero .ink-in");
+
+});
+});
+</script>
+<script defer src="menu.js?v=1.4"></script>
+</body>
+</html>

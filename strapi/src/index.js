@@ -10,6 +10,9 @@ const READ_ONLY = [
   'api::article.article',
 ];
 
+/* أنواع يُسمح للزوار بالإرسال إليها فقط (create)، دون قراءة */
+const CREATE_ONLY = ['api::membership-application.membership-application'];
+
 module.exports = {
   register() {},
 
@@ -19,8 +22,10 @@ module.exports = {
       .findOne({ where: { type: 'public' } });
     if (!role) return;
 
-    for (const uid of READ_ONLY) {
-      for (const action of ['find', 'findOne']) {
+    const grants = READ_ONLY.flatMap((uid) => ['find', 'findOne'].map((a) => [uid, a]))
+      .concat(CREATE_ONLY.map((uid) => [uid, 'create']));
+    for (const [uid, action] of grants) {
+      {
         const name = `${uid}.${action}`;
         const exists = await strapi.db
           .query('plugin::users-permissions.permission')

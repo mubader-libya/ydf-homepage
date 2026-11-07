@@ -1,0 +1,93 @@
+{
+  "kind": "collectionType",
+  "collectionName": "membership_applications",
+  "info": {
+    "singularName": "membership-application",
+    "pluralName": "membership-applications",
+    "displayName": "طلب عضوية",
+    "description": "طلبات الانتساب من صفحة «انضم». الزوار يرسلون فقط، ولا يقرؤون."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "birthDate": {
+      "type": "date",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20
+    },
+    "email": {
+      "type": "email"
+    },
+    "education": {
+      "type": "enumeration",
+      "enum": [
+        "secondary",
+        "diploma",
+        "bachelor",
+        "postgraduate",
+        "other"
+      ],
+      "required": true
+    },
+    "specialty": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "occupation": {
+      "type": "enumeration",
+      "enum": [
+        "student",
+        "employee",
+        "freelance",
+        "jobseeker",
+        "other"
+      ]
+    },
+    "interests": {
+      "type": "json"
+    },
+    "heardFrom": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "consent": {
+      "type": "boolean",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "contacted",
+        "accepted",
+        "declined"
+      ],
+      "default": "new",
+      "private": true
+    }
+  }
+}

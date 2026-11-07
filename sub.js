@@ -121,7 +121,7 @@
         var pic = picker(base);
         return {cats:window.BLOG_CATS || {}, articles:(json.data || []).map(function(a){
           var ps = blocksToParas(a.body), words = ps.join(" ").split(/\s+/).length;
-          return {id: idOf(a), date: a.date, t: a.title, author: a.authorName || null, role: a.authorRole || null, cat: a.category || "society",
+          return {id: idOf(a), date: a.date, t: a.title, author: a.authorName || null, role: a.authorRole || null, cat: a.category || "other",
             min: Math.max(1, Math.ceil(words / 200)), quote: a.quote || null, img: images(a, pic), p: ps};
         })};
       },
@@ -170,6 +170,28 @@
       .catch(function(e){ if (window.console) console.warn("Strapi (" + name + ") غير متاح، أعرض البيانات المحلية:", e.message); return local(); })
       .then(function(d){ done(); return d; });
   };
+  /* ── إرسال النماذج: Y.submit("membership", data) ──
+     المصدر يُحدَّد في site-config.js (forms.membership):
+       "strapi"     → POST {cms}/api/membership-applications   (يتطلب cms)
+       {type:"forminator", url, formId, map}  → نموذج WordPress (يُربط حين يُنشأ في لوحة ydf.ly، ولم يُجرَّب بعد)
+       غير مضبوط    → يُرفض بـ "closed" فتعرض الصفحة رسالة واضحة، فلا تضيع البيانات بصمت */
+  var FORMS = {membership: {route: "/api/membership-applications"}};
+  Y.submit = function(name, data){
+    var conf = window.YDF_CONFIG && YDF_CONFIG.forms && YDF_CONFIG.forms[name];
+    var cms = (window.YDF_CONFIG && YDF_CONFIG.cms || "").replace(/\/+$/, "");
+    if (conf === "strapi" && cms && window.fetch) {
+      return fetch(cms + FORMS[name].route, {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body: JSON.stringify({data: data})})
+        .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return {ok:true, mode:"strapi"}; });
+    }
+    if (conf && conf.type === "forminator" && conf.url && conf.formId && window.fetch) {
+      var fd = new FormData();
+      fd.append("action", "forminator_submit_form_custom-forms"); fd.append("form_id", conf.formId);
+      Object.keys(conf.map || {}).forEach(function(k){ var v = data[k]; if (v == null) return; (Array.isArray(v) ? v : [v]).forEach(function(x){ fd.append(conf.map[k], x); }); });
+      return fetch(conf.url, {method:"POST", body: fd}).then(function(r){ return r.json(); }).then(function(j){ if (!j || j.success === false) throw new Error("rejected"); return {ok:true, mode:"forminator"}; });
+    }
+    return Promise.reject(new Error("closed"));
+  };
+
   Y.byDate = function(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : String(b.id).localeCompare(String(a.id), "en", {numeric:true}); };
 
   /* ── المعرض المكبّر المشترك: Y.gallery(container, images, caption) ──
@@ -243,7 +265,7 @@
   Y.chrome = function(){
     var h = document.querySelector("header[data-page]"), f = document.querySelector("footer");
     if (h) h.innerHTML = '<a class="brand" href="index.html" aria-label="منتدى حوار الشباب، الرئيسية"><svg class="mark ink" viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#085078" stroke-width="2.4"><circle cx="13" cy="13" r="6"/><circle cx="27" cy="27" r="6"/></g><circle cx="27" cy="13" r="4.2" fill="#008EA5"/><circle cx="13" cy="27" r="4.2" fill="#062F47"/><path d="M17.5 17.5 22.5 22.5" stroke="#085078" stroke-width="2.4" stroke-linecap="round"/></svg><span><b>منتدى حوار الشباب</b><small>ليبيا</small></span></a>' +
-      '<nav aria-label="الرئيسية">' + Y.NAV.map(function(n){ return '<a class="nl" href="' + n[0] + '"' + (n[2] && n[2] === h.dataset.page ? ' aria-current="page"' : '') + '>' + n[1] + '</a>'; }).join("") + '<a class="pill" href="https://ydf.ly/?page_id=5629">انضم</a></nav>';
+      '<nav aria-label="الرئيسية">' + Y.NAV.map(function(n){ return '<a class="nl" href="' + n[0] + '"' + (n[2] && n[2] === h.dataset.page ? ' aria-current="page"' : '') + '>' + n[1] + '</a>'; }).join("") + '<a class="pill" href="join.html">انضم</a></nav>';
     if (f && !f.children.length) f.innerHTML = '<span>© منتدى حوار الشباب، ليبيا ' + new Date().getFullYear() + '</span><a href="mailto:info@ydf.ly">info@ydf.ly</a><span class="soc">' +
       Y.SOCIAL.map(function(s){ return '<a href="' + s[0] + '">' + s[1] + '</a>'; }).join("") + '</span>';
   };
