@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article_submissions",
+  "info": {
+    "singularName": "article-submission",
+    "pluralName": "article-submissions",
+    "displayName": "مقال مُرسَل",
+    "description": "مقالات يرسلها الكتّاب من صفحة «أرسل مقالك» للمراجعة. الزوار يرسلون فقط."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20
+    },
+    "bio": {
+      "type": "text",
+      "maxLength": 600
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "politics",
+        "society",
+        "science",
+        "sport",
+        "other"
+      ],
+      "required": true
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ],
+      "required": true
+    },
+    "sources": {
+      "type": "text",
+      "maxLength": 3000
+    },
+    "consent": {
+      "type": "boolean",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "reviewing",
+        "accepted",
+        "declined",
+        "published"
+      ],
+      "default": "new",
+      "private": true
+    }
+  }
+}

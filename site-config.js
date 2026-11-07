@@ -6,5 +6,6 @@ window.YDF_CONFIG = {
   /* وجهة النماذج. membership: "strapi" بعد ربط Strapi،
      أو {type:"forminator", url:"https://ydf.ly/wp-admin/admin-ajax.php", formId:"…", map:{fullName:"name-1", …}} حين يُنشأ النموذج في WordPress.
      فارغ = التسجيل مغلق مؤقتاً، وتعرض الصفحة رسالة ورابط واتساب. */
-  forms: { membership: "" }
+  /* article: نموذج «أرسل مقالك»؛ نموذج WordPress الحالي هو page 5938 (Forminator) */
+  forms: { membership: "", article: "" }
 };

@@ -175,18 +175,25 @@
        "strapi"     → POST {cms}/api/membership-applications   (يتطلب cms)
        {type:"forminator", url, formId, map}  → نموذج WordPress (يُربط حين يُنشأ في لوحة ydf.ly، ولم يُجرَّب بعد)
        غير مضبوط    → يُرفض بـ "closed" فتعرض الصفحة رسالة واضحة، فلا تضيع البيانات بصمت */
-  var FORMS = {membership: {route: "/api/membership-applications"}};
-  Y.submit = function(name, data){
+  var FORMS = {membership: {route: "/api/membership-applications"}, article: {route: "/api/article-submissions"}};
+  /* files (اختياري): {اسم الحقل: File}. في Strapi تُرفع أولاً إلى /api/upload ثم يُربط معرّفها بالطلب */
+  Y.submit = function(name, data, files){
+    files = files || {};
     var conf = window.YDF_CONFIG && YDF_CONFIG.forms && YDF_CONFIG.forms[name];
     var cms = (window.YDF_CONFIG && YDF_CONFIG.cms || "").replace(/\/+$/, "");
     if (conf === "strapi" && cms && window.fetch) {
-      return fetch(cms + FORMS[name].route, {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body: JSON.stringify({data: data})})
-        .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return {ok:true, mode:"strapi"}; });
+      var keys = Object.keys(files).filter(function(k){ return files[k]; });
+      return Promise.all(keys.map(function(k){
+        var up = new FormData(); up.append("files", files[k]);
+        return fetch(cms + "/api/upload", {method:"POST", body: up}).then(function(r){ if (!r.ok) throw new Error("upload " + r.status); return r.json(); })
+          .then(function(j){ data[k] = j[0].id; });
+      })).then(function(){ return fetch(cms + FORMS[name].route, {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body: JSON.stringify({data: data})})
+        .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); return {ok:true, mode:"strapi"}; }); });
     }
     if (conf && conf.type === "forminator" && conf.url && conf.formId && window.fetch) {
       var fd = new FormData();
       fd.append("action", "forminator_submit_form_custom-forms"); fd.append("form_id", conf.formId);
-      Object.keys(conf.map || {}).forEach(function(k){ var v = data[k]; if (v == null) return; (Array.isArray(v) ? v : [v]).forEach(function(x){ fd.append(conf.map[k], x); }); });
+      Object.keys(conf.map || {}).forEach(function(k){ var v = files[k] || data[k]; if (v == null) return; (Array.isArray(v) ? v : [v]).forEach(function(x){ fd.append(conf.map[k], x); }); });
       return fetch(conf.url, {method:"POST", body: fd}).then(function(r){ return r.json(); }).then(function(j){ if (!j || j.success === false) throw new Error("rejected"); return {ok:true, mode:"forminator"}; });
     }
     return Promise.reject(new Error("closed"));

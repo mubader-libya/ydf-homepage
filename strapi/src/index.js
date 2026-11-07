@@ -11,7 +11,8 @@ const READ_ONLY = [
 ];
 
 /* أنواع يُسمح للزوار بالإرسال إليها فقط (create)، دون قراءة */
-const CREATE_ONLY = ['api::membership-application.membership-application'];
+const CREATE_ONLY = ['api::membership-application.membership-application', 'api::article-submission.article-submission'];
+/* ملاحظة: رفع ملفات المقال يحتاج تفعيل صلاحية Upload للزوار يدوياً مع حد للحجم والصيغ (انظر README) */
 
 module.exports = {
   register() {},

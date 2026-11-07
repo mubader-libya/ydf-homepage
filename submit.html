@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>أرسل مقالك | مدونة الشباب</title>
+<meta name="description" content="أرسل مقالك إلى مدونة منتدى حوار الشباب: شروط النشر واستمارة الإرسال.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="menu.css?v=1.5">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="منتدى حوار الشباب">
+<meta property="og:title" content="أرسل مقالك | مدونة الشباب">
+<meta property="og:description" content="أرسل مقالك إلى مدونة منتدى حوار الشباب: شروط النشر واستمارة الإرسال.">
+<meta property="og:image" content="https://mubader-libya.github.io/ydf-homepage/img/og/news.jpg">
+<meta property="og:locale" content="ar_LY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3EEE4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"></noscript>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="fonts/thmanyahserifdisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/thmanyahseriftext-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="sub.css?v=1.5">
+<style>
+
+.s-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:5vw;align-items:center;padding:130px var(--pad) 50px}
+.s-hero > *{min-width:0}
+.s-hero h1{font-size:clamp(42px,5.8vw,92px);line-height:1.15;color:var(--ink-deep);font-weight:900}
+.s-hero h1 .thuluth{display:block;font-size:.55em;line-height:1.5}
+.lede{max-width:32em;margin-top:20px;font-size:clamp(17px,1.2vw + 8px,21px)}
+.s-hero .ctas{margin-top:28px}
+/* ورقة مقال وقلم */
+.page-ill{display:block;width:100%;max-width:400px;margin-inline:auto;overflow:visible;transform:rotate(2.5deg);filter:drop-shadow(0 24px 30px rgba(6,47,71,.2))}
+.page-ill .bg{fill:var(--sheet);stroke:var(--edge);stroke-width:2}
+.page-ill .ln{fill:none;stroke:var(--ink-soft);stroke-width:2;stroke-linecap:round;opacity:.55}
+.page-ill .ink{fill:none;stroke:var(--ink-deep);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.page-ill .tl{fill:none;stroke:var(--teal);stroke-width:2.6;stroke-linecap:round}
+.page-ill .tape{fill:rgba(214,203,178,.85)}
+.page-ill .tx{font-family:var(--f-thuluth);font-size:26px;fill:var(--ink-deep)}
+
+.rules{padding:60px var(--pad)}
+.rules .hd{max-width:760px;margin-bottom:34px}
+.rule-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.rule{position:relative;padding:24px 22px 22px}
+.rule::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1}
+.rule b{display:block;font-family:var(--f-display);font-size:clamp(28px,2.6vw,40px);line-height:1.15;color:var(--ink-deep);font-weight:900}
+.rule span{display:block;font-family:var(--f-thuluth);color:var(--teal-ink);font-size:19px;margin:2px 0 8px}
+.rule p{font-size:15px;color:var(--ink-soft);line-height:1.8}
+.path{padding:10px var(--pad) 50px}
+.path-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto;border-top:5px double var(--ink-deep);padding-top:24px}
+.path-steps b{display:block;font-family:var(--f-thuluth);color:var(--teal-ink);font-size:20px}
+.path-steps h3{font-size:clamp(20px,1.8vw,26px);color:var(--ink-deep);font-weight:900;margin:2px 0 6px}
+.path-steps p{font-size:15.5px;color:var(--ink-soft)}
+
+.apply{padding:40px var(--pad) 90px}
+.form-sheet{position:relative;max-width:900px;margin:0 auto;padding:clamp(28px,5vw,60px) clamp(20px,5vw,64px)}
+.form-sheet::before{content:"";position:absolute;inset:0;background:var(--sheet);border:1.5px solid var(--edge);filter:url(#rough);z-index:-1;box-shadow:0 30px 60px -36px rgba(6,47,71,.55)}
+.form-sheet .tape-s{position:absolute;top:-14px;right:50%;margin-right:-50px;width:100px;height:28px;background:rgba(214,203,178,.85);transform:rotate(-3deg)}
+.form-sheet > h2{font-size:clamp(32px,4vw,56px);color:var(--ink-deep);font-weight:900;line-height:1.2}
+.form-sheet > .sub{color:var(--ink-soft);margin:8px 0 10px}
+.req-note{font-size:14px;color:var(--ink-soft);margin-bottom:10px}
+.req-note i,.fld label i,.fld .lbl i{font-style:normal;color:#A33A2B}
+fieldset{border:0;border-top:5px double var(--ink-deep);padding:22px 0 6px;margin-top:26px}
+legend{font-family:var(--f-thuluth);font-weight:700;font-size:24px;color:var(--ink-deep);padding-left:12px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+.fld{display:grid;gap:6px;align-content:start}
+.fld.full{grid-column:1/-1}
+.fld label,.fld .lbl{font-weight:700;font-size:15.5px;color:var(--ink-deep)}
+.fld input[type=text],.fld input[type=tel],.fld input[type=email],.fld select,.fld textarea{width:100%;font:inherit;font-size:16px;color:var(--ink-deep);background:rgba(251,248,242,.95);border:1.5px solid var(--edge);border-bottom:2px solid var(--ink-soft);border-radius:4px;min-height:50px;padding:10px 14px;outline:none;transition:border-color .2s,background .2s}
+.fld textarea{min-height:110px;resize:vertical;line-height:1.8}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--teal);background:#fff}
+.fld input[type=tel]{direction:ltr;text-align:right}
+.fld .hint{font-size:13.5px;color:var(--ink-soft)}
+.fld .count{font-size:13px;color:var(--ink-soft);text-align:left}
+.fld .count.over{color:#A33A2B;font-weight:700}
+.fld .err{font-size:13.5px;font-weight:700;color:#A33A2B}
+.fld.bad input,.fld.bad select,.fld.bad textarea,.fld.bad .drop{border-color:#A33A2B;background:#fff6f4}
+/* حقل الملف كورقة */
+.drop{position:relative;display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 16px;border:1.5px dashed var(--ink-soft);border-radius:6px;background:rgba(251,248,242,.95);cursor:pointer;transition:border-color .2s,background .2s}
+.drop:hover,.drop:focus-within{border-color:var(--teal);background:#fff}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.drop .pick{flex:none;min-height:40px;display:inline-flex;align-items:center;padding:0 16px;border-radius:99px;background:var(--ink-deep);color:var(--paper);font-weight:700;font-size:14.5px}
+.drop .name{font-size:14.5px;color:var(--ink-soft);overflow-wrap:anywhere}
+.drop.has .name{color:var(--ink-deep);font-weight:700}
+.terms{margin:4px 0 14px;padding:0 20px 0 0;list-style:none;counter-reset:t}
+.terms li{position:relative;padding:8px 30px 8px 0;font-size:15.5px;line-height:1.85;border-bottom:1px dashed var(--edge)}
+.terms li::before{counter-increment:t;content:counter(t, arabic-indic);position:absolute;right:0;top:8px;font-family:var(--f-thuluth);font-weight:700;color:var(--teal-ink);font-size:18px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:16px;font-weight:700;line-height:1.8}
+.consent input{width:22px;height:22px;margin-top:5px;accent-color:var(--ink-deep);flex:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:28px}
+.submit-row .magnet{border:0;cursor:pointer}
+.form-msg{margin-top:18px;padding:16px 20px;border-right:4px solid var(--teal);background:rgba(232,225,211,.6);font-size:16px;line-height:1.8}
+.form-msg.bad{border-right-color:#A33A2B}
+.form-msg a{font-weight:700;color:var(--ink-deep);text-decoration:underline;text-underline-offset:4px}
+.done{text-align:center;padding:30px 0}
+.done h3{font-size:clamp(28px,3.4vw,46px);color:var(--ink-deep);font-weight:900;margin:12px 0 8px}
+.done p{color:var(--ink-soft);max-width:30em;margin:0 auto}
+@media (max-width:900px){
+  .s-hero{grid-template-columns:1fr;padding-top:110px;gap:28px}
+  .page-ill{max-width:min(300px,100%)}
+  .rule-grid{grid-template-columns:1fr 1fr}
+  .path-steps{grid-template-columns:1fr}
+}
+@media (max-width:560px){ .fgrid,.rule-grid{grid-template-columns:1fr} }
+
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="inkIn" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .06" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="inkInMap" in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="2" seed="9" result="s"/>
+      <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3.2 0 0 0 2.75" result="m"/>
+      <feComposite in="d" in2="m" operator="in"/>
+    </filter>
+    <filter id="rough" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="blots" aria-hidden="true"><div class="blot a"></div><div class="blot b"></div></div>
+<div class="veil top" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="veil bot" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<header data-page="blog"></header>
+
+<main id="top">
+
+  <section class="s-hero" aria-labelledby="h1">
+    <div>
+      <nav class="trail" id="pageTrail" aria-label="مسار الصفحات"></nav>
+      <p class="kicker">مدونة الشباب · اكتب معنا</p>
+      <h1 id="h1"><span class="ink-in">أرسل مقالك</span><span class="thuluth">قلمك جزء من الحوار</span></h1>
+      <p class="lede">يسعدنا جداً رغبتك في مشاركة فكرك وقلمك مع جمهور مدونة منتدى حوار الشباب. املأ الاستمارة بعناية، لتراجع الهيئة التحريرية مقالك وتدققه في أسرع وقت.</p>
+      <div class="ctas"><a class="magnet" href="#apply" data-magnet>إلى الاستمارة <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="ghost" href="blog.html">اقرأ المدونة أولاً</a></div>
+    </div>
+    <svg class="page-ill" viewBox="0 0 400 460" aria-hidden="true">
+      <rect class="bg" x="20" y="20" width="360" height="420" rx="6"/>
+      <rect class="tape" x="160" y="8" width="80" height="24" transform="rotate(3 200 20)"/>
+      <text class="tx" x="350" y="84" text-anchor="start">مقالي</text>
+      <path class="ln" d="M350 130 H60 M350 170 H60 M350 210 H60 M350 250 H60 M350 290 H60 M350 330 H120"/>
+      <path class="ink" d="M350 130 C 310 126, 270 134, 230 130 S 170 126, 150 130"/>
+      <path class="ink" d="M350 170 C 320 166, 280 174, 250 170"/>
+      <path class="tl" d="M244 170 l-60 0"/>
+      <path class="ink" d="M184 170 l 40 -150 l 14 4 l -38 150 z" transform="rotate(8 200 120)"/>
+    </svg>
+  </section>
+
+  <section class="rules" aria-labelledby="ru-t">
+    <div class="hd"><p class="eyebrow">قبل أن تكتب</p><h2 id="ru-t" class="sec-h ink">ما يحتاجه مقالك</h2></div>
+    <div class="rule-grid">
+      <div class="rule"><b>500–800</b><span>كلمة</span><p>طول المقال، في ملف Word بصيغة docx.</p></div>
+      <div class="rule"><b>حصري</b><span>لم يُنشر من قبل</span><p>جهد فكري شخصي، غير مولّد بالذكاء الاصطناعي.</p></div>
+      <div class="rule"><b>موثّق</b><span>بالمصادر</span><p>إن تضمّن أرقاماً أو اقتباسات، أرفق روابط مصادرها.</p></div>
+      <div class="rule"><b>50</b><span>كلمة للنبذة</span><p>نبذة تعريفية قصيرة وصورة شخصية، تظهران مع مقالك.</p></div>
+    </div>
+  </section>
+
+  <section class="path" aria-label="مراحل النشر">
+    <div class="path-steps">
+      <div><b>١</b><h3>ترسل مقالك</h3><p>عبر الاستمارة في هذه الصفحة.</p></div>
+      <div><b>٢</b><h3>تراجعه الهيئة التحريرية</h3><p>مراجعة وتدقيق، مع تعديلات لغوية أو تنسيقية بسيطة عند الحاجة.</p></div>
+      <div><b>٣</b><h3>يُنشر في المدونة</h3><p>باسمك ونبذتك التعريفية.</p></div>
+    </div>
+  </section>
+
+  <section class="apply" id="apply" aria-labelledby="ap-t">
+    <div class="form-sheet"><i class="tape-s"></i>
+      <h2 id="ap-t">استمارة إرسال المقال</h2>
+      <p class="sub">يرجى ملء الحقول التالية بعناية.</p>
+      <p class="req-note">الحقول المعلَّمة بـ <i>*</i> مطلوبة.</p>
+      <form id="artForm" novalidate>
+        <fieldset>
+          <legend>البيانات الشخصية والتعريفية</legend>
+          <div class="fgrid">
+            <div class="fld full"><label for="fullName">الاسم الثلاثي باللغة العربية <i>*</i></label><input type="text" id="fullName" name="fullName" autocomplete="name" required maxlength="120"><span class="err" id="fullName-err"></span></div>
+            <div class="fld"><label for="email">البريد الإلكتروني <i>*</i></label><input type="email" id="email" name="email" autocomplete="email" placeholder="name@example.com" required maxlength="120"><span class="err" id="email-err"></span></div>
+            <div class="fld"><label for="phone">رقم الهاتف / واتساب <i>*</i></label><input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+218 91 234 5678" required maxlength="20"><span class="hint">مع الرمز الدولي، مثل +218</span><span class="err" id="phone-err"></span></div>
+            <div class="fld full"><label for="bio">النبذة التعريفية القصيرة</label><textarea id="bio" name="bio" maxlength="600" placeholder="مثال: باحث في العلوم السياسية، ناشط مدني ليبي، طالب اقتصاد"></textarea><span class="count" id="bioCount" aria-live="polite">0 من 50 كلمة</span><span class="err" id="bio-err"></span></div>
+            <div class="fld full"><span class="lbl" id="ph-lbl">الصورة الشخصية</span>
+              <label class="drop" id="photoDrop"><input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png,image/jpeg,image/png" aria-labelledby="ph-lbl"><span class="pick">اختر صورة</span><span class="name" id="photoName">JPG أو PNG، حتى 5 ميغابايت</span></label><span class="err" id="photo-err"></span></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>المقال</legend>
+          <div class="fgrid">
+            <div class="fld full"><label for="title">عنوان المقال المقترح <i>*</i></label><input type="text" id="title" name="title" required maxlength="200"><span class="err" id="title-err"></span></div>
+            <div class="fld"><label for="category">موضوع المقال <i>*</i></label><select id="category" name="category" required><option value="">اختر خياراً واحداً</option></select><span class="err" id="category-err"></span></div>
+            <div class="fld full"><span class="lbl" id="fl-lbl">ملف المقال <i>*</i></span>
+              <label class="drop" id="fileDrop"><input type="file" id="file" name="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-labelledby="fl-lbl"><span class="pick">اختر الملف</span><span class="name" id="fileName">ملف Word (docx)، بين 500 و800 كلمة، حتى 10 ميغابايت</span></label><span class="err" id="file-err"></span></div>
+            <div class="fld full"><label for="sources">الروابط المرجعية والمصادر</label><textarea id="sources" name="sources" maxlength="3000" placeholder="إذا تضمن مقالك أرقاماً أو إحصاءات أو اقتباسات، أدرج روابطها المصدرية هنا لتعزيز موثوقية المقال"></textarea></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>الإقرار والتعهد (شروط النشر)</legend>
+          <ol class="terms">
+            <li>أقر بأن هذا المقال جهد فكري شخصي وحصري لمدونة المنتدى، ولم يسبق نشره في أي منصة أخرى، سواء كانت ورقية أو رقمية، كما أنه غير مُولد باستخدام تقنيات الذكاء الاصطناعي.</li>
+            <li>ألتزم بالسياسة التحريرية للمنتدى القائمة على الموضوعية والمسؤولية، وأؤكد خلو المقال تمامًا من أي خطاب كراهية أو تشهير أو ترويج حزبي مباشر.</li>
+            <li>أوافق على إمكانية قيام الهيئة التحريرية بإجراء تعديلات لغوية أو تنسيقية بسيطة، شريطة ألا تؤثر على جوهر الفكرة أو مضمون المقال.</li>
+            <li>أتفهم أن المقال المنشور يعبر عن رأيي الشخصي بصفتي كاتبًا، ولا يمثل بالضرورة التوجه الرسمي أو الموقف المعتمد للمنتدى.</li>
+          </ol>
+          <div class="fld"><label class="consent"><input type="checkbox" id="consent" name="consent" required><span>نعم، أوافق على الشروط والأحكام وألتزم بها. <i>*</i></span></label><span class="err" id="consent-err"></span></div>
+        </fieldset>
+        <div class="hp" aria-hidden="true"><label>اترك هذا الحقل فارغاً <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="submit-row">
+          <button type="submit" class="magnet" data-magnet>أرسل المقال <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="#F3EEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        </div>
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer></footer>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="site-config.js"></script>
+<script defer src="blog-data.js?v=1.5"></script>
+<script defer src="sub.js?v=1.5"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+YDF.load("articles").then(function(D){
+  "use strict";
+  var Y = YDF, C = D.cats || {};
+  Y.trail(document.getElementById("pageTrail"), "blog");
+  document.getElementById("category").insertAdjacentHTML("beforeend", Object.keys(C).map(function(k){ return '<option value="' + k + '">' + C[k] + '</option>'; }).join(""));
+  var form = document.getElementById("artForm"), msg = document.getElementById("formMsg");
+  var words = function(t){ return (t.trim().match(/\S+/g) || []).length; };
+  var bio = document.getElementById("bio"), bioCount = document.getElementById("bioCount");
+  bio.addEventListener("input", function(){ var n = words(bio.value); bioCount.textContent = n + " من 50 كلمة"; bioCount.classList.toggle("over", n > 50); });
+  var MB = 1024 * 1024;
+  function fileRule(input, exts, max, required, needMsg){
+    var f = input.files[0];
+    if (!f) return required ? needMsg : "";
+    var ext = (f.name.split(".").pop() || "").toLowerCase();
+    if (exts.indexOf(ext) < 0) return "صيغة الملف غير مقبولة. المطلوب: " + exts.join(" أو ") + ".";
+    if (f.size > max * MB) return "حجم الملف أكبر من " + max + " ميغابايت.";
+    return "";
+  }
+  var RULES = {
+    fullName: function(v){ return !v.trim() ? "اكتب اسمك الثلاثي." : (v.trim().split(/\s+/).length < 3 ? "اكتب الاسم الثلاثي كاملاً." : (/[a-zA-Z]/.test(v) ? "اكتب الاسم بالحروف العربية." : "")); },
+    email: function(v){ return !v.trim() ? "اكتب بريدك الإلكتروني." : (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? "" : "تحقق من البريد الإلكتروني."); },
+    phone: function(v){ var d = v.replace(/[\s\-()]/g, ""); return !d ? "اكتب رقم هاتفك." : (/^\+?\d{9,15}$/.test(d) ? "" : "اكتب الرقم بالأرقام فقط مع الرمز الدولي، مثل +218912345678."); },
+    bio: function(v){ return words(v) > 50 ? "النبذة أطول من 50 كلمة." : ""; },
+    photo: function(){ return fileRule(form.photo, ["jpg","jpeg","png"], 5, false); },
+    title: function(v){ return v.trim() ? "" : "اكتب عنوان المقال."; },
+    category: function(v){ return v ? "" : "اختر موضوع المقال."; },
+    file: function(){ return fileRule(form.file, ["docx"], 10, true, "أرفق ملف المقال بصيغة docx."); },
+    consent: function(){ return form.consent.checked ? "" : "الموافقة على شروط النشر مطلوبة للإرسال."; }
+  };
+  function check(name){
+    var el = form.elements[name], fld = el.closest(".fld"), err = RULES[name](el.value || ""), box = document.getElementById(name + "-err");
+    fld.classList.toggle("bad", !!err); if (box) box.textContent = err;
+    el.setAttribute("aria-invalid", err ? "true" : "false"); if (box) el.setAttribute("aria-describedby", name + "-err");
+    return !err;
+  }
+  Object.keys(RULES).forEach(function(n){ var el = form.elements[n]; el.addEventListener(el.type === "file" || el.type === "checkbox" || el.tagName === "SELECT" ? "change" : "blur", function(){ check(n); }); });
+  [["photo","photoName","photoDrop"],["file","fileName","fileDrop"]].forEach(function(x){
+    var inp = document.getElementById(x[0]), nm = document.getElementById(x[1]), drop = document.getElementById(x[2]), orig = nm.textContent;
+    inp.addEventListener("change", function(){ var f = inp.files[0]; nm.textContent = f ? f.name + " · " + (f.size < MB ? Math.max(1, Math.round(f.size / 1024)) + " ك.ب" : (f.size / MB).toFixed(1) + " م.ب") : orig; drop.classList.toggle("has", !!f); });
+  });
+  function show(html, bad){ msg.innerHTML = html; msg.hidden = false; msg.classList.toggle("bad", !!bad); }
+  var OLD = "https://ydf.ly/?page_id=5938";
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var ok = Object.keys(RULES).map(check).every(Boolean);
+    if (!ok) { var first = form.querySelector(".fld.bad input, .fld.bad select, .fld.bad textarea"); if (first) first.focus(); show("بعض الحقول تحتاج تصحيحاً. راجع الحقول المعلَّمة بالأحمر.", true); return; }
+    if (form.website.value) return;
+    var data = {fullName: form.fullName.value.trim(), email: form.email.value.trim(), phone: form.phone.value.replace(/[\s\-()]/g, ""), bio: form.bio.value.trim() || null,
+      title: form.title.value.trim(), category: form.category.value, sources: form.sources.value.trim() || null, consent: true};
+    var files = {file: form.file.files[0]}; if (form.photo.files[0]) files.photo = form.photo.files[0];
+    var btn = form.querySelector("button[type=submit]"); btn.disabled = true; btn.setAttribute("aria-busy", "true");
+    Y.submit("article", data, files).then(function(){
+      form.innerHTML = '<div class="done"><p class="eyebrow">وصل مقالك</p><h3>شكراً لك، ' + Y.esc(data.fullName.split(/\s+/)[0]) + '.</h3><p>ستراجع الهيئة التحريرية مقال «' + Y.esc(data.title) + '»، وسنتواصل معك على ' + Y.esc(data.email) + '.</p></div>';
+      form.scrollIntoView({block: "center"});
+    }).catch(function(err){
+      btn.disabled = false; btn.removeAttribute("aria-busy");
+      if (err.message === "closed") show('الإرسال عبر هذه الصفحة يُفتح قريباً، ولم يُرسَل مقالك بعد. يمكنك إرساله الآن عبر <a href="' + OLD + '">نموذج الإرسال الحالي</a>، وبياناتك ما زالت هنا.');
+      else show('تعذّر إرسال المقال الآن، ولم يُحفظ. حاول مرة أخرى بعد قليل، أو أرسله عبر <a href="' + OLD + '">نموذج الإرسال الحالي</a>.', true);
+    });
+  });
+  Y.magnets();
+  if (Y.init()) Y.inkIn(".s-hero .ink-in");
+
+});
+});
+</script>
+<script defer src="menu.js?v=1.5"></script>
+</body>
+</html>
